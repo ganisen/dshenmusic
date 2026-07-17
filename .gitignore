@@ -14,3 +14,8 @@
 # Environment
 .env
 .env.local
+
+# Asset originals — full-res masters (PNG/JPG/AI/EPS) live here, NOT committed.
+# Only web-optimized derivatives (WebP / responsive / web PNGs) elsewhere in
+# assets/ are tracked. See CONTENT.md → "Assets in assets/".
+assets/src/

@@ -88,27 +88,29 @@ Angle to hit: theatrical background, sincerity, songs as small plays; keep under
   `assets/unplugged-2026-07-11/` — see `PHOTOS.md` there for a described catalog
   with hero/section picks (don't re-parse the images).
 
-## Assets in `assets/` (owner exports manually from Drive)
+## Assets — originals in `assets/src/` (gitignored), web versions committed
 
-Drive folder is on a separate Google account — agents cannot access it. Owner has
-now delivered the originals below (folder-per-release, multiple aspect ratios):
+Drive folder is on a separate Google account — agents cannot access it. Owner delivers
+full-res masters; those live in **`assets/src/`, which is gitignored** (~244 MB, several
+files >10 MB — never committed to git). Only the web-optimized derivatives below are
+tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 
-| What | Folder | Status |
-|------|--------|--------|
-| Album cover «Там и тогда» | `assets/tam_i_togda/` | ✅ original + 1:1, 3:2, 2:3, 3:4, 4:3, 16:9, 9:16 crops + YouTube banner |
-| Single cover «Корабли» | `assets/korabli/` | ✅ 1:1 + 9:16 |
-| Single cover «Неактриса» | `assets/neaktrisa/` | ✅ 1:1 + 9:16 |
-| UNPLUGGED concert photos (15, culled) | `assets/unplugged-2026-07-11/` | ✅ see `PHOTOS.md` there for the described catalog |
-| D'Shen logo / wordmark | `assets/dshen-logo/` | ✅ `.ai`, `.eps` (black+white), `.png` (black+white) |
+| Asset | Original (in `assets/src/`, local only) | Committed web version |
+|-------|------------------------------------------|-----------------------|
+| Album cover «Там и тогда» | `tam_i_togda/` (1:1 + 3:2, 2:3, 3:4, 4:3, 16:9, 9:16 + YT banner) | `assets/tam_i_togda/tam-i-togda-1x1-{400,800,1200,1600}.webp` |
+| Single cover «Корабли» | `korabli/` (1:1 + 9:16) | `assets/korabli/korabli-1x1-{400,800,1200}.webp` |
+| Single cover «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `assets/neaktrisa/neaktrisa-1x1-{400,800,1200}.webp` |
+| UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `assets/unplugged-2026-07-11/DSC<n>-{800,1600}.webp` + `PHOTOS.md` |
+| Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `assets/logo/dshen-logo-{black,white}-{800,1600}.png` |
 
-⚠️ **These are full-res originals — ~240 MB total, several files >10 MB** (largest
-concert frame is 14 MB). Per the repo rule, originals >10 MB should NOT be committed
-to git. Still TODO: generate optimized WebP/responsive web versions, and decide where
-originals live (`assets/src/`, Git LFS, or out-of-repo). See the note to the owner in
-the working summary — don't `git add assets/` wholesale.
+Regenerate web versions from originals with ImageMagick, e.g.
+`magick assets/src/<rel>/<file>.png -resize 800x800 -quality 80 assets/<rel>/<name>-800.webp`
+(covers/photos → WebP; logos stay PNG for transparency). Only the album 1:1 is web-sized
+so far — the other cover crops (16:9 for social/OG, etc.) remain in `assets/src/` and can
+be generated when the build needs them.
 
-Web-version naming when generated: lowercase, hyphens (e.g. `cover-tam-i-togda-1x1.webp`,
-`unplugged-hero.webp`).
+Naming: lowercase, hyphens, `-<width>` suffix; concert photos keep their `DSC` stem so
+they map 1:1 to `PHOTOS.md`.
 
 ## i18n copy status
 
