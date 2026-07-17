@@ -47,48 +47,46 @@ Foundation: near-black stage darkness, warm — not pure #000.
 
 ## Typography
 
-Locked to the album's own type identity — both fonts are provided (sources in
-`assets/src/fonts/`, gitignored). This **replaces the earlier Playfair/Inter placeholder.**
+Two-font system, both **SIL OFL 1.1** (free to self-host, no licence gate), sources in
+`assets/src/fonts/` (gitignored). This replaces the earlier Playfair/Inter placeholder.
 
-- **Display — `Ambition & Ink`** (`assets/src/fonts/ambition-ink/`): a hand-lettered,
-  marker-style display face — warm, organic, slightly rough, uppercase-leaning. Used
-  extensively across «Там и тогда» artwork; it *is* the brand voice and pairs with the
-  brushy D'Shen logo. Use for: the D'SHEN wordmark, hero, album + song + section titles,
-  at large sizes. Carries the sincerity / hand-made quality from the mood words.
-  - Glyphs verified: full Latin + Cyrillic + Ukrainian ✓.
-  - ⚠️ **Romanian gap** — lacks the T-comma `ț`/`Ț` (U+021B); it *does* have `ș`, `ă`,
-    `â`, `î`. Safe for the RO headings we'd actually set (Muzică, Video, Despre, Concerte,
-    Contact — none use ț), but never set arbitrary RO display text in it; fall back to
-    Oswald for any RO heading containing ț.
-  - ⚠️ **Licensing** — commercial font, NO open licence bundled. A desktop OTF/TTF does
-    NOT grant webfont rights. Owner must confirm a webfont/embedding licence before we
-    self-host it. Until then the source stays in `assets/src/fonts/` (gitignored → never
-    deployed); do not place any Ambition & Ink file under a public `assets/` path.
+- **Display — `Caveat`** (`assets/src/fonts/caveat/`): a warm brush-marker handwriting
+  face — hand-made, personal, sincere. Chosen to carry the album's hand-lettered spirit as
+  a live webfont without a licence gate. Use for: hero, album + song + section titles, at
+  large sizes. (The D'SHEN wordmark itself is the existing logo *artwork*, not live type.)
+  - Glyphs verified: full Latin + Cyrillic + Ukrainian + **Romanian ✓** (all present).
+  - Variable weight **400→700** (+ static Regular/Medium/SemiBold/Bold). Max is Bold(700),
+    nothing heavier — fine for a marker display; go big on size, not weight.
 
-- **Text / UI — `Oswald`** (`assets/src/fonts/oswald-cyrillic/`): the condensed grotesque
-  already used for the secondary info on the Unplugged posters — tall, industrial, poster
+- **Text / UI — `Oswald`** (`assets/src/fonts/oswald/`): the condensed grotesque already
+  used for the secondary info on the Unplugged posters — tall, industrial, poster
   typography. Carry it through the site: nav, buttons/CTA, track list, dates, labels,
   captions, footer, and the bio. Variable weight (ExtraLight→Bold) + statics provided.
   - Glyphs verified: full 4-language coverage incl. Romanian ✓ (has `ț`).
-  - Licence: **SIL OFL 1.1** (bundled) — free to self-host; ship `OFL.txt` with the web fonts.
   - ↳ Tradeoff: Oswald is condensed and not humanist, so long running text can feel tight.
     The site has almost none (one ~120-word bio), so a 2-font system is worth it for poster
     cohesion — but if the bio reads cramped in testing, add a neutral humanist sans
     (Inter/Manrope) for body only. Ask the owner before introducing a 3rd font.
 
-- **This shifts the earlier brief:** the direction is now *hand-lettered warmth + rigid
-  poster grotesque*, not "quiet-luxury serif". Still cinematic / theatrical / sincere —
-  just warmer, more hand-made. The Adele/mgzavrebi references still hold for *attitude*,
-  not for literal serif type.
+- **`Ambition & Ink` — artwork-only, not a webfont.** It stays the display font baked into
+  the produced artwork (album + single covers, Unplugged posters, anything exported from
+  Figma) and the owner is **not** re-fonting those. So the brand's original hand-lettered
+  mark lives on in the images; the *live* site type (Caveat) is a licence-clean stand-in in
+  the same spirit. Its source is kept in `assets/src/fonts/ambition-ink/` for reference /
+  matching only — never deployed as a webfont (commercial licence + it lacks Romanian `ț`).
+
+- **This shifts the earlier brief:** the direction is *hand-lettered warmth + rigid poster
+  grotesque*, not "quiet-luxury serif". Still cinematic / theatrical / sincere — just
+  warmer, more hand-made. The Adele/mgzavrebi references hold for *attitude*, not literal
+  serif type.
 
 - Scale: hero display very large (clamp ~3rem → 7rem), body 1rem–1.125rem, generous
   whitespace. Type is a primary design element, not decoration.
 
 - **Delivery (build step, not done yet):** self-host — no Google Fonts CDN request (keeps
   us off third-party hosts, within perf budget). Convert to subset `woff2`
-  (latin + latin-ext + cyrillic), preload the display font, `font-display: swap`. Oswald
-  is OFL-clear to generate now; Ambition & Ink `woff2` is gated on the licence above.
-  Output lands in `assets/fonts/` (created at that step).
+  (latin + latin-ext + cyrillic), preload the display font, `font-display: swap`. Both
+  Caveat and Oswald are OFL-clear to generate now; output lands in `assets/fonts/`.
 
 ## Hero — v1 (photo era, pre-video-loop)
 
@@ -149,10 +147,10 @@ Principle: **the site breathes; it does not perform tricks.**
 
 "Design a single-page website for D'Shen, a female singer-songwriter from Chișinău
 performing in Russian — theatrical, cinematic, sincere. Dark warm palette (near-black
-background, warm off-white text, one accent color from album art), a hand-lettered
-marker-style display font for the wordmark and all titles (warm, organic, characterful —
-the album's own face) set against a tall condensed grotesque (Oswald) for nav, labels,
-dates and body — gig-poster energy; both with Cyrillic support. Portrait-photography-forward like adele.com
+background, warm off-white text, one accent color from album art), a warm brush-marker
+handwriting display font (Caveat) for the hero and all titles set against a tall condensed
+grotesque (Oswald) for nav, labels, dates and body — hand-made warmth meets gig-poster
+energy; both with Cyrillic support. Portrait-photography-forward like adele.com
 but at an indie scale like mgzavrebi.com. Sections: full-viewport hero with portrait,
 album promo with presave CTA for debut album «Там и тогда» (out July 24), track list,
 video grid, about, live dates, contact/social footer. Elegant scroll-reveal motion,
