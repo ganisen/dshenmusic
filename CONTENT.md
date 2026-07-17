@@ -95,22 +95,28 @@ full-res masters; those live in **`assets/src/`, which is gitignored** (~244 MB,
 files >10 MB — never committed to git). Only the web-optimized derivatives below are
 tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 
-| Asset | Original (in `assets/src/`, local only) | Committed web version |
-|-------|------------------------------------------|-----------------------|
-| Album cover «Там и тогда» | `tam_i_togda/` (1:1 + 3:2, 2:3, 3:4, 4:3, 16:9, 9:16 + YT banner) | `assets/tam_i_togda/tam-i-togda-1x1-{400,800,1200,1600}.webp` |
-| Single cover «Корабли» | `korabli/` (1:1 + 9:16) | `assets/korabli/korabli-1x1-{400,800,1200}.webp` |
-| Single cover «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `assets/neaktrisa/neaktrisa-1x1-{400,800,1200}.webp` |
-| UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `assets/unplugged-2026-07-11/DSC<n>-{800,1600}.webp` + `PHOTOS.md` |
-| Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `assets/logo/dshen-logo-{black,white}-{800,1600}.png` |
+| Asset | Original (in `assets/src/`, local only) | Committed web versions (in `assets/…`) |
+|-------|------------------------------------------|-----------------------------------------|
+| Album «Там и тогда» | `tam_i_togda/` (7 crops + `-original` + YT banner) | `tam_i_togda/tam-i-togda-<ratio>-<w>.webp` for **every** ratio — 1x1 {400,800,1200,1600}, 3x2·16x9·4x3 {800,1600}, 2x3·3x4 {800,1200}, 9x16 {800,1080}; plus `tam-i-togda-og.jpg` (1200w, social/OG) |
+| Single «Корабли» | `korabli/` (1:1 + 9:16) | `korabli/korabli-1x1-{400,800,1200}.webp`, `korabli-9x16-{800,1080}.webp` |
+| Single «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `neaktrisa/neaktrisa-1x1-{400,800,1200}.webp`, `neaktrisa-9x16-{800,1080}.webp` |
+| UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `unplugged-2026-07-11/DSC<n>-{800,1600}.webp` (all 15) + `-2400.webp` for the 3 hero picks (DSC09567 / 09398 / 09446); plus `PHOTOS.md` |
+| Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `logo/dshen-logo-{black,white}-{800,1600}.png` |
 
-Regenerate web versions from originals with ImageMagick, e.g.
-`magick assets/src/<rel>/<file>.png -resize 800x800 -quality 80 assets/<rel>/<name>-800.webp`
-(covers/photos → WebP; logos stay PNG for transparency). Only the album 1:1 is web-sized
-so far — the other cover crops (16:9 for social/OG, etc.) remain in `assets/src/` and can
-be generated when the build needs them.
+Total committed web assets ≈ **7 MB** (largest single file 452 KB). Only `-original.png`
+and `-youtube-banner.png` (a YouTube channel-art upload, not a site asset) stay src-only.
+
+Regenerate from originals with ImageMagick, e.g.
+`magick assets/src/<rel>/<file>.png -resize 800x -quality 80 assets/<rel>/<name>-800.webp`
+(covers/photos → WebP q80; the OG image is JPG q82 for scraper compatibility; logos stay
+PNG to keep transparency).
 
 Naming: lowercase, hyphens, `-<width>` suffix; concert photos keep their `DSC` stem so
 they map 1:1 to `PHOTOS.md`.
+
+> ⚠️ Source typo: the album 3:2 master is misspelled `tam_i_tgoda-3_2.png` ("tgoda") in
+> `assets/src/`. The web output is correctly named `tam-i-togda-3x2-*.webp`; rename the
+> source in Drive whenever convenient.
 
 ## i18n copy status
 

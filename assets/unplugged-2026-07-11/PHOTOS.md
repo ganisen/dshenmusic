@@ -17,8 +17,9 @@ seated band. Band members are described by instrument only (names not documented
 **Files:** the full-res originals (`DSC*.jpg`, the names used in the table below) live
 in `assets/src/unplugged-2026-07-11/` — **gitignored, local only**. Committed
 web-optimized derivatives sit in *this* folder as `DSC<n>-800.webp` (grid/thumbnail)
-and `DSC<n>-1600.webp` (hero/full), quality 80. Reference a photo by its `DSC` stem
-and append `-800`/`-1600` + `.webp` for the web version.
+and `DSC<n>-1600.webp` (hero/full), quality 80. The three hero picks (`DSC09567`,
+`DSC09398`, `DSC09446`) also have a `-2400.webp` for large/retina desktop. Reference a
+photo by its `DSC` stem and append `-800` / `-1600` / `-2400` + `.webp` for the web version.
 
 ## Catalog
 
