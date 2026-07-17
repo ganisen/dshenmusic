@@ -96,5 +96,7 @@ per-section spec, `screenshots/`, and a reference-only prototype HTML). Next is 
 production build: recreate that design as real `index.html` / `style.css` / `main.js`
 using our stack (semantic HTML, GSAP ScrollTrigger reveals, the 4-language i18n). The
 resolved visual decisions are folded into DESIGN.md; finalized copy into CONTENT.md.
+**Start the build from `BUILD.md`** — the authoritative brief (resolved gotchas, `srcset`
+map, interactions, i18n plan, build order, a11y/perf checklist).
 Phase 2 (after release): swap presave CTA → streaming links; add video loop hero
 if/when a proper loop is produced; possibly expand Live section.
