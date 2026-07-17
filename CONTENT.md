@@ -102,9 +102,12 @@ tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 | Single «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `neaktrisa/neaktrisa-1x1-{400,800,1200}.webp`, `neaktrisa-9x16-{800,1080}.webp` |
 | UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `unplugged-2026-07-11/DSC<n>-{800,1600}.webp` (all 15) + `-2400.webp` for the 3 hero picks (DSC09567 / 09398 / 09446); plus `PHOTOS.md` |
 | Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `logo/dshen-logo-{black,white}-{800,1600}.png` |
+| Fonts | `fonts/ambition-ink/` (OTF+TTF, commercial), `fonts/oswald-cyrillic/` (TTF + `OFL.txt`) | *none yet* — subset `woff2` generated at build; Ambition & Ink gated on webfont licence. See DESIGN.md → Typography |
 
-Total committed web assets ≈ **7 MB** (largest single file 452 KB). Only `-original.png`
-and `-youtube-banner.png` (a YouTube channel-art upload, not a site asset) stay src-only.
+Total committed web assets ≈ **7 MB** (largest single file 452 KB). Src-only (never
+deployed): the album `-original.png` + `-youtube-banner.png`, and **all font masters**
+(`assets/src/fonts/`) — the latter deliberately, so the commercial Ambition & Ink OTF is
+never served at a public URL before its licence is confirmed.
 
 Regenerate from originals with ImageMagick, e.g.
 `magick assets/src/<rel>/<file>.png -resize 800x -quality 80 assets/<rel>/<name>-800.webp`

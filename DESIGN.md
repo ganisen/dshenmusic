@@ -47,14 +47,48 @@ Foundation: near-black stage darkness, warm — not pure #000.
 
 ## Typography
 
-- Display: a high-contrast serif with presence — e.g. **Playfair Display** or
-  **Cormorant Garamond** (both on Google Fonts, both with full Cyrillic — REQUIRED,
-  site runs in EN/RU/RO/UA). Large sizes, tight leading, used for section titles
-  and the D'SHEN wordmark treatment.
-- Body: quiet humanist sans with Cyrillic — e.g. **Inter** or **Manrope**.
-- Scale: hero display very large (clamp ~3rem → 7rem), body 1rem–1.125rem,
-  generous whitespace. Type is a primary design element, not decoration.
-- Subset fonts to latin+cyrillic; preload the display font.
+Locked to the album's own type identity — both fonts are provided (sources in
+`assets/src/fonts/`, gitignored). This **replaces the earlier Playfair/Inter placeholder.**
+
+- **Display — `Ambition & Ink`** (`assets/src/fonts/ambition-ink/`): a hand-lettered,
+  marker-style display face — warm, organic, slightly rough, uppercase-leaning. Used
+  extensively across «Там и тогда» artwork; it *is* the brand voice and pairs with the
+  brushy D'Shen logo. Use for: the D'SHEN wordmark, hero, album + song + section titles,
+  at large sizes. Carries the sincerity / hand-made quality from the mood words.
+  - Glyphs verified: full Latin + Cyrillic + Ukrainian ✓.
+  - ⚠️ **Romanian gap** — lacks the T-comma `ț`/`Ț` (U+021B); it *does* have `ș`, `ă`,
+    `â`, `î`. Safe for the RO headings we'd actually set (Muzică, Video, Despre, Concerte,
+    Contact — none use ț), but never set arbitrary RO display text in it; fall back to
+    Oswald for any RO heading containing ț.
+  - ⚠️ **Licensing** — commercial font, NO open licence bundled. A desktop OTF/TTF does
+    NOT grant webfont rights. Owner must confirm a webfont/embedding licence before we
+    self-host it. Until then the source stays in `assets/src/fonts/` (gitignored → never
+    deployed); do not place any Ambition & Ink file under a public `assets/` path.
+
+- **Text / UI — `Oswald`** (`assets/src/fonts/oswald-cyrillic/`): the condensed grotesque
+  already used for the secondary info on the Unplugged posters — tall, industrial, poster
+  typography. Carry it through the site: nav, buttons/CTA, track list, dates, labels,
+  captions, footer, and the bio. Variable weight (ExtraLight→Bold) + statics provided.
+  - Glyphs verified: full 4-language coverage incl. Romanian ✓ (has `ț`).
+  - Licence: **SIL OFL 1.1** (bundled) — free to self-host; ship `OFL.txt` with the web fonts.
+  - ↳ Tradeoff: Oswald is condensed and not humanist, so long running text can feel tight.
+    The site has almost none (one ~120-word bio), so a 2-font system is worth it for poster
+    cohesion — but if the bio reads cramped in testing, add a neutral humanist sans
+    (Inter/Manrope) for body only. Ask the owner before introducing a 3rd font.
+
+- **This shifts the earlier brief:** the direction is now *hand-lettered warmth + rigid
+  poster grotesque*, not "quiet-luxury serif". Still cinematic / theatrical / sincere —
+  just warmer, more hand-made. The Adele/mgzavrebi references still hold for *attitude*,
+  not for literal serif type.
+
+- Scale: hero display very large (clamp ~3rem → 7rem), body 1rem–1.125rem, generous
+  whitespace. Type is a primary design element, not decoration.
+
+- **Delivery (build step, not done yet):** self-host — no Google Fonts CDN request (keeps
+  us off third-party hosts, within perf budget). Convert to subset `woff2`
+  (latin + latin-ext + cyrillic), preload the display font, `font-display: swap`. Oswald
+  is OFL-clear to generate now; Ambition & Ink `woff2` is gated on the licence above.
+  Output lands in `assets/fonts/` (created at that step).
 
 ## Hero — v1 (photo era, pre-video-loop)
 
@@ -115,8 +149,10 @@ Principle: **the site breathes; it does not perform tricks.**
 
 "Design a single-page website for D'Shen, a female singer-songwriter from Chișinău
 performing in Russian — theatrical, cinematic, sincere. Dark warm palette (near-black
-background, warm off-white text, one accent color from album art), large high-contrast
-serif display type with Cyrillic support, portrait-photography-forward like adele.com
+background, warm off-white text, one accent color from album art), a hand-lettered
+marker-style display font for the wordmark and all titles (warm, organic, characterful —
+the album's own face) set against a tall condensed grotesque (Oswald) for nav, labels,
+dates and body — gig-poster energy; both with Cyrillic support. Portrait-photography-forward like adele.com
 but at an indie scale like mgzavrebi.com. Sections: full-viewport hero with portrait,
 album promo with presave CTA for debut album «Там и тогда» (out July 24), track list,
 video grid, about, live dates, contact/social footer. Elegant scroll-reveal motion,
