@@ -37,6 +37,10 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
 
 ISRCs are internal reference — do not display on site.
 
+**The site does NOT show a track list** (cut in Claude Design). This table stays as
+canonical reference data (order, durations, ISRCs) — the Music section shows only the
+album block + the two released singles.
+
 ### Released singles
 
 - **«Корабли»** (track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
@@ -55,38 +59,51 @@ ISRCs are internal reference — do not display on site.
 - Deezer: https://www.deezer.com/en/artist/396177361
 - Instagram: https://www.instagram.com/rogozinskaya.darina/
 - Contact email: **contact@dshenmusic.com** (Porkbun forwarding — live; show on site)
+- Footer social icon row = these 5 (Spotify · Apple Music · YouTube · Deezer · Instagram),
+  44px circles. **Yandex Music has no footer icon** — it appears only as text in the Music
+  section's streaming line.
 
 ## Video section
 
-Facade/lazy embeds only (thumbnail + play button, iframe injected on click). Available:
+Facade/lazy embeds only (`youtube-nocookie` iframe injected on click). **Final selection —
+2 videos in the grid:**
 
-| Video | URL | Notes |
-|-------|-----|-------|
-| «Неактриса» — official audio | https://www.youtube.com/watch?v=X57QnzJtcUk | 2nd single (TuneCore) |
-| «Корабли» — official audio | https://www.youtube.com/watch?v=b4fyT2Es-sM | 1st single (TuneCore) |
-| «Корабли» — teaser (27 s) | https://youtu.be/57JVbhlsunk | short snippet |
-| Talking-head intro (45 s) | https://youtu.be/mFEPXxBuKIc | artist to camera |
+| # | Title | YouTube ID | Meta |
+|---|-------|------------|------|
+| 1 | Meet D'Shen | `mFEPXxBuKIc` | Intro · 0:45 |
+| 2 | «Корабли» — teaser | `57JVbhlsunk` | Snippet · 0:27 |
 
-Pick 2–4 for the grid; the two official-audio tracks are the anchors.
-**[Owner to confirm final selection + ordering.]**
+The two **official-audio** videos are NOT in this grid — they're the "Listen ↗" targets on
+the released-singles cards in Music:
+- «Корабли»: https://www.youtube.com/watch?v=b4fyT2Es-sM
+- «Неактриса»: https://www.youtube.com/watch?v=X57QnzJtcUk
 
 ## About — bio
 
-**[TBD: owner provides base bio text in RU or EN; translate to remaining languages
-and review each — see i18n reviewer note below]**
-Fact base for the bio: born in **Odesa, Ukraine**, based in **Chișinău, Moldova**;
-trained **theater actress** and singer.
-Angle to hit: theatrical background, sincerity, songs as small plays; keep under
-~120 words per language.
+Section heading (Caveat): **Songs as small plays**.
+
+EN bio — **draft from the design (artist to confirm before publish):**
+
+> Darina came to music the way an actress comes to a role — completely. Born in Odesa and
+> trained for the theater, now singing from Chișinău, she writes songs in Russian that
+> unfold like small plays: a scene, a confession, a curtain. D'Shen is her stage — a place
+> where the romance tradition and Silver Age poetry meet a modern, intimate voice. Her
+> debut album «Там и тогда» collects eight of these scenes — about memory, cities, ships
+> and dreams — sung with the sincerity of someone who has stood in front of an audience
+> and decided to tell the truth.
+
+~100 words. Uses **Darina** (public alias), not the legal name. Fact base: born Odesa,
+based Chișinău, trained theatre actress. RU/RO/UA produced from this per the i18n reviewer
+rules below.
 
 ## Live
 
-- Currently no announced upcoming dates → show the graceful empty state
-  ("Follow @rogozinskaya.darina for announcements").
-- Past: debut concert July 11, 2026, Chișinău (an acoustic "UNPLUGGED" set) —
-  usable as a photo/credibility moment, not a listing. Photos are in
-  `assets/unplugged-2026-07-11/` — see `PHOTOS.md` there for a described catalog
-  with hero/section picks (don't re-parse the images).
+- No announced upcoming dates → a single line (no "no shows" heading):
+  `FOLLOW @rogozinskaya.darina FOR ANNOUNCEMENTS` (handle in accent → Instagram).
+- Past moment: `UNPLUGGED — the debut` · `11 July 2026 · Chișinău` (acoustic set) +
+  a photo grid: full-width 16:8 `DSC09446` on top, two 3:4 halves below (`DSC09476`,
+  `DSC09505`). A credibility moment, not a listing. Full catalog:
+  `assets/unplugged-2026-07-11/PHOTOS.md`.
 
 ## Assets — originals in `assets/src/` (gitignored), web versions committed
 
@@ -125,14 +142,18 @@ they map 1:1 to `PHOTOS.md`.
 
 ## i18n copy status
 
-| Key set          | EN | RU | RO | UA |
-|------------------|----|----|----|----|
-| Nav + UI chrome  | ☐  | ☐  | ☐  | ☐  |
-| Hero             | ☐  | ☐  | ☐  | ☐  |
-| Music section    | ☐  | ☐  | ☐  | ☐  |
-| About bio        | ☐  | ☐  | ☐  | ☐  |
-| Live empty state | ☐  | ☐  | ☐  | ☐  |
-| Contact/footer   | ☐  | ☐  | ☐  | ☐  |
+| Key set          | EN  | RU | RO | UA |
+|------------------|-----|----|----|----|
+| Nav + UI chrome  | ☑   | ☐  | ☐  | ☐  |
+| Hero             | ☑   | ☐  | ☐  | ☐  |
+| Music section    | ☑   | ☐  | ☐  | ☐  |
+| About bio        | ☑\* | ☐  | ☐  | ☐  |
+| Live             | ☑   | ☐  | ☐  | ☐  |
+| Contact/footer   | ☑   | ☐  | ☐  | ☐  |
+
+☑ = EN copy drafted in the design handoff (extract into `i18n/en.json` at build).
+☑\* = About bio is a draft pending artist confirmation. RU/RO/UA still to produce
+(RU owner · UA artist · RO local friends — see reviewer rules above).
 
 **Translation review — who signs off on each language:**
 

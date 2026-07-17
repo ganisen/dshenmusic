@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@font-face{font-family:"Caveat";src:url("assets/fonts/caveat-var.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap;}
+@font-face{font-family:"Oswald";src:url("assets/fonts/oswald-var.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#0d0b0a;color:#f2ede6;font-family:"Oswald",sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#f2ede6;text-decoration:none;}
+a:hover{color:var(--accent,#E5A455);}
+::selection{background:rgba(229,164,85,.85);color:#0d0b0a;}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.1)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent,#E5A455) 40%,transparent)}50%{box-shadow:0 0 0 14px transparent}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+<link rel="preload" href="assets/fonts/caveat-var.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+</helmet>
+<div style="--accent:{{ accent }}">
+<div style="font-family:'Oswald',sans-serif;background:#0d0b0a;color:#f2ede6;overflow-x:hidden;min-height:100vh">
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,4vw,44px);background:linear-gradient(180deg,rgba(13,11,10,.88) 0%,rgba(13,11,10,.55) 60%,rgba(13,11,10,0) 100%)">
+  <a href="#top" style="display:flex;align-items:center"><img src="assets/logo/dshen-logo-white-800.png" alt="D'Shen" style="height:26px;width:auto;display:block"></a>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <nav style="display:flex;align-items:center;gap:30px">
+      <sc-for list="{{ navLinks }}" as="lnk" hint-placeholder-count="5">
+        <a href="{{ lnk.href }}" style="font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,237,230,.82)" style-hover="color:var(--accent,#E5A455)">{{ lnk.label }}</a>
+      </sc-for>
+      <div style="display:flex;gap:10px;font-size:11px;letter-spacing:.18em;margin-left:10px;font-weight:500">
+        <span style="color:var(--accent,#E5A455)">EN</span><span style="color:rgba(242,237,230,.38)">RU</span><span style="color:rgba(242,237,230,.38)">RO</span><span style="color:rgba(242,237,230,.38)">UA</span>
+      </div>
+    </nav>
+  </sc-if>
+  <sc-if value="{{ isMobile }}">
+    <button onClick="{{ toggleMenu }}" aria-label="Open menu" style="background:none;border:0;cursor:pointer;padding:10px;display:flex;flex-direction:column;gap:5px">
+      <span style="display:block;width:22px;height:2px;background:#f2ede6"></span>
+      <span style="display:block;width:22px;height:2px;background:#f2ede6"></span>
+      <span style="display:block;width:14px;height:2px;background:#f2ede6"></span>
+    </button>
+  </sc-if>
+</header>
+
+<sc-if value="{{ menuOpen }}">
+  <div style="position:fixed;inset:0;z-index:70;background:rgba(13,11,10,.97);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+    <button onClick="{{ closeMenu }}" aria-label="Close menu" style="position:absolute;top:16px;right:18px;background:none;border:0;cursor:pointer;color:#f2ede6;font-size:28px;font-family:'Oswald',sans-serif;font-weight:200;padding:10px">✕</button>
+    <sc-for list="{{ navLinks }}" as="lnk" hint-placeholder-count="5">
+      <a href="{{ lnk.href }}" onClick="{{ closeMenu }}" style="font-family:'Caveat',cursive;font-size:2.6rem;color:#f2ede6;padding:4px 20px" style-hover="color:var(--accent,#E5A455)">{{ lnk.label }}</a>
+    </sc-for>
+    <div style="display:flex;gap:14px;font-size:12px;letter-spacing:.2em;margin-top:22px;font-weight:500">
+      <span style="color:var(--accent,#E5A455)">EN</span><span style="color:rgba(242,237,230,.38)">RU</span><span style="color:rgba(242,237,230,.38)">RO</span><span style="color:rgba(242,237,230,.38)">UA</span>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ heroPortrait }}" hint-placeholder-val="{{ true }}">
+<section id="top" data-screen-label="Hero — portrait" style="position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden">
+  <img src="assets/unplugged/DSC09567-2400.webp" alt="D'Shen at the microphone, backlit by warm stage light" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 38%;animation:{{ heroAnim }};transform-origin:68% 38%">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,10,.5) 0%,rgba(13,11,10,0) 28%,rgba(13,11,10,.15) 55%,rgba(13,11,10,.93) 100%)"></div>
+  <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,56px) clamp(32px,7vh,72px);display:flex;flex-direction:column;align-items:flex-start;gap:16px;animation:rise 1s cubic-bezier(.22,.61,.36,1) .15s both">
+    <img src="assets/logo/dshen-logo-white-800.png" alt="D'Shen wordmark" style="height:clamp(42px,7vw,64px);width:auto">
+    <h1 style="margin:0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(2.7rem,8.5vw,5.6rem);line-height:1.02;letter-spacing:.01em;text-wrap:balance">Debut album «Там и тогда»</h1>
+    <div style="font-size:13px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(242,237,230,.85)">{{ daysChip }}</div>
+    <a href="https://band.link/dshen_tam_i_togda" target="_blank" rel="noopener" style="margin-top:6px;display:inline-block;background:var(--accent,#E5A455);color:#0d0b0a;font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:16px 34px;animation:pulse 2.8s ease-in-out infinite" style-hover="transform:translateY(-2px);color:#0d0b0a">Presave the album</a>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ heroCover }}">
+<section id="top" data-screen-label="Hero — album cover" style="position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px;padding:100px 20px 56px;overflow:hidden;background:radial-gradient(ellipse 85% 60% at 50% 28%,rgba(96,132,140,.2),transparent 68%)">
+  <img src="assets/logo/dshen-logo-white-800.png" alt="D'Shen wordmark" style="height:clamp(30px,4.5vw,42px);width:auto;animation:rise .9s cubic-bezier(.22,.61,.36,1) .05s both">
+  <img src="assets/tam_i_togda/tam-i-togda-1x1-800.webp" alt="«Там и тогда» album cover — D'Shen swimming underwater in a white dress" style="width:min(72vw,420px);aspect-ratio:1;object-fit:cover;box-shadow:0 44px 90px -18px rgba(0,0,0,.85);animation:rise .9s cubic-bezier(.22,.61,.36,1) .18s both">
+  <h1 style="margin:6px 0 0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(3rem,9.5vw,5.8rem);line-height:1;animation:rise .9s cubic-bezier(.22,.61,.36,1) .3s both">«Там и тогда»</h1>
+  <div style="font-size:13px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(242,237,230,.85);animation:rise .9s cubic-bezier(.22,.61,.36,1) .4s both">Debut album · {{ daysChip }}</div>
+  <a href="https://band.link/dshen_tam_i_togda" target="_blank" rel="noopener" style="margin-top:8px;display:inline-block;background:var(--accent,#E5A455);color:#0d0b0a;font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:16px 34px;animation:pulse 2.8s ease-in-out infinite" style-hover="transform:translateY(-2px);color:#0d0b0a">Presave the album</a>
+</section>
+</sc-if>
+
+<section id="music" data-screen-label="Music" style="max-width:1100px;margin:0 auto;padding:clamp(76px,12vh,128px) clamp(20px,5vw,56px) 0">
+  <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,6vh,56px)">
+    <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--accent,#E5A455)">Music</span>
+    <span style="flex:1;height:1px;background:rgba(242,237,230,.14)"></span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,5vw,64px);align-items:center">
+    <img data-reveal src="assets/tam_i_togda/tam-i-togda-1x1-1200.webp" alt="«Там и тогда» album cover" style="width:100%;aspect-ratio:1;object-fit:cover;box-shadow:0 30px 70px -16px rgba(0,0,0,.75)">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+      <h2 data-reveal style="margin:0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(2.8rem,6vw,4.4rem);line-height:1">«Там и тогда»</h2>
+      <div data-reveal data-reveal-order="1" style="font-size:13px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:rgba(242,237,230,.7)">Debut album · 8 tracks · July 24, 2026</div>
+      <div data-reveal data-reveal-order="2" style="border:1px solid var(--accent,#E5A455);color:var(--accent,#E5A455);font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;padding:8px 16px">{{ daysChip }}</div>
+      <a data-reveal data-reveal-order="3" href="https://band.link/dshen_tam_i_togda" target="_blank" rel="noopener" style="margin-top:4px;display:inline-block;background:var(--accent,#E5A455);color:#0d0b0a;font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:14px 30px" style-hover="transform:translateY(-2px);color:#0d0b0a">Presave</a>
+      <div data-reveal data-reveal-order="4" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,237,230,.45)">Spotify · Apple Music · Yandex Music</div>
+    </div>
+  </div>
+  <div data-reveal style="margin-top:clamp(40px,8vh,72px)">
+    <div style="font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(242,237,230,.55);margin-bottom:20px">Released singles</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+      <sc-for list="{{ singles }}" as="sg" hint-placeholder-count="2">
+        <a href="{{ sg.url }}" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:12px;transition:transform .3s ease" style-hover="transform:translateY(-3px);color:#f2ede6">
+          <img src="{{ sg.img }}" alt="{{ sg.alt }}" style="width:100%;aspect-ratio:1;object-fit:cover;box-shadow:0 18px 44px -12px rgba(0,0,0,.7)">
+          <span style="font-family:'Caveat',cursive;font-size:1.9rem;line-height:1">{{ sg.title }}</span>
+          <span style="font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,237,230,.55);margin-top:-6px">{{ sg.sub }} · <span style="color:var(--accent,#E5A455)">Listen ↗</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="video" data-screen-label="Video" style="max-width:1100px;margin:0 auto;padding:clamp(76px,12vh,128px) clamp(20px,5vw,56px) 0">
+  <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,6vh,56px)">
+    <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--accent,#E5A455)">Video</span>
+    <span style="flex:1;height:1px;background:rgba(242,237,230,.14)"></span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px">
+    <sc-for list="{{ videos }}" as="v" hint-placeholder-count="2">
+      <div data-reveal style="display:flex;flex-direction:column;gap:12px">
+        <sc-if value="{{ v.idle }}" hint-placeholder-val="{{ true }}">
+          <button onClick="{{ v.play }}" aria-label="{{ v.playLabel }}" style="display:block;position:relative;width:100%;aspect-ratio:16/9;padding:0;border:0;background:#000;cursor:pointer;overflow:hidden">
+            <img src="{{ v.thumb }}" alt="{{ v.title }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75">
+            <span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+              <span style="width:64px;height:64px;border-radius:50%;background:rgba(13,11,10,.62);border:1px solid rgba(242,237,230,.55);display:flex;align-items:center;justify-content:center">
+                <span style="width:0;height:0;border-left:15px solid #f2ede6;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px"></span>
+              </span>
+            </span>
+          </button>
+        </sc-if>
+        <sc-if value="{{ v.playing }}">
+          <iframe src="{{ v.embed }}" title="{{ v.title }}" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen="{{ true }}" style="display:block;width:100%;aspect-ratio:16/9;border:0;background:#000"></iframe>
+        </sc-if>
+        <div style="display:flex;align-items:baseline;gap:12px">
+          <span style="font-family:'Caveat',cursive;font-size:1.6rem;line-height:1">{{ v.title }}</span>
+          <span style="font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,237,230,.5)">{{ v.sub }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="about" data-screen-label="About" style="max-width:1100px;margin:0 auto;padding:clamp(76px,12vh,128px) clamp(20px,5vw,56px) 0">
+  <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,6vh,56px)">
+    <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--accent,#E5A455)">About</span>
+    <span style="flex:1;height:1px;background:rgba(242,237,230,.14)"></span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,5vw,64px);align-items:center">
+    <img data-reveal src="assets/unplugged/DSC09439-1600.webp" alt="D'Shen in profile, hands clasped at her chest, eyes closed in warm light" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;box-shadow:0 30px 70px -16px rgba(0,0,0,.75)">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <h2 data-reveal style="margin:0;font-family:'Caveat',cursive;font-weight:600;font-size:clamp(2.5rem,5.5vw,3.8rem);line-height:1.05">Songs as small plays</h2>
+      <p data-reveal data-reveal-order="1" style="margin:0;font-weight:300;font-size:1.05rem;line-height:1.8;letter-spacing:.015em;color:rgba(242,237,230,.85);max-width:56ch;text-wrap:pretty">Darina came to music the way an actress comes to a role — completely. Born in Odesa and trained for the theater, now singing from Chișinău, she writes songs in Russian that unfold like small plays: a scene, a confession, a curtain. D'Shen is her stage — a place where the romance tradition and Silver Age poetry meet a modern, intimate voice. Her debut album «Там и тогда» collects eight of these scenes — about memory, cities, ships and dreams — sung with the sincerity of someone who has stood in front of an audience and decided to tell the truth.</p>
+    </div>
+  </div>
+</section>
+
+<section id="live" data-screen-label="Live" style="max-width:1100px;margin:0 auto;padding:clamp(76px,12vh,128px) clamp(20px,5vw,56px) 0">
+  <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,6vh,56px)">
+    <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--accent,#E5A455)">Live</span>
+    <span style="flex:1;height:1px;background:rgba(242,237,230,.14)"></span>
+  </div>
+  <div data-reveal style="margin-bottom:clamp(40px,8vh,64px);font-size:13px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,237,230,.7)">Follow <a href="https://www.instagram.com/rogozinskaya.darina/" target="_blank" rel="noopener" style="color:var(--accent,#E5A455)" style-hover="color:#f2ede6">@rogozinskaya.darina</a> for announcements</div>
+  <div data-reveal data-reveal-order="1">
+    <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px">
+      <span style="font-family:'Caveat',cursive;font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1">UNPLUGGED — the debut</span>
+      <span style="font-size:11px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:rgba(242,237,230,.55)">11 July 2026 · Chișinău</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <img src="assets/unplugged/DSC09446-1600.webp" alt="The full band under a tree strung with fairy lights, crowd silhouettes in the foreground" style="grid-column:1/-1;width:100%;aspect-ratio:16/8;object-fit:cover">
+      <img src="assets/unplugged/DSC09476-800.webp" alt="The audience at dusk on a rooftop terrace, phones raised" style="width:100%;aspect-ratio:3/4;object-fit:cover">
+      <img src="assets/unplugged/DSC09505-800.webp" alt="Women dancing with raised arms among cocktail tables" style="width:100%;aspect-ratio:3/4;object-fit:cover">
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="max-width:1100px;margin:0 auto;padding:clamp(76px,12vh,128px) clamp(20px,5vw,56px) clamp(48px,8vh,72px);text-align:center">
+  <div data-reveal style="display:flex;align-items:center;gap:16px;margin-bottom:clamp(32px,6vh,56px)">
+    <span style="font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--accent,#E5A455)">Contact</span>
+    <span style="flex:1;height:1px;background:rgba(242,237,230,.14)"></span>
+  </div>
+  <a data-reveal href="mailto:contact@dshenmusic.com" style="display:inline-block;font-family:'Caveat',cursive;font-size:clamp(1.9rem,6vw,3.4rem);line-height:1.1" style-hover="color:var(--accent,#E5A455)">contact@dshenmusic.com</a>
+  <div data-reveal data-reveal-order="1" style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px 28px;margin-top:clamp(28px,5vh,44px)">
+    <sc-for list="{{ socials }}" as="s" hint-placeholder-count="5">
+      <a href="{{ s.url }}" target="_blank" rel="noopener" aria-label="{{ s.label }}" title="{{ s.label }}" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(242,237,230,.22);border-radius:50%;color:rgba(242,237,230,.8);transition:border-color .25s ease,color .25s ease,transform .25s ease" style-hover="color:var(--accent,#E5A455);border-color:var(--accent,#E5A455);transform:translateY(-2px)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="{{ s.icon }}"></path></svg>
+      </a>
+    </sc-for>
+  </div>
+  <div data-reveal data-reveal-order="2" style="margin-top:clamp(40px,7vh,60px);padding-top:22px;border-top:1px solid rgba(242,237,230,.09);font-size:11px;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,237,230,.4)">© D'Shen 2026</div>
+</section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroConcept&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;portrait&quot;,&quot;options&quot;:[&quot;portrait&quot;,&quot;cover&quot;],&quot;tsType&quot;:&quot;\&quot;portrait\&quot;|\&quot;cover\&quot;&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;heroZoom&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#E5A455&quot;,&quot;options&quot;:[&quot;#E5A455&quot;,&quot;#8FB3BA&quot;,&quot;#C99FA4&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+class Component extends DCLogic {
+  state = { playing: {}, isMobile: false, menuOpen: false };
+  componentDidMount() {
+    this._mq = window.matchMedia('(max-width: 719px)');
+    this._onMq = (e) => this.setState({ isMobile: e.matches, menuOpen: false });
+    this._mq.addEventListener('change', this._onMq);
+    if (this._mq.matches) this.setState({ isMobile: true });
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    els.forEach((el) => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; });
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        const d = (parseFloat(el.getAttribute('data-reveal-order')) || 0) * 0.1;
+        el.style.transition = 'opacity .8s cubic-bezier(.22,.61,.36,1) ' + d + 's, transform .8s cubic-bezier(.22,.61,.36,1) ' + d + 's';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        this._io.unobserve(el);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((el) => this._io.observe(el));
+  }
+  componentWillUnmount() {
+    if (this._mq && this._onMq) this._mq.removeEventListener('change', this._onMq);
+    if (this._io) this._io.disconnect();
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#E5A455';
+    const heroConcept = this.props.heroConcept ?? 'portrait';
+    const heroZoom = this.props.heroZoom ?? true;
+    const days = Math.max(0, Math.ceil((new Date('2026-07-24T00:00:00') - Date.now()) / 86400000));
+    const daysChip = days > 0 ? 'Out July 24 — in ' + days + (days === 1 ? ' day' : ' days') : 'Out now';
+    const videos = [
+      { id: 'mFEPXxBuKIc', title: 'Meet D\u2019Shen', sub: 'Intro · 0:45' },
+      { id: '57JVbhlsunk', title: '«Корабли» — teaser', sub: 'Snippet · 0:27' }
+    ].map((v) => ({
+      ...v,
+      thumb: 'https://img.youtube.com/vi/' + v.id + '/hqdefault.jpg',
+      embed: 'https://www.youtube-nocookie.com/embed/' + v.id + '?autoplay=1&rel=0',
+      playing: !!this.state.playing[v.id],
+      idle: !this.state.playing[v.id],
+      playLabel: 'Play: ' + v.title,
+      play: () => this.setState((s) => ({ playing: { ...s.playing, [v.id]: true } }))
+    }));
+    const singles = [
+      { img: 'assets/korabli/korabli-1x1-800.webp', alt: '«Корабли» single cover', title: '«Корабли»', sub: 'Single · June 26, 2026', url: 'https://www.youtube.com/watch?v=b4fyT2Es-sM' },
+      { img: 'assets/neaktrisa/neaktrisa-1x1-800.webp', alt: '«Неактриса» single cover', title: '«Неактриса»', sub: 'Single · July 10, 2026', url: 'https://www.youtube.com/watch?v=X57QnzJtcUk' }
+    ];
+    const socials = [
+      { label: 'Spotify', url: 'https://open.spotify.com/artist/1Gr5VQ2UXkaIadQ9p9vkc1', icon: 'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.57-1.04 8.5-.6 11.66 1.34.35.22.46.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 1 1-.54-1.79c4.36-1.32 9.79-.68 13.49 1.6.44.27.58.85.31 1.28zm.13-3.4C15.24 8.33 8.85 8.12 5.15 9.24a1.12 1.12 0 1 1-.65-2.15c4.25-1.29 11.3-1.04 15.75 1.6a1.12 1.12 0 0 1-1.15 1.94z' },
+      { label: 'Apple Music', url: 'https://music.apple.com/us/artist/dshen/6778941448', icon: 'M23.99 6.12a6.44 6.44 0 0 0-.66-2.81 4.86 4.86 0 0 0-2.62-2.4A8.1 8.1 0 0 0 18.4.4C17.7.34 17 .32 16.3.32H7.7c-.7 0-1.4.02-2.1.08a8.1 8.1 0 0 0-2.31.51 4.86 4.86 0 0 0-2.62 2.4A6.44 6.44 0 0 0 .01 6.12C0 6.5 0 6.88 0 7.26v9.48c0 .38 0 .76.01 1.14.02.97.23 1.92.66 2.81a4.86 4.86 0 0 0 2.62 2.4c.74.29 1.52.44 2.31.51.7.06 1.4.08 2.1.08h8.6c.7 0 1.4-.02 2.1-.08a8.1 8.1 0 0 0 2.31-.51 4.86 4.86 0 0 0 2.62-2.4c.43-.89.64-1.84.66-2.81.01-.38.01-.76.01-1.14V7.26c0-.38 0-.76-.01-1.14zm-6.42 3.5v5.86c0 .43-.06.85-.26 1.23a2.1 2.1 0 0 1-1.24 1.07c-.28.09-.57.14-.86.16-.77.06-1.44-.48-1.58-1.24a1.55 1.55 0 0 1 1.05-1.74c.29-.1.6-.16.9-.22.33-.07.55-.27.6-.61a2 2 0 0 0 .02-.3V9.7c0-.1-.01-.2-.03-.3-.04-.17-.16-.27-.34-.25-.18.01-.36.05-.54.08l-4.4.89c-.02 0-.05.02-.08.02-.3.08-.4.21-.42.53v6.7c0 .43-.05.86-.24 1.25a2.1 2.1 0 0 1-1.26 1.11c-.28.1-.58.15-.88.17a1.53 1.53 0 0 1-1.57-1.25 1.55 1.55 0 0 1 1.04-1.73c.3-.1.6-.17.91-.23.32-.06.54-.27.59-.6.01-.1.02-.2.02-.3V8.03c0-.13.01-.26.05-.38.08-.28.29-.44.56-.5.26-.07.52-.12.78-.17l4.87-.98c.23-.05.45-.09.68-.11.32-.03.55.17.6.5.02.1.02.21.02.32v2.9z' },
+      { label: 'YouTube', url: 'https://www.youtube.com/channel/UCpyidY4sL6-NJ1Xt1ezpG2A', icon: 'M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z' },
+      { label: 'Deezer', url: 'https://www.deezer.com/en/artist/396177361', icon: 'M18.81 4.16v3.03H24V4.16h-5.19zM6.27 8.38v3.027h5.189V8.38h-5.19zm12.54 0v3.027H24V8.38h-5.19zM0 12.594v3.027h5.19v-3.027H0zm6.27 0v3.027h5.189v-3.027h-5.19zm6.271 0v3.027h5.19v-3.027h-5.19zm6.27 0v3.027H24v-3.027h-5.19zM0 16.81v3.029h5.19v-3.03H0zm6.27 0v3.029h5.189v-3.03h-5.19zm6.271 0v3.029h5.19v-3.03h-5.19zm6.27 0v3.029H24v-3.03h-5.19z' },
+      { label: 'Instagram', url: 'https://www.instagram.com/rogozinskaya.darina/', icon: 'M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.3-1.46.72-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.63.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z' }
+    ];
+    const navLinks = [
+      { label: 'Music', href: '#music' },
+      { label: 'Video', href: '#video' },
+      { label: 'About', href: '#about' },
+      { label: 'Live', href: '#live' },
+      { label: 'Contact', href: '#contact' }
+    ];
+    return {
+      accent, daysChip, videos, singles, socials, navLinks,
+      heroPortrait: heroConcept !== 'cover',
+      heroCover: heroConcept === 'cover',
+      heroAnim: heroZoom ? 'kb 26s ease-in-out infinite alternate' : 'none',
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

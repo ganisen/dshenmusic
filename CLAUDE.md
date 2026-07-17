@@ -91,5 +91,10 @@ unreviewed. Details in CONTENT.md → "i18n copy status".
 ## Current phase
 
 Phase 1 (now → July 24): launch-ready single page with presave CTA as the hero action.
+**Design is finalized** in Claude Design → `design_handoff_dshen_site/` (README = full
+per-section spec, `screenshots/`, and a reference-only prototype HTML). Next is the
+production build: recreate that design as real `index.html` / `style.css` / `main.js`
+using our stack (semantic HTML, GSAP ScrollTrigger reveals, the 4-language i18n). The
+resolved visual decisions are folded into DESIGN.md; finalized copy into CONTENT.md.
 Phase 2 (after release): swap presave CTA → streaming links; add video loop hero
 if/when a proper loop is produced; possibly expand Live section.

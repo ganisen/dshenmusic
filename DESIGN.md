@@ -5,6 +5,11 @@
 A dark, elegant, **face-and-voice-forward** artist site: cinematic stills of Darina,
 generous typography, restrained motion. Feels like a small theater, not a tech product.
 
+> **Status: design finalized** (Claude Design → `design_handoff_dshen_site/`). That
+> bundle's README is the canonical per-section build spec; this doc records the resolved
+> decisions and the *why*. Where they ever disagree, the handoff README wins on specifics
+> (exact px, copy), this doc wins on intent.
+
 ## References (in priority order)
 
 1. **adele.com** — the north star. Face-focused, minimal chrome, the artist IS the
@@ -32,18 +37,23 @@ theater actress and singer; the project has roots in stage performance, Russian
 romance tradition and Silver Age poetry culture. The site can feel like velvet
 curtains and stage light — through color and type, not through literal theater clipart.
 
-## Color
+## Color — FINAL (locked in Claude Design)
 
 Foundation: near-black stage darkness, warm — not pure #000.
 
-- Background: `#0d0b0a` range (warm near-black)
-- Text: `#f2ede6` range (warm off-white)
-- Accent: derive from the album cover art once it's in `assets/`.
-  Process: extract 2–3 dominant tones from the cover, pick ONE as the accent
-  (links, CTA button, hover states). The presave/streaming CTA should be the
-  single most visually distinct element on first viewport.
-- Allowed: subtle warm gradient or grain/vignette on section backgrounds.
-  Forbidden: pure-saturation neons, cold blue-grays.
+- Background `--bg`: **`#0d0b0a`** (warm near-black)
+- Text `--text`: **`#f2ede6`** (warm off-white)
+- Accent `--accent`: **`#E5A455`** (warm amber, pulled from the stage-light photography).
+  Links, CTA, section labels, hover, active language. The presave CTA is the single most
+  distinct element on first viewport. (Alternates explored + rejected: `#8FB3BA` teal,
+  `#C99FA4` dusty rose.)
+- Text-opacity ladder on `--text`: `.85` body-on-photo, `.82` nav, `.75/.7` secondary,
+  `.55/.5` metadata, `.45` muted, `.4` copyright, `.38` inactive language. Hairlines
+  `rgba(242,237,230,.14)` and `.09`.
+- Selection: bg `rgba(229,164,85,.85)`, text `#0d0b0a`.
+- **No border-radius** anywhere except 50% circles (video play button, social icons);
+  buttons + cards are square-cornered.
+- Allowed: subtle warm gradient / scrim / vignette. Forbidden: neons, cold blue-grays.
 
 ## Typography
 
@@ -103,28 +113,24 @@ Two-font system, both **SIL OFL 1.1** (free to self-host, no licence gate), sour
   handwriting `calt` alternates across Latin+Cyrillic. Fine for a preloaded display font;
   if the design settles on 1–2 fixed weights, pin to static instances to shrink it.
 
-## Hero — v1 (photo era, pre-video-loop)
+## Hero — FINAL: Concept A "The Face" (portrait)
 
-Two candidate concepts — **build both as variants for the owner to choose**
-(this decision is explicitly open; he wants options):
+**Decided in Claude Design: Concept A wins; the album-cover Concept B was built and
+rejected** (portrait is more personal — the face IS the design). Full-viewport portrait
+`assets/unplugged-2026-07-11/DSC09567-2400.webp` — `object-fit:cover;
+object-position:68% 38%` keeps her face in the upper area, clear of the text.
+`min-height:100svh`, content aligned bottom-left.
 
-- **Concept A — The Face** (Adele-style): full-viewport portrait from the UNPLUGGED
-  concert shoot, darkened edges, D'SHEN wordmark + album title + presave CTA
-  overlaid. Photo eagerly loaded, subtle slow zoom (Ken Burns, ~20s, reduced-motion
-  safe). Candidate frames (all vertical 2:3, mobile-first friendly):
-  `assets/unplugged-2026-07-11/DSC09567.jpg` (top pick — intimate backlit close-up)
-  or `DSC09398.jpg` (serene, symmetric). For a desktop-wide variant, the only
-  landscape frame that works is `DSC09446.jpg` (full-band establishing). Full
-  described catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
-- **Concept B — The Cover**: album cover art as the hero centerpiece (promoting
-  «Там и тогда» is the current #1 job), on a background derived from its palette,
-  with release countdown/date + presave CTA. More campaign-poster, less personal.
+- Ken Burns zoom: scale 1.02→1.1 over 26s, ease-in-out, infinite alternate,
+  `transform-origin:68% 38%`. Disabled under `prefers-reduced-motion`.
+- Scrim: `linear-gradient(180deg, rgba(13,11,10,.5) 0%, transparent 28%,
+  rgba(13,11,10,.15) 55%, rgba(13,11,10,.93) 100%)`.
+- Overlay (fade + 24px rise, 1s, .15s delay): white wordmark → H1
+  `Debut album «Там и тогда»` → chip `OUT JULY 24 — IN {N} DAYS` (live countdown;
+  → `OUT NOW` after release) → amber `PRESAVE THE ALBUM` CTA (soft pulse ring, hover lift).
 
-Possible synthesis after choosing: A as hero, B as the opening of the Music section.
-
-Phase 2 (later): replace/augment with a short muted video loop (10–15s, ≤5MB,
-compressed via ffmpeg) — owner produces this; leave the hero component structured
-so a `<video>` background can slot in without redesign.
+Phase 2 (later): swap to a short muted video loop (10–15s, ≤5MB, ffmpeg) — keep the hero
+structured so a `<video>` background slots in without redesign.
 
 ## Motion language (GSAP + ScrollTrigger)
 
@@ -144,11 +150,16 @@ Principle: **the site breathes; it does not perform tricks.**
 
 ## Section-by-section sketch
 
+> Superseded by the finalized per-section spec in `design_handoff_dshen_site/README.md`
+> (build from that). Kept here for intent. **Biggest change from this sketch: the 8-track
+> list was CUT from Music.** Final per-section photo picks: hero `DSC09567`, about
+> `DSC09439` (3:4), live grid `DSC09446` + `DSC09476` + `DSC09505`.
+
 1. **Hero** — see above. Nav: minimal top bar, wordmark left, section anchors +
    language switcher (EN/RU/RO/UA) right; collapses to burger on mobile.
-2. **Music** — album block («Там и тогда», cover, release date, presave/streaming
-   CTA) + track list (8 tracks, titles + durations, elegant table/rows) + the two
-   released singles with their cover art linking out.
+2. **Music** — album block («Там и тогда», cover, release meta, countdown chip, presave
+   CTA, streaming names) + the two released singles as cover cards linking out.
+   **No track list** (cut in final).
 3. **Video** — 2–4 YouTube embeds (facade pattern), grid on desktop, stack on mobile.
 4. **About** — one strong portrait + bio text (per-language from i18n). Keep short;
    link personality, theater background, sincerity.
