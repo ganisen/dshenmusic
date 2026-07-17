@@ -102,13 +102,14 @@ tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 | Single «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `neaktrisa/neaktrisa-1x1-{400,800,1200}.webp`, `neaktrisa-9x16-{800,1080}.webp` |
 | UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `unplugged-2026-07-11/DSC<n>-{800,1600}.webp` (all 15) + `-2400.webp` for the 3 hero picks (DSC09567 / 09398 / 09446); plus `PHOTOS.md` |
 | Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `logo/dshen-logo-{black,white}-{800,1600}.png` |
-| Fonts | `fonts/caveat/` (display, OFL) + `fonts/oswald/` (UI, OFL); `fonts/ambition-ink/` kept artwork-only | *none yet* — subset `woff2` for Caveat + Oswald generated at build. See DESIGN.md → Typography |
+| Fonts | src masters `fonts/caveat/` + `fonts/oswald/` (OFL); `fonts/ambition-ink/` artwork-only | `fonts/caveat-var.woff2` (display) + `fonts/oswald-var.woff2` (UI) + `OFL-*.txt` — subset variable woff2, all 4 langs ✓ |
 
-Total committed web assets ≈ **7 MB** (largest single file 452 KB). Src-only (never
-deployed): the album `-original.png` + `-youtube-banner.png`, and **all font masters**
-(`assets/src/fonts/`). At build, `woff2` for the two live fonts (**Caveat** display,
-**Oswald** UI) is generated into `assets/fonts/`; **Ambition & Ink** stays reference-only
-(baked into produced artwork — covers/posters/Figma — never a webfont).
+Total committed web assets ≈ **7 MB** (largest single file 452 KB). The two live fonts are
+committed as subset variable `woff2` in `assets/fonts/` (**Caveat** display ~164 KB,
+**Oswald** UI ~50 KB) — see DESIGN.md → Typography for the `@font-face`. Src-only (never
+deployed): the album `-original.png` + `-youtube-banner.png`, all font masters
+(`assets/src/fonts/`), and **Ambition & Ink** (reference-only — baked into produced
+artwork: covers/posters/Figma — never a webfont).
 
 Regenerate from originals with ImageMagick, e.g.
 `magick assets/src/<rel>/<file>.png -resize 800x -quality 80 assets/<rel>/<name>-800.webp`

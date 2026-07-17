@@ -83,10 +83,25 @@ Two-font system, both **SIL OFL 1.1** (free to self-host, no licence gate), sour
 - Scale: hero display very large (clamp ~3rem → 7rem), body 1rem–1.125rem, generous
   whitespace. Type is a primary design element, not decoration.
 
-- **Delivery (build step, not done yet):** self-host — no Google Fonts CDN request (keeps
-  us off third-party hosts, within perf budget). Convert to subset `woff2`
-  (latin + latin-ext + cyrillic), preload the display font, `font-display: swap`. Both
-  Caveat and Oswald are OFL-clear to generate now; output lands in `assets/fonts/`.
+- **Delivery — DONE (self-hosted, no Google Fonts CDN request).** Subset **variable**
+  `woff2` (latin + latin-ext + cyrillic; all 4 languages verified) live in `assets/fonts/`:
+  - `caveat-var.woff2` — ~164 KB, variable `wght 400→700` (display; **preload this one**)
+  - `oswald-var.woff2` — ~50 KB, variable `wght 200→700` (UI / text)
+  - `OFL-Caveat.txt`, `OFL-Oswald.txt` — licences ship alongside (OFL requirement)
+
+  `@font-face` for the build (one file per family covers all weights):
+  ```css
+  @font-face{font-family:"Caveat";src:url("/assets/fonts/caveat-var.woff2") format("woff2");
+    font-weight:400 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:"Oswald";src:url("/assets/fonts/oswald-var.woff2") format("woff2");
+    font-weight:200 700;font-style:normal;font-display:swap;}
+  ```
+  Preload the display font in `<head>`:
+  `<link rel="preload" href="/assets/fonts/caveat-var.woff2" as="font" type="font/woff2" crossorigin>`
+  Roles: `--font-display:"Caveat"` (hero/titles), `--font-ui:"Oswald"` (everything else).
+  ↳ Perf note: Caveat is the heaviest single font (~164 KB) — it keeps the variable axis +
+  handwriting `calt` alternates across Latin+Cyrillic. Fine for a preloaded display font;
+  if the design settles on 1–2 fixed weights, pin to static instances to shrink it.
 
 ## Hero — v1 (photo era, pre-video-loop)
 
