@@ -6,8 +6,12 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
 ## Artist
 
 - Artist name: **D'Shen** (never transliterated, never restyled)
-- Person: Darina Rogozinskaya — singer, theater actress
-- Base: Chișinău, Moldova
+- Person: **Daria Romanenko** — singer, theater actress. Public alias / persona name:
+  **Darina Rogozinskaya** (matches the Instagram handle `rogozinskaya.darina`).
+  → On the site, the brand is **D'Shen**; where a human first name reads better, use
+  **Darina**. Do NOT publish the legal name "Daria Romanenko" on the public site
+  without the owner's explicit OK — treat it as internal reference here.
+- Born: **Odesa, Ukraine** (native language Ukrainian) · Based: **Chișinău, Moldova**
 - Languages of the site: EN (default), RU, RO, UA
 
 ## Album — «Там и тогда»
@@ -35,9 +39,13 @@ ISRCs are internal reference — do not display on site.
 
 ### Released singles
 
-- **«Корабли»** — released June 26, 2026. Cover art exists.
-- Second single — released, cover art exists. **[TBD: confirm which track and its
-  release date — ask owner]**
+- **«Корабли»** (track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
+  - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=b4fyT2Es-sM
+  - Teaser snippet (27 s): https://youtu.be/57JVbhlsunk
+- **«Неактриса»** (track 4) — released July 10, 2026. Cover art: `assets/neaktrisa/`.
+  - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=X57QnzJtcUk
+  - Release metadata: ISRC `QT6662667261` · UPC `859741394974` · Label D'Shen ·
+    Language Russian · Genre Rock / Alternative.
 
 ## Official links
 
@@ -50,14 +58,24 @@ ISRCs are internal reference — do not display on site.
 
 ## Video section
 
-Embed from the YouTube channel. **[TBD: owner to pick 2–4 specific video URLs —
-music video(s), live performance from the July 11 concert if published]**
-Facade/lazy embeds only.
+Facade/lazy embeds only (thumbnail + play button, iframe injected on click). Available:
+
+| Video | URL | Notes |
+|-------|-----|-------|
+| «Неактриса» — official audio | https://www.youtube.com/watch?v=X57QnzJtcUk | 2nd single (TuneCore) |
+| «Корабли» — official audio | https://www.youtube.com/watch?v=b4fyT2Es-sM | 1st single (TuneCore) |
+| «Корабли» — teaser (27 s) | https://youtu.be/57JVbhlsunk | short snippet |
+| Talking-head intro (45 s) | https://youtu.be/mFEPXxBuKIc | artist to camera |
+
+Pick 2–4 for the grid; the two official-audio tracks are the anchors.
+**[Owner to confirm final selection + ordering.]**
 
 ## About — bio
 
 **[TBD: owner provides base bio text in RU or EN; translate to remaining languages
-and review each — RO and UA reviewed by owner before publish]**
+and review each — see i18n reviewer note below]**
+Fact base for the bio: born in **Odesa, Ukraine**, based in **Chișinău, Moldova**;
+trained **theater actress** and singer.
 Angle to hit: theatrical background, sincerity, songs as small plays; keep under
 ~120 words per language.
 
@@ -65,25 +83,32 @@ Angle to hit: theatrical background, sincerity, songs as small plays; keep under
 
 - Currently no announced upcoming dates → show the graceful empty state
   ("Follow @rogozinskaya.darina for announcements").
-- Past: debut concert July 11, 2026, Chișinău — usable as a photo/credibility
-  moment, not a listing.
+- Past: debut concert July 11, 2026, Chișinău (an acoustic "UNPLUGGED" set) —
+  usable as a photo/credibility moment, not a listing. Photos are in
+  `assets/unplugged-2026-07-11/` — see `PHOTOS.md` there for a described catalog
+  with hero/section picks (don't re-parse the images).
 
-## Assets needed in `assets/` (owner exports manually from Drive)
+## Assets in `assets/` (owner exports manually from Drive)
 
-Drive folder is on a separate Google account — agents cannot access it. Owner copies:
+Drive folder is on a separate Google account — agents cannot access it. Owner has
+now delivered the originals below (folder-per-release, multiple aspect ratios):
 
-1. Album cover «Там и тогда» — highest-res available (min 3000×3000 master;
-   web versions will be generated from it)
-2. Single cover «Корабли»
-3. Single cover — second single
-4. UNPLUGGED concert photos — 5–10 best, highest-res, especially strong solo
-   portraits (hero candidates) — horizontal AND vertical options
-5. Any D'Shen logo/wordmark files if they exist (otherwise wordmark is typographic)
+| What | Folder | Status |
+|------|--------|--------|
+| Album cover «Там и тогда» | `assets/tam_i_togda/` | ✅ original + 1:1, 3:2, 2:3, 3:4, 4:3, 16:9, 9:16 crops + YouTube banner |
+| Single cover «Корабли» | `assets/korabli/` | ✅ 1:1 + 9:16 |
+| Single cover «Неактриса» | `assets/neaktrisa/` | ✅ 1:1 + 9:16 |
+| UNPLUGGED concert photos (15, culled) | `assets/unplugged-2026-07-11/` | ✅ see `PHOTOS.md` there for the described catalog |
+| D'Shen logo / wordmark | `assets/dshen-logo/` | ✅ `.ai`, `.eps` (black+white), `.png` (black+white) |
 
-Naming: lowercase, hyphens: `cover-tam-i-togda.jpg`, `unplugged-01.jpg`, etc.
-Agents then generate optimized WebP/responsive versions into `assets/` — originals
-can live in `assets/src/` (or stay out of the repo if very large; >10MB files
-should not be committed).
+⚠️ **These are full-res originals — ~240 MB total, several files >10 MB** (largest
+concert frame is 14 MB). Per the repo rule, originals >10 MB should NOT be committed
+to git. Still TODO: generate optimized WebP/responsive web versions, and decide where
+originals live (`assets/src/`, Git LFS, or out-of-repo). See the note to the owner in
+the working summary — don't `git add assets/` wholesale.
+
+Web-version naming when generated: lowercase, hyphens (e.g. `cover-tam-i-togda-1x1.webp`,
+`unplugged-hero.webp`).
 
 ## i18n copy status
 
@@ -96,4 +121,11 @@ should not be committed).
 | Live empty state | ☐  | ☐  | ☐  | ☐  |
 | Contact/footer   | ☐  | ☐  | ☐  | ☐  |
 
-Owner speaks RU (native), EN, RO, UA — all translations get his review before merge.
+**Translation review — who signs off on each language:**
+
+- **RU** — owner (native) and D'Shen both fluent. Safe.
+- **EN** — owner is C2. Safe to draft + self-review.
+- **UA** — D'Shen is a **native Ukrainian speaker** → she reviews UA.
+- **RO** — ⚠️ the gap. Owner and D'Shen are both **A0** in Romanian. RO copy MUST be
+  checked by local Romanian-speaking friends before publish. **Never ship RO
+  unreviewed** — machine/draft RO is a placeholder only.

@@ -2,7 +2,11 @@
 
 ## What this is
 
-Official website of **D'Shen** — musical artist (Darina Rogozinskaya), based in Chișinău, Moldova.
+Official website of **D'Shen** — musical artist. The person behind D'Shen is
+**Daria Romanenko** (public alias **Darina Rogozinskaya**, matching the Instagram
+handle), born in Odesa, Ukraine, based in Chișinău, Moldova. On the public site use
+the brand **D'Shen** (or **Darina** where a first name reads better); the legal name
+is internal — don't publish it without the owner's OK. Full identity/copy facts in CONTENT.md.
 Debut album **«Там и тогда»** releases **July 24, 2026**. The site's current top priority is
 promoting the album presave/release: https://band.link/dshen_tam_i_togda
 
@@ -59,6 +63,11 @@ static pages. If SEO becomes a priority later, migrate to generated `/ru/`, `/ro
 All user-facing copy lives in the i18n JSONs — never hardcode display text in HTML.
 Canonical copy source: CONTENT.md. Song titles stay in Russian in ALL languages
 (they are proper names). "D'Shen" is never transliterated.
+
+Translation review: RU/EN safe (owner native RU / C2 EN), UA reviewed by D'Shen
+(native Ukrainian). **RO is the gap** — owner and artist are both A0, so RO copy must
+be checked by local Romanian-speaking friends before publish; never ship RO
+unreviewed. Details in CONTENT.md → "i18n copy status".
 
 ## Working rules
 

@@ -64,7 +64,11 @@ Two candidate concepts — **build both as variants for the owner to choose**
 - **Concept A — The Face** (Adele-style): full-viewport portrait from the UNPLUGGED
   concert shoot, darkened edges, D'SHEN wordmark + album title + presave CTA
   overlaid. Photo eagerly loaded, subtle slow zoom (Ken Burns, ~20s, reduced-motion
-  safe).
+  safe). Candidate frames (all vertical 2:3, mobile-first friendly):
+  `assets/unplugged-2026-07-11/DSC09567.jpg` (top pick — intimate backlit close-up)
+  or `DSC09398.jpg` (serene, symmetric). For a desktop-wide variant, the only
+  landscape frame that works is `DSC09446.jpg` (full-band establishing). Full
+  described catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
 - **Concept B — The Cover**: album cover art as the hero centerpiece (promoting
   «Там и тогда» is the current #1 job), on a background derived from its palette,
   with release countdown/date + presave CTA. More campaign-poster, less personal.
