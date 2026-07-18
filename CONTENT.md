@@ -22,7 +22,7 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
   From July 24: swap CTA to streaming links (band.link may still serve as the hub —
   owner to confirm post-release).
 
-### Tracklist (titles are proper names — keep Russian in all languages)
+### Tracklist (Russian originals below are canonical; per **owner decision 2026-07-18** the site now shows titles TRANSLATED per language — drafts live in `i18n/`)
 
 | # | Title      | Length | ISRC          |
 |---|------------|--------|---------------|
@@ -37,16 +37,36 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
 
 ISRCs are internal reference — do not display on site.
 
+**Localized track titles** (per the 2026-07-18 translate-titles decision; RU = original, EN
+live on site, **RO/UA are drafts — need native review**; only #4/#6 currently appear on the
+site as singles). On-site, each language wraps titles in its **native quotes**: EN “ ”,
+RU/UA « », RO „ ".
+
+| # | RU (orig) | EN | RO (draft) | UA (draft) | Note |
+|---|-----------|----|-----------|-----------|------|
+| 1 | Там и тогда | There and Then | Acolo și atunci | Там і тоді | title track |
+| 2 | Память | Memory | Amintirea | Пам'ять | RO: Amintirea (recollection) vs Memoria (faculty) |
+| 3 | Часы | The Clock | Ceasul | Годинник | clock sense confirmed (owner 2026-07-18) |
+| 4 | Неактриса → site «НеАктриса» | NonActress | NeActriță | НеАкторка | owner chose the camelCase stylization in EVERY language incl. RU (2026-07-18); RO still needs a native pass |
+| 5 | Данте | Dante | Dante | Данте | proper name (poet) — keep, don't translate |
+| 6 | Корабли | Ships | Corăbii | Кораблі | RO Corăbii (poetic) vs Nave (plain) |
+| 7 | Мой город | My City | Orașul meu | Моє місто | — |
+| 8 | За мечтой | Chasing a Dream | După vis | За мрією | "After the Dream" is a more literal alt |
+
 **The site does NOT show a track list** (cut in Claude Design). This table stays as
 canonical reference data (order, durations, ISRCs) — the Music section shows only the
 album block + the two released singles.
 
 ### Released singles
 
-- **«Корабли»** (track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
+**Site display order = most-recent-first: NonActress (Jul 10) → Ships (Jun 26)** (set 2026-07-18).
+
+- **«Корабли»** (EN «Ships», track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
+  - **Site "Listen ↗" card → band.link hub: https://band.link/dshenkorabli** (as of 2026-07-18)
   - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=b4fyT2Es-sM
   - Teaser snippet (27 s): https://youtu.be/57JVbhlsunk
-- **«Неактриса»** (track 4) — released July 10, 2026. Cover art: `assets/neaktrisa/`.
+- **«Неактриса»** (EN «NonActress», track 4) — released July 10, 2026. Cover art: `assets/neaktrisa/`.
+  - **Site "Listen ↗" card → band.link hub: https://band.link/dshen_neaktrisa** (as of 2026-07-18)
   - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=X57QnzJtcUk
   - Release metadata: ISRC `QT6662667261` · UPC `859741394974` · Label D'Shen ·
     Language Russian · Genre Rock / Alternative.
@@ -60,8 +80,11 @@ album block + the two released singles.
 - Instagram: https://www.instagram.com/rogozinskaya.darina/
 - Contact email: **contact@dshenmusic.com** (Porkbun forwarding — live; show on site)
 - Footer social icon row = these 5 (Spotify · Apple Music · YouTube · Deezer · Instagram),
-  44px circles. **Yandex Music has no footer icon** — it appears only as text in the Music
-  section's streaming line.
+  44px circles. **Yandex Music has no footer icon.** (The old "Spotify · Apple Music · Yandex
+  Music" text line under the presave button was removed 2026-07-18 — presave hub covers it.)
+- Footer copyright (`footer.copyright`, all langs): **`2026 © D'Shen. All rights reserved.`**
+  — year-first, `©` glyph, then the localized "all rights reserved" (RU `Все права защищены.`,
+  RO `Toate drepturile rezervate.`, UA `Всі права захищені.`). Format set 2026-07-18.
 
 ## Video section
 
@@ -70,17 +93,18 @@ Facade/lazy embeds only (`youtube-nocookie` iframe injected on click). **Final s
 
 | # | Title | YouTube ID | Meta |
 |---|-------|------------|------|
-| 1 | Meet D'Shen | `mFEPXxBuKIc` | Intro · 0:45 |
-| 2 | «Корабли» — teaser | `57JVbhlsunk` | Snippet · 0:27 |
+| 1 | On “Ships” (shortened 2026-07-18 from “In the darkest times — on “Ships””; per-lang: RU «О «Кораблях»», RO „Despre „Corăbii"", UA «Про «Кораблі»») | `mFEPXxBuKIc` | Behind the song · 0:45 (talking-head — confirmed 2026-07-18) |
+| 2 | “Ships” — snippet | `57JVbhlsunk` | Teaser · 0:27 (snippet — confirmed) |
 
-The two **official-audio** videos are NOT in this grid — they're the "Listen ↗" targets on
-the released-singles cards in Music:
-- «Корабли»: https://www.youtube.com/watch?v=b4fyT2Es-sM
-- «Неактриса»: https://www.youtube.com/watch?v=X57QnzJtcUk
+The two **official-audio** videos are the audio masters (reference). As of 2026-07-18 the
+released-singles cards in Music link to the **band.link hubs** (see Released singles above),
+NOT directly to these YouTube URLs:
+- «Корабли» / «Ships» official audio: https://www.youtube.com/watch?v=b4fyT2Es-sM
+- «Неактриса» / «NonActress» official audio: https://www.youtube.com/watch?v=X57QnzJtcUk
 
 ## About — bio
 
-Section heading (Caveat): **Songs as small plays**.
+Section heading: **Songs as small plays**.
 
 EN bio — **draft from the design (artist to confirm before publish):**
 
@@ -119,11 +143,12 @@ tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 | Single «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `neaktrisa/neaktrisa-1x1-{400,800,1200}.webp`, `neaktrisa-9x16-{800,1080}.webp` |
 | UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `unplugged-2026-07-11/DSC<n>-{800,1600}.webp` (all 15) + `-2400.webp` for the 3 hero picks (DSC09567 / 09398 / 09446); plus `PHOTOS.md` |
 | Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `logo/dshen-logo-{black,white}-{800,1600}.png` |
-| Fonts | src masters `fonts/caveat/` + `fonts/oswald/` (OFL); `fonts/ambition-ink/` artwork-only | `fonts/caveat-var.woff2` (display) + `fonts/oswald-var.woff2` (UI) + `OFL-*.txt` — subset variable woff2, all 4 langs ✓ |
+| Fonts | src masters `fonts/oswald/` (live) + `fonts/lora/` (dormant) + `fonts/caveat/` (retired); `fonts/ambition-ink/` artwork-only | `fonts/oswald-var.woff2` (the single live font) + dormant `fonts/lora-var.woff2` + `OFL-*.txt` — subset variable woff2, all 4 langs ✓ |
 
-Total committed web assets ≈ **7 MB** (largest single file 452 KB). The two live fonts are
-committed as subset variable `woff2` in `assets/fonts/` (**Caveat** display ~164 KB,
-**Oswald** UI ~50 KB) — see DESIGN.md → Typography for the `@font-face`. Src-only (never
+Total committed web assets ≈ **7 MB** (largest single file 452 KB). The site now runs a
+**single live font** — **Oswald** (~50 KB, UI + display) — committed as a subset variable
+`woff2` in `assets/fonts/`; **Lora** (~84 KB) sits alongside it dormant for an easy
+switch-back, and Caveat was removed. See DESIGN.md → Typography for the `@font-face`. Src-only (never
 deployed): the album `-original.png` + `-youtube-banner.png`, all font masters
 (`assets/src/fonts/`), and **Ambition & Ink** (reference-only — baked into produced
 artwork: covers/posters/Figma — never a webfont).
@@ -142,18 +167,19 @@ they map 1:1 to `PHOTOS.md`.
 
 ## i18n copy status
 
-| Key set          | EN  | RU | RO | UA |
-|------------------|-----|----|----|----|
-| Nav + UI chrome  | ☑   | ☐  | ☐  | ☐  |
-| Hero             | ☑   | ☐  | ☐  | ☐  |
-| Music section    | ☑   | ☐  | ☐  | ☐  |
-| About bio        | ☑\* | ☐  | ☐  | ☐  |
-| Live             | ☑   | ☐  | ☐  | ☐  |
-| Contact/footer   | ☑   | ☐  | ☐  | ☐  |
+All four languages are now drafted in `i18n/` (`en.json` · `ru.json` · `ro.json` ·
+`ua.json`) — every section. EN is final/live; RU/RO/UA are first drafts pending sign-off:
 
-☑ = EN copy drafted in the design handoff (extract into `i18n/en.json` at build).
-☑\* = About bio is a draft pending artist confirmation. RU/RO/UA still to produce
-(RU owner · UA artist · RO local friends — see reviewer rules above).
+| Lang | State | 2nd-pass confidence | Gate before publish |
+|------|-------|---------------------|---------------------|
+| EN   | ✅ final, live on site | — | About bio still needs artist OK |
+| RU   | 📝 draft, in JSON | ~80% | strong; owner (native) confirms wording |
+| RO   | ⚠️ draft, in JSON | ~72% | **must be native-checked — owner + artist A0** |
+| UA   | 📝 draft, in JSON | ~85% | D'Shen (native) reviews; confirm «НеАкторка» + bio |
+
+Confidence is a self-review second pass, **not** native verification. The About bio (all
+langs) and the coined single title still need artist sign-off. Full per-language review
+flags + current state: see `HANDOFF.md`.
 
 **Translation review — who signs off on each language:**
 

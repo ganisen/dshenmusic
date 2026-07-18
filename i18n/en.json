@@ -1,0 +1,69 @@
+{
+  "meta.title": "D'Shen — “There and Then”",
+  "meta.description": "Official site of D'Shen — singer and theatre actress from Chișinău. Debut album “There and Then” out July 24, 2026. Presave now.",
+
+  "a11y.skip": "Skip to content",
+  "a11y.open_menu": "Open menu",
+  "a11y.close_menu": "Close menu",
+  "a11y.home": "D'Shen — home",
+  "a11y.nav_primary": "Primary",
+  "a11y.nav_mobile": "Mobile",
+  "a11y.lang_group": "Language",
+  "a11y.menu_dialog": "Menu",
+
+  "label.music": "Music",
+  "label.video": "Video",
+  "label.about": "About",
+  "label.live": "Live",
+  "label.contact": "Contact",
+
+  "hero.logo_alt": "D'Shen",
+  "hero.photo_alt": "D'Shen at the microphone, backlit by warm stage light",
+  "hero.title": "Debut album “There and Then”",
+  "hero.cta": "Presave the album",
+
+  "countdown.out_now": "Out now",
+  "countdown.days_one": "Out July 24 — in {n} day",
+  "countdown.days_other": "Out July 24 — in {n} days",
+
+  "music.album_title": "“There and Then”",
+  "music.album_alt": "“There and Then” album cover",
+  "music.album_meta": "Debut album · 8 tracks · July 24, 2026",
+  "music.presave": "Presave",  "music.singles_label": "Released singles",
+  "music.listen": "Listen ↗",
+
+  "single.korabli.title": "“Ships”",
+  "single.korabli.alt": "“Ships” single cover",
+  "single.korabli.meta": "Single · June 26, 2026",
+  "single.neaktrisa.title": "“NonActress”",
+  "single.neaktrisa.alt": "“NonActress” single cover",
+  "single.neaktrisa.meta": "Single · July 10, 2026",
+
+  "video.meet.title": "On “Ships”",
+  "video.meet.meta": "Behind the song · 0:45",
+  "video.korabli.title": "“Ships” — snippet",
+  "video.korabli.meta": "Teaser · 0:27",
+  "video.play": "Play: {title}",
+
+  "about.title": "Songs as small plays",
+  "about.portrait_alt": "D'Shen in profile, hands clasped at her chest, eyes closed in warm light",
+  "about.bio": "Darina came to music the way an actress comes to a role — completely. Born in Odesa and trained for the theater, now singing from Chișinău, she writes songs in Russian that unfold like small plays: a scene, a confession, a curtain. D'Shen is her stage — a place where the romance tradition and Silver Age poetry meet a modern, intimate voice. Her debut album “There and Then” collects eight of these scenes — about memory, cities, ships and dreams — sung with the sincerity of someone who has stood in front of an audience and decided to tell the truth.",
+
+  "live.follow_before": "Follow",
+  "live.follow_handle": "@rogozinskaya.darina",
+  "live.follow_after": "for announcements",
+  "live.unplugged_title": "UNPLUGGED — the debut",
+  "live.unplugged_meta": "11 July 2026 · Chișinău",
+  "live.photo_full_alt": "The full band under a tree strung with fairy lights, crowd silhouettes in the foreground",
+  "live.photo_left_alt": "The audience at dusk on a rooftop terrace, phones raised",
+  "live.photo_right_alt": "Women dancing with raised arms among cocktail tables",
+
+  "contact.email": "contact@dshenmusic.com",
+  "social.spotify": "Spotify",
+  "social.apple": "Apple Music",
+  "social.youtube": "YouTube",
+  "social.deezer": "Deezer",
+  "social.instagram": "Instagram",
+
+  "footer.copyright": "2026 © D'Shen. All rights reserved."
+}

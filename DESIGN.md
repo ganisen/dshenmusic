@@ -57,61 +57,66 @@ Foundation: near-black stage darkness, warm — not pure #000.
 
 ## Typography
 
-Two-font system, both **SIL OFL 1.1** (free to self-host, no licence gate), sources in
-`assets/src/fonts/` (gitignored). This replaces the earlier Playfair/Inter placeholder.
+**Single-font system — `Oswald`** (SIL OFL 1.1, free to self-host, no licence gate),
+source masters in `assets/src/fonts/` (gitignored). Final direction as of **2026-07-18**:
+one typeface across the whole site for gig-poster cohesion. See the *History / decision
+trail* below for how this replaced the earlier two-font system.
 
-- **Display — `Caveat`** (`assets/src/fonts/caveat/`): a warm brush-marker handwriting
-  face — hand-made, personal, sincere. Chosen to carry the album's hand-lettered spirit as
-  a live webfont without a licence gate. Use for: hero, album + song + section titles, at
-  large sizes. (The D'SHEN wordmark itself is the existing logo *artwork*, not live type.)
-  - Glyphs verified: full Latin + Cyrillic + Ukrainian + **Romanian ✓** (all present).
-  - Variable weight **400→700** (+ static Regular/Medium/SemiBold/Bold). Max is Bold(700),
-    nothing heavier — fine for a marker display; go big on size, not weight.
-
-- **Text / UI — `Oswald`** (`assets/src/fonts/oswald/`): the condensed grotesque already
-  used for the secondary info on the Unplugged posters — tall, industrial, poster
-  typography. Carry it through the site: nav, buttons/CTA, track list, dates, labels,
-  captions, footer, and the bio. Variable weight (ExtraLight→Bold) + statics provided.
+- **`Oswald`** (`assets/src/fonts/oswald/`): a tall, condensed grotesque — the face
+  already used for the secondary info on the Unplugged posters. Industrial poster
+  typography, and now the site's **only** live font. Used everywhere: hero + all titles,
+  nav, buttons/CTA, track list, dates, labels, captions, footer, and the bio. (The D'SHEN
+  wordmark itself is the existing logo *artwork*, not live type.)
   - Glyphs verified: full 4-language coverage incl. Romanian ✓ (has `ț`).
+  - Variable weight **200→700** (ExtraLight→Bold) + statics. Display text goes big on
+    *size*; if large titles read a touch light, bump their weight (500–600) rather than
+    adding a second face.
   - ↳ Tradeoff: Oswald is condensed and not humanist, so long running text can feel tight.
-    The site has almost none (one ~120-word bio), so a 2-font system is worth it for poster
-    cohesion — but if the bio reads cramped in testing, add a neutral humanist sans
-    (Inter/Manrope) for body only. Ask the owner before introducing a 3rd font.
+    The site has almost none (one ~120-word bio), so single-font poster cohesion wins — but
+    if the bio reads cramped in testing, add a neutral humanist sans (Inter/Manrope) for
+    body only. Ask the owner before introducing a 2nd font.
 
 - **`Ambition & Ink` — artwork-only, not a webfont.** It stays the display font baked into
   the produced artwork (album + single covers, Unplugged posters, anything exported from
   Figma) and the owner is **not** re-fonting those. So the brand's original hand-lettered
-  mark lives on in the images; the *live* site type (Caveat) is a licence-clean stand-in in
-  the same spirit. Its source is kept in `assets/src/fonts/ambition-ink/` for reference /
+  mark lives on in the images, while the *live* site type is the licence-clean Oswald — a
+  deliberate contrast (hand-lettered artwork over rigid poster type), no longer a
+  handwriting stand-in. Its source is kept in `assets/src/fonts/ambition-ink/` for reference /
   matching only — never deployed as a webfont (commercial licence + it lacks Romanian `ț`).
 
-- **This shifts the earlier brief:** the direction is *hand-lettered warmth + rigid poster
-  grotesque*, not "quiet-luxury serif". Still cinematic / theatrical / sincere — just
-  warmer, more hand-made. The Adele/mgzavrebi references hold for *attitude*, not literal
-  serif type.
+- **History / decision trail:** the original build shipped a **two-font** system — `Caveat`
+  (a warm brush-marker handwriting face) for the hero + titles, against `Oswald` for
+  everything else. On 2026-07-18 the handwriting face was first swapped `Caveat → Lora` (an
+  elegant serif), then the owner decided to drop the separate display font entirely and run
+  **Oswald alone**. Caveat was removed from the build; **Lora is kept dormant** — its
+  `@font-face` and `assets/fonts/lora-var.woff2` stay in the repo so restoring a serif
+  display font is a one-line change (`--font-display:"Lora", Georgia, serif` + re-preload).
+  The earlier "hand-lettered warmth" direction is retired in favour of one rigid poster
+  grotesque; the Adele/mgzavrebi references still hold for *attitude*, not literal type.
 
 - Scale: hero display very large (clamp ~3rem → 7rem), body 1rem–1.125rem, generous
   whitespace. Type is a primary design element, not decoration.
 
 - **Delivery — DONE (self-hosted, no Google Fonts CDN request).** Subset **variable**
   `woff2` (latin + latin-ext + cyrillic; all 4 languages verified) live in `assets/fonts/`:
-  - `caveat-var.woff2` — ~164 KB, variable `wght 400→700` (display; **preload this one**)
-  - `oswald-var.woff2` — ~50 KB, variable `wght 200→700` (UI / text)
-  - `OFL-Caveat.txt`, `OFL-Oswald.txt` — licences ship alongside (OFL requirement)
+  - `oswald-var.woff2` — ~50 KB, variable `wght 200→700` — **the live font; preload this**
+  - `lora-var.woff2` — ~84 KB, variable `wght 400→700` — dormant (see *History* above)
+  - `OFL-Oswald.txt`, `OFL-Lora.txt` — licences ship alongside (OFL requirement)
 
   `@font-face` for the build (one file per family covers all weights):
   ```css
-  @font-face{font-family:"Caveat";src:url("/assets/fonts/caveat-var.woff2") format("woff2");
-    font-weight:400 700;font-style:normal;font-display:swap;}
   @font-face{font-family:"Oswald";src:url("/assets/fonts/oswald-var.woff2") format("woff2");
     font-weight:200 700;font-style:normal;font-display:swap;}
+  /* Lora kept dormant — see History / decision trail for the restore path */
+  @font-face{font-family:"Lora";src:url("/assets/fonts/lora-var.woff2") format("woff2");
+    font-weight:400 700;font-style:normal;font-display:swap;}
   ```
-  Preload the display font in `<head>`:
-  `<link rel="preload" href="/assets/fonts/caveat-var.woff2" as="font" type="font/woff2" crossorigin>`
-  Roles: `--font-display:"Caveat"` (hero/titles), `--font-ui:"Oswald"` (everything else).
-  ↳ Perf note: Caveat is the heaviest single font (~164 KB) — it keeps the variable axis +
-  handwriting `calt` alternates across Latin+Cyrillic. Fine for a preloaded display font;
-  if the design settles on 1–2 fixed weights, pin to static instances to shrink it.
+  Preload the live font in `<head>`:
+  `<link rel="preload" href="/assets/fonts/oswald-var.woff2" as="font" type="font/woff2" crossorigin>`
+  Roles: `--font-display` and `--font-ui` both resolve to **Oswald** (single-font build).
+  ↳ Perf note: dropping the separate display font also dropped the heaviest asset — the
+  build now self-hosts one ~50 KB font (Oswald), with Lora (~84 KB) present but never
+  downloaded (no preload, no `font-family` reference).
 
 ## Hero — FINAL: Concept A "The Face" (portrait)
 
@@ -173,10 +178,9 @@ Principle: **the site breathes; it does not perform tricks.**
 
 "Design a single-page website for D'Shen, a female singer-songwriter from Chișinău
 performing in Russian — theatrical, cinematic, sincere. Dark warm palette (near-black
-background, warm off-white text, one accent color from album art), a warm brush-marker
-handwriting display font (Caveat) for the hero and all titles set against a tall condensed
-grotesque (Oswald) for nav, labels, dates and body — hand-made warmth meets gig-poster
-energy; both with Cyrillic support. Portrait-photography-forward like adele.com
+background, warm off-white text, one accent color from album art), a single tall condensed
+grotesque (Oswald) used throughout — hero, all titles, nav, labels, dates and body — for a
+cohesive gig-poster feel, with Cyrillic support. Portrait-photography-forward like adele.com
 but at an indie scale like mgzavrebi.com. Sections: full-viewport hero with portrait,
 album promo with presave CTA for debut album «Там и тогда» (out July 24), track list,
 video grid, about, live dates, contact/social footer. Elegant scroll-reveal motion,

@@ -1,16 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>D'Shen</title>
-<style>
-  body { margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
-         background:#0a0a0a; color:#f5f5f5; font-family:Georgia, serif; }
-  h1 { font-size:3rem; letter-spacing:0.3em; font-weight:normal; }
-</style>
+<title>D'Shen — Official Website</title>
+<meta name="description" content="Official site of D'Shen — singer and theatre actress from Chișinău. Debut album “There and Then” out July 24, 2026. Presave now.">
+<meta name="theme-color" content="#0d0b0a">
+<link rel="canonical" href="https://dshenmusic.com/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/favicon-512.png">
+
+<!-- Open Graph / Twitter (Instagram is the #1 referrer) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D'Shen">
+<meta property="og:title" content="D'Shen — Official Website">
+<meta property="og:description" content="New album “There and Then” out July 24, 2026. Presave now.">
+<meta property="og:url" content="https://dshenmusic.com/">
+<meta property="og:image" content="https://dshenmusic.com/assets/logo/dshen-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="D'Shen">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="D'Shen — Official Website">
+<meta name="twitter:description" content="New album “There and Then” out July 24, 2026. Presave now.">
+<meta name="twitter:image" content="https://dshenmusic.com/assets/logo/dshen-og.png">
+<meta name="twitter:image:alt" content="D'Shen">
+
+<!-- Self-hosted fonts + responsive hero preload -->
+<link rel="preload" href="assets/fonts/oswald-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/unplugged-2026-07-11/DSC09567-1600.webp"
+      imagesrcset="assets/unplugged-2026-07-11/DSC09567-800.webp 800w, assets/unplugged-2026-07-11/DSC09567-1600.webp 1600w, assets/unplugged-2026-07-11/DSC09567-2400.webp 2400w"
+      imagesizes="100vw" fetchpriority="high">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- main.js first so core interactivity (menu, video, i18n) is never blocked by the
+     GSAP CDN; GSAP + ScrollTrigger (cdnjs only) load after and drive the scroll reveals. -->
+<script src="main.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-<h1>D'SHEN</h1>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
+
+<!-- ===================== Header ===================== -->
+<header class="header">
+  <a class="header__logo" href="#top" aria-label="D'Shen — home" data-i18n-attr="aria-label:a11y.home">
+    <img src="assets/logo/dshen-logo-white-800.png" alt="D'Shen" data-i18n-attr="alt:hero.logo_alt" width="800" height="385">
+  </a>
+
+  <nav class="nav" aria-label="Primary" data-i18n-attr="aria-label:a11y.nav_primary">
+    <ul class="nav__list">
+      <li><a class="nav__link" href="#music"   data-i18n="label.music">Music</a></li>
+      <li><a class="nav__link" href="#video"   data-i18n="label.video">Video</a></li>
+      <li><a class="nav__link" href="#about"   data-i18n="label.about">About</a></li>
+      <li><a class="nav__link" href="#live"    data-i18n="label.live">Live</a></li>
+      <li><a class="nav__link" href="#contact" data-i18n="label.contact">Contact</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Language" data-i18n-attr="aria-label:a11y.lang_group">
+      <button class="lang__btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang__btn" type="button" data-lang="ru" aria-pressed="false">RU</button>
+      <button class="lang__btn" type="button" data-lang="ro" aria-pressed="false">RO</button>
+      <button class="lang__btn" type="button" data-lang="ua" aria-pressed="false">UA</button>
+    </div>
+  </nav>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"
+          data-i18n-attr="aria-label:a11y.open_menu">
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar"></span>
+    <span class="nav-toggle__bar nav-toggle__bar--short"></span>
+  </button>
+</header>
+
+<!-- ===================== Mobile menu ===================== -->
+<div class="menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" data-i18n-attr="aria-label:a11y.menu_dialog" hidden>
+  <button class="menu__close" type="button" aria-label="Close menu" data-i18n-attr="aria-label:a11y.close_menu">✕</button>
+  <nav class="menu__nav" aria-label="Mobile" data-i18n-attr="aria-label:a11y.nav_mobile">
+    <a class="menu__link" href="#music"   data-i18n="label.music">Music</a>
+    <a class="menu__link" href="#video"   data-i18n="label.video">Video</a>
+    <a class="menu__link" href="#about"   data-i18n="label.about">About</a>
+    <a class="menu__link" href="#live"    data-i18n="label.live">Live</a>
+    <a class="menu__link" href="#contact" data-i18n="label.contact">Contact</a>
+  </nav>
+  <div class="lang lang--menu" role="group" aria-label="Language" data-i18n-attr="aria-label:a11y.lang_group">
+    <button class="lang__btn is-active" type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button class="lang__btn" type="button" data-lang="ru" aria-pressed="false">RU</button>
+    <button class="lang__btn" type="button" data-lang="ro" aria-pressed="false">RO</button>
+    <button class="lang__btn" type="button" data-lang="ua" aria-pressed="false">UA</button>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero" id="top">
+    <img class="hero__img" src="assets/unplugged-2026-07-11/DSC09567-1600.webp"
+         srcset="assets/unplugged-2026-07-11/DSC09567-800.webp 800w, assets/unplugged-2026-07-11/DSC09567-1600.webp 1600w, assets/unplugged-2026-07-11/DSC09567-2400.webp 2400w"
+         sizes="100vw" fetchpriority="high" decoding="async"
+         alt="D'Shen at the microphone, backlit by warm stage light" data-i18n-attr="alt:hero.photo_alt">
+    <div class="hero__scrim"></div>
+    <div class="hero__content">
+      <h1 class="hero__title" data-i18n="hero.title">Debut album “There and Then”</h1>
+      <p class="hero__chip" data-countdown>Out July 24, 2026</p>
+      <a class="btn btn--hero" href="https://band.link/dshen_tam_i_togda" target="_blank" rel="noopener"
+         data-i18n="hero.cta">Presave the album</a>
+    </div>
+  </section>
+
+  <!-- ===================== Music ===================== -->
+  <section class="section" id="music" aria-labelledby="music-label">
+    <div class="section__head" data-reveal>
+      <h2 class="section__label" id="music-label" data-i18n="label.music">Music</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="music__grid">
+      <img class="album__cover" data-reveal src="assets/tam_i_togda/tam-i-togda-1x1-1200.webp"
+           srcset="assets/tam_i_togda/tam-i-togda-1x1-400.webp 400w, assets/tam_i_togda/tam-i-togda-1x1-800.webp 800w, assets/tam_i_togda/tam-i-togda-1x1-1200.webp 1200w, assets/tam_i_togda/tam-i-togda-1x1-1600.webp 1600w"
+           sizes="(min-width:760px) 520px, 90vw" loading="lazy" decoding="async"
+           alt="“There and Then” album cover" data-i18n-attr="alt:music.album_alt" width="1200" height="1200">
+      <div class="album__body">
+        <h3 class="album__title" data-reveal data-i18n="music.album_title">“There and Then”</h3>
+        <p class="album__meta" data-reveal data-reveal-order="1" data-i18n="music.album_meta">Debut album · 8 tracks · July 24, 2026</p>
+        <p class="chip" data-reveal data-reveal-order="2" data-countdown>Out July 24, 2026</p>
+        <a class="btn btn--sm" data-reveal data-reveal-order="3" href="https://band.link/dshen_tam_i_togda"
+           target="_blank" rel="noopener" data-i18n="music.presave">Presave</a>
+      </div>
+    </div>
+
+    <div class="singles" data-reveal>
+      <p class="singles__label" data-i18n="music.singles_label">Released singles</p>
+      <div class="singles__grid">
+        <a class="single" href="https://band.link/dshen_neaktrisa" target="_blank" rel="noopener">
+          <img class="single__cover" src="assets/neaktrisa/neaktrisa-1x1-800.webp"
+               srcset="assets/neaktrisa/neaktrisa-1x1-400.webp 400w, assets/neaktrisa/neaktrisa-1x1-800.webp 800w, assets/neaktrisa/neaktrisa-1x1-1200.webp 1200w"
+               sizes="(min-width:760px) 340px, 45vw" loading="lazy" decoding="async"
+               alt="“NonActress” single cover" data-i18n-attr="alt:single.neaktrisa.alt" width="800" height="800">
+          <h3 class="single__title" data-i18n="single.neaktrisa.title">“NonActress”</h3>
+          <p class="single__meta"><span data-i18n="single.neaktrisa.meta">Single · July 10, 2026</span> · <span class="accent" data-i18n="music.listen">Listen ↗</span></p>
+        </a>
+        <a class="single" href="https://band.link/dshenkorabli" target="_blank" rel="noopener">
+          <img class="single__cover" src="assets/korabli/korabli-1x1-800.webp"
+               srcset="assets/korabli/korabli-1x1-400.webp 400w, assets/korabli/korabli-1x1-800.webp 800w, assets/korabli/korabli-1x1-1200.webp 1200w"
+               sizes="(min-width:760px) 340px, 45vw" loading="lazy" decoding="async"
+               alt="“Ships” single cover" data-i18n-attr="alt:single.korabli.alt" width="800" height="800">
+          <h3 class="single__title" data-i18n="single.korabli.title">“Ships”</h3>
+          <p class="single__meta"><span data-i18n="single.korabli.meta">Single · June 26, 2026</span> · <span class="accent" data-i18n="music.listen">Listen ↗</span></p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Video ===================== -->
+  <section class="section" id="video" aria-labelledby="video-label">
+    <div class="section__head" data-reveal>
+      <h2 class="section__label" id="video-label" data-i18n="label.video">Video</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    <div class="video__grid">
+      <div class="video" data-reveal>
+        <button class="video__facade" type="button" data-video-id="mFEPXxBuKIc"
+                aria-label="Play: On “Ships”" data-i18n-attr="aria-label:video.play" data-i18n-var="title:video.meet.title">
+          <img class="video__thumb" src="assets/video/mFEPXxBuKIc.webp" alt="" loading="lazy" decoding="async" width="1280" height="720">
+          <span class="video__play" aria-hidden="true"><span class="video__tri"></span></span>
+        </button>
+        <div class="video__caption">
+          <h3 class="video__title" data-i18n="video.meet.title">On “Ships”</h3>
+          <span class="video__meta" data-i18n="video.meet.meta">Behind the song · 0:45</span>
+        </div>
+      </div>
+      <div class="video" data-reveal>
+        <button class="video__facade" type="button" data-video-id="57JVbhlsunk"
+                aria-label="Play: “Ships” — snippet" data-i18n-attr="aria-label:video.play" data-i18n-var="title:video.korabli.title">
+          <img class="video__thumb" src="assets/video/57JVbhlsunk.webp" alt="" loading="lazy" decoding="async" width="1280" height="720">
+          <span class="video__play" aria-hidden="true"><span class="video__tri"></span></span>
+        </button>
+        <div class="video__caption">
+          <h3 class="video__title" data-i18n="video.korabli.title">“Ships” — snippet</h3>
+          <span class="video__meta" data-i18n="video.korabli.meta">Teaser · 0:27</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== About ===================== -->
+  <section class="section" id="about" aria-labelledby="about-label">
+    <div class="section__head" data-reveal>
+      <h2 class="section__label" id="about-label" data-i18n="label.about">About</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    <div class="about__grid">
+      <img class="about__img" data-reveal src="assets/unplugged-2026-07-11/DSC09439-1600.webp"
+           srcset="assets/unplugged-2026-07-11/DSC09439-800.webp 800w, assets/unplugged-2026-07-11/DSC09439-1600.webp 1600w"
+           sizes="(min-width:760px) 520px, 90vw" loading="lazy" decoding="async"
+           alt="D'Shen in profile, hands clasped at her chest, eyes closed in warm light"
+           data-i18n-attr="alt:about.portrait_alt" width="1200" height="1600">
+      <div class="about__body">
+        <h3 class="about__title" data-reveal data-i18n="about.title">Songs as small plays</h3>
+        <p class="about__bio" data-reveal data-reveal-order="1" data-i18n="about.bio">Darina came to music the way an actress comes to a role — completely. Born in Odesa and trained for the theater, now singing from Chișinău, she writes songs in Russian that unfold like small plays: a scene, a confession, a curtain. D'Shen is her stage — a place where the romance tradition and Silver Age poetry meet a modern, intimate voice. Her debut album “There and Then” collects eight of these scenes — about memory, cities, ships and dreams — sung with the sincerity of someone who has stood in front of an audience and decided to tell the truth.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Live ===================== -->
+  <section class="section" id="live" aria-labelledby="live-label">
+    <div class="section__head" data-reveal>
+      <h2 class="section__label" id="live-label" data-i18n="label.live">Live</h2>
+      <span class="section__rule" aria-hidden="true"></span>
+    </div>
+    <p class="live__follow" data-reveal>
+      <span data-i18n="live.follow_before">Follow</span>
+      <a href="https://www.instagram.com/rogozinskaya.darina/" target="_blank" rel="noopener" class="accent live__handle" data-i18n="live.follow_handle">@rogozinskaya.darina</a>
+      <span data-i18n="live.follow_after">for announcements</span>
+    </p>
+    <div class="live__show" data-reveal data-reveal-order="1">
+      <div class="live__showhead">
+        <h3 class="live__showtitle" data-i18n="live.unplugged_title">UNPLUGGED — the debut</h3>
+        <span class="live__showmeta" data-i18n="live.unplugged_meta">11 July 2026 · Chișinău</span>
+      </div>
+      <div class="live__grid">
+        <img class="live__img live__img--full" src="assets/unplugged-2026-07-11/DSC09446-1600.webp"
+             srcset="assets/unplugged-2026-07-11/DSC09446-800.webp 800w, assets/unplugged-2026-07-11/DSC09446-1600.webp 1600w, assets/unplugged-2026-07-11/DSC09446-2400.webp 2400w"
+             sizes="(min-width:1100px) 1100px, 92vw" loading="lazy" decoding="async"
+             alt="The full band under a tree strung with fairy lights, crowd silhouettes in the foreground"
+             data-i18n-attr="alt:live.photo_full_alt" width="1600" height="800">
+        <img class="live__img live__img--half" src="assets/unplugged-2026-07-11/DSC09476-800.webp"
+             srcset="assets/unplugged-2026-07-11/DSC09476-800.webp 800w, assets/unplugged-2026-07-11/DSC09476-1600.webp 1600w"
+             sizes="(min-width:760px) 46vw, 100vw" loading="lazy" decoding="async"
+             alt="The audience at dusk on a rooftop terrace, phones raised"
+             data-i18n-attr="alt:live.photo_left_alt" width="800" height="1067">
+        <img class="live__img live__img--half" src="assets/unplugged-2026-07-11/DSC09505-800.webp"
+             srcset="assets/unplugged-2026-07-11/DSC09505-800.webp 800w, assets/unplugged-2026-07-11/DSC09505-1600.webp 1600w"
+             sizes="(min-width:760px) 46vw, 100vw" loading="lazy" decoding="async"
+             alt="Women dancing with raised arms among cocktail tables"
+             data-i18n-attr="alt:live.photo_right_alt" width="800" height="1067">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== Contact / footer ===================== -->
+<footer class="section section--contact" id="contact" aria-labelledby="contact-label">
+  <div class="section__head" data-reveal>
+    <h2 class="section__label" id="contact-label" data-i18n="label.contact">Contact</h2>
+    <span class="section__rule" aria-hidden="true"></span>
+  </div>
+  <a class="contact__email" data-reveal href="mailto:contact@dshenmusic.com" data-i18n="contact.email">contact@dshenmusic.com</a>
+  <div class="socials" data-reveal data-reveal-order="1">
+    <a class="social" href="https://open.spotify.com/artist/1Gr5VQ2UXkaIadQ9p9vkc1" target="_blank" rel="noopener" aria-label="Spotify" title="Spotify" data-i18n-attr="aria-label:social.spotify;title:social.spotify">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+    </a>
+    <a class="social" href="https://music.apple.com/us/artist/dshen/6778941448" target="_blank" rel="noopener" aria-label="Apple Music" title="Apple Music" data-i18n-attr="aria-label:social.apple;title:social.apple">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"/></svg>
+    </a>
+    <a class="social" href="https://www.youtube.com/channel/UCpyidY4sL6-NJ1Xt1ezpG2A" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" data-i18n-attr="aria-label:social.youtube;title:social.youtube">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a class="social" href="https://www.deezer.com/en/artist/396177361" target="_blank" rel="noopener" aria-label="Deezer" title="Deezer" data-i18n-attr="aria-label:social.deezer;title:social.deezer">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.693 10.024c.381 0 .693-1.256.693-2.807 0-1.55-.312-2.807-.693-2.807C.312 4.41 0 5.666 0 7.217s.312 2.808.693 2.808ZM21.038 1.56c-.364 0-.684.805-.91 2.096C19.765 1.446 19.184 0 18.526 0c-.78 0-1.464 2.036-1.784 5-.312-2.158-.788-3.536-1.325-3.536-.745 0-1.386 2.704-1.62 6.472-.442-1.932-1.083-3.145-1.793-3.145s-1.35 1.213-1.793 3.145c-.242-3.76-.874-6.463-1.628-6.463-.537 0-1.013 1.378-1.325 3.535C6.938 2.036 6.262 0 5.474 0c-.658 0-1.247 1.447-1.602 3.665-.217-1.291-.546-2.105-.91-2.105-.675 0-1.221 2.807-1.221 6.272 0 3.466.546 6.273 1.221 6.273.277 0 .537-.476.736-1.273.32 2.928.996 4.938 1.776 4.938.606 0 1.143-1.204 1.507-3.11.251 3.622.875 6.195 1.602 6.195.46 0 .875-1.023 1.187-2.677C10.142 21.6 11 24 12.004 24c1.005 0 1.863-2.4 2.235-5.822.312 1.654.727 2.677 1.186 2.677.728 0 1.352-2.573 1.603-6.195.364 1.906.9 3.11 1.507 3.11.78 0 1.455-2.01 1.775-4.938.208.797.46 1.273.737 1.273.675 0 1.22-2.807 1.22-6.273-.008-3.457-.553-6.272-1.23-6.272ZM23.307 10.024c.381 0 .693-1.256.693-2.807 0-1.55-.312-2.807-.693-2.807-.381 0-.693 1.256-.693 2.807s.312 2.808.693 2.808Z"/></svg>
+    </a>
+    <a class="social" href="https://www.instagram.com/rogozinskaya.darina/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" data-i18n-attr="aria-label:social.instagram;title:social.instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+    </a>
+  </div>
+  <p class="copyright" data-reveal data-reveal-order="2" data-i18n="footer.copyright">2026 © D'Shen. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
