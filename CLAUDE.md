@@ -61,8 +61,13 @@ static pages. If SEO becomes a priority later, migrate to generated `/ru/`, `/ro
 `/ua/` paths. Do not build that now.
 
 All user-facing copy lives in the i18n JSONs — never hardcode display text in HTML.
-Canonical copy source: CONTENT.md. Song titles stay in Russian in ALL languages
-(they are proper names). "D'Shen" is never transliterated.
+Canonical copy source: CONTENT.md. Song and album titles ARE translated per language
+(owner decision 2026-07-18 — this reverses the earlier "keep Russian everywhere" rule):
+each locale shows titles in its own language, wrapped in that language's NATIVE quotation
+marks — EN curly “ ” (e.g. “There and Then” / “Ships” / “NonActress”), RU/UA guillemets
+« », RO low-high „ " (e.g. „Corăbii"). RU keeps the original Russian titles. The artist
+name "D'Shen" is still never transliterated. Note: cover artwork keeps the Russian titles
+baked in — that's the artwork, expected.
 
 Translation review: RU/EN safe (owner native RU / C2 EN), UA reviewed by D'Shen
 (native Ukrainian). **RO is the gap** — owner and artist are both A0, so RO copy must

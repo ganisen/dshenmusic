@@ -22,7 +22,7 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
   From July 24: swap CTA to streaming links (band.link may still serve as the hub —
   owner to confirm post-release).
 
-### Tracklist (titles are proper names — keep Russian in all languages)
+### Tracklist (Russian originals below are canonical; per **owner decision 2026-07-18** the site now shows titles TRANSLATED per language — drafts live in `i18n/`)
 
 | # | Title      | Length | ISRC          |
 |---|------------|--------|---------------|
@@ -37,16 +37,34 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
 
 ISRCs are internal reference — do not display on site.
 
+**Localized track titles** (per the 2026-07-18 translate-titles decision; RU = original, EN
+live on site, **RO/UA are drafts — need native review**; only #4/#6 currently appear on the
+site as singles). On-site, each language wraps titles in its **native quotes**: EN “ ”,
+RU/UA « », RO „ ".
+
+| # | RU (orig) | EN | RO (draft) | UA (draft) | Note |
+|---|-----------|----|-----------|-----------|------|
+| 1 | Там и тогда | There and Then | Acolo și atunci | Там і тоді | title track |
+| 2 | Память | Memory | Amintirea | Пам'ять | RO: Amintirea (recollection) vs Memoria (faculty) |
+| 3 | Часы | The Clock | Ceasul | Годинник | clock sense confirmed (owner 2026-07-18) |
+| 4 | Неактриса → site «НеАктриса» | NonActress | NeActriță | НеАкторка | owner chose the camelCase stylization in EVERY language incl. RU (2026-07-18); RO still needs a native pass |
+| 5 | Данте | Dante | Dante | Данте | proper name (poet) — keep, don't translate |
+| 6 | Корабли | Ships | Corăbii | Кораблі | RO Corăbii (poetic) vs Nave (plain) |
+| 7 | Мой город | My City | Orașul meu | Моє місто | — |
+| 8 | За мечтой | Chasing a Dream | După vis | За мрією | "After the Dream" is a more literal alt |
+
 **The site does NOT show a track list** (cut in Claude Design). This table stays as
 canonical reference data (order, durations, ISRCs) — the Music section shows only the
 album block + the two released singles.
 
 ### Released singles
 
-- **«Корабли»** (track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
+- **«Корабли»** (EN «Ships», track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
+  - **Site "Listen ↗" card → band.link hub: https://band.link/dshenkorabli** (as of 2026-07-18)
   - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=b4fyT2Es-sM
   - Teaser snippet (27 s): https://youtu.be/57JVbhlsunk
-- **«Неактриса»** (track 4) — released July 10, 2026. Cover art: `assets/neaktrisa/`.
+- **«Неактриса»** (EN «NonActress», track 4) — released July 10, 2026. Cover art: `assets/neaktrisa/`.
+  - **Site "Listen ↗" card → band.link hub: https://band.link/dshen_neaktrisa** (as of 2026-07-18)
   - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=X57QnzJtcUk
   - Release metadata: ISRC `QT6662667261` · UPC `859741394974` · Label D'Shen ·
     Language Russian · Genre Rock / Alternative.
@@ -70,13 +88,14 @@ Facade/lazy embeds only (`youtube-nocookie` iframe injected on click). **Final s
 
 | # | Title | YouTube ID | Meta |
 |---|-------|------------|------|
-| 1 | Meet D'Shen | `mFEPXxBuKIc` | Intro · 0:45 |
-| 2 | «Корабли» — teaser | `57JVbhlsunk` | Snippet · 0:27 |
+| 1 | In the darkest times — on “Ships” (RU title: «В самые трудные времена \| О «Кораблях»») | `mFEPXxBuKIc` | Behind the song · 0:45 (talking-head — confirmed 2026-07-18) |
+| 2 | “Ships” — snippet | `57JVbhlsunk` | Teaser · 0:27 (snippet — confirmed) |
 
-The two **official-audio** videos are NOT in this grid — they're the "Listen ↗" targets on
-the released-singles cards in Music:
-- «Корабли»: https://www.youtube.com/watch?v=b4fyT2Es-sM
-- «Неактриса»: https://www.youtube.com/watch?v=X57QnzJtcUk
+The two **official-audio** videos are the audio masters (reference). As of 2026-07-18 the
+released-singles cards in Music link to the **band.link hubs** (see Released singles above),
+NOT directly to these YouTube URLs:
+- «Корабли» / «Ships» official audio: https://www.youtube.com/watch?v=b4fyT2Es-sM
+- «Неактриса» / «NonActress» official audio: https://www.youtube.com/watch?v=X57QnzJtcUk
 
 ## About — bio
 
