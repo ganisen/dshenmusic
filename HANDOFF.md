@@ -41,6 +41,9 @@ _Last updated: 2026-07-18._
 - **Countdown grammar is correct in every language** — `main.js` picks `countdown.days_<cat>`
   via `Intl.PluralRules`; the Slavic/Romanian plural forms (`days_few`, RU/UA `days_many`,
   RO `de zile` for ≥20) are in the JSON. Verified for n=1..22.
+- **Typography finalized to a single font — Oswald** across the whole site (was the
+  two-font Caveat + Oswald system). Lora is kept dormant for a one-line switch-back; see the
+  decisions log below and `DESIGN.md → Typography`.
 
 ## What's left ⛔ (before this can go to production)
 
@@ -85,6 +88,14 @@ Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + loca
 
 ## Decisions log
 
+- **2026-07-18 (typography)** — Settled on a **single-font system: Oswald** everywhere
+  (hero, titles, nav, UI, body). The original build ran two fonts (Caveat display + Oswald);
+  the handwriting face was first swapped `Caveat → Lora` (serif), then the owner chose to
+  drop the separate display font for one cohesive gig-poster grotesque. Caveat removed from
+  the build; **Lora kept dormant** in the repo (`@font-face` + `lora-var.woff2`, no preload)
+  so a serif display font is a one-line restore (`--font-display:"Lora", Georgia, serif`).
+  `<head>` now preloads Oswald (previously the display font was the only preload). Details in
+  `DESIGN.md → Typography`.
 - **2026-07-18** — Song/album titles are **translated per language** (was: keep Russian
   everywhere). Native quote glyphs per language. The "non-actress" title is stylized
   **camelCase in all langs**. `«Часы»` → “The Clock” (clock sense). Single stays “NonActress”.

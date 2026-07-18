@@ -99,7 +99,7 @@ NOT directly to these YouTube URLs:
 
 ## About — bio
 
-Section heading (Caveat): **Songs as small plays**.
+Section heading: **Songs as small plays**.
 
 EN bio — **draft from the design (artist to confirm before publish):**
 
@@ -138,11 +138,12 @@ tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 | Single «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `neaktrisa/neaktrisa-1x1-{400,800,1200}.webp`, `neaktrisa-9x16-{800,1080}.webp` |
 | UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `unplugged-2026-07-11/DSC<n>-{800,1600}.webp` (all 15) + `-2400.webp` for the 3 hero picks (DSC09567 / 09398 / 09446); plus `PHOTOS.md` |
 | Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `logo/dshen-logo-{black,white}-{800,1600}.png` |
-| Fonts | src masters `fonts/caveat/` + `fonts/oswald/` (OFL); `fonts/ambition-ink/` artwork-only | `fonts/caveat-var.woff2` (display) + `fonts/oswald-var.woff2` (UI) + `OFL-*.txt` — subset variable woff2, all 4 langs ✓ |
+| Fonts | src masters `fonts/oswald/` (live) + `fonts/lora/` (dormant) + `fonts/caveat/` (retired); `fonts/ambition-ink/` artwork-only | `fonts/oswald-var.woff2` (the single live font) + dormant `fonts/lora-var.woff2` + `OFL-*.txt` — subset variable woff2, all 4 langs ✓ |
 
-Total committed web assets ≈ **7 MB** (largest single file 452 KB). The two live fonts are
-committed as subset variable `woff2` in `assets/fonts/` (**Caveat** display ~164 KB,
-**Oswald** UI ~50 KB) — see DESIGN.md → Typography for the `@font-face`. Src-only (never
+Total committed web assets ≈ **7 MB** (largest single file 452 KB). The site now runs a
+**single live font** — **Oswald** (~50 KB, UI + display) — committed as a subset variable
+`woff2` in `assets/fonts/`; **Lora** (~84 KB) sits alongside it dormant for an easy
+switch-back, and Caveat was removed. See DESIGN.md → Typography for the `@font-face`. Src-only (never
 deployed): the album `-original.png` + `-youtube-banner.png`, all font masters
 (`assets/src/fonts/`), and **Ambition & Ink** (reference-only — baked into produced
 artwork: covers/posters/Figma — never a webfont).
