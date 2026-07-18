@@ -59,6 +59,8 @@ album block + the two released singles.
 
 ### Released singles
 
+**Site display order = most-recent-first: NonActress (Jul 10) → Ships (Jun 26)** (set 2026-07-18).
+
 - **«Корабли»** (EN «Ships», track 6) — released June 26, 2026. Cover art: `assets/korabli/`.
   - **Site "Listen ↗" card → band.link hub: https://band.link/dshenkorabli** (as of 2026-07-18)
   - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=b4fyT2Es-sM
@@ -78,8 +80,11 @@ album block + the two released singles.
 - Instagram: https://www.instagram.com/rogozinskaya.darina/
 - Contact email: **contact@dshenmusic.com** (Porkbun forwarding — live; show on site)
 - Footer social icon row = these 5 (Spotify · Apple Music · YouTube · Deezer · Instagram),
-  44px circles. **Yandex Music has no footer icon** — it appears only as text in the Music
-  section's streaming line.
+  44px circles. **Yandex Music has no footer icon.** (The old "Spotify · Apple Music · Yandex
+  Music" text line under the presave button was removed 2026-07-18 — presave hub covers it.)
+- Footer copyright (`footer.copyright`, all langs): **`2026 © D'Shen. All rights reserved.`**
+  — year-first, `©` glyph, then the localized "all rights reserved" (RU `Все права защищены.`,
+  RO `Toate drepturile rezervate.`, UA `Всі права захищені.`). Format set 2026-07-18.
 
 ## Video section
 
@@ -88,7 +93,7 @@ Facade/lazy embeds only (`youtube-nocookie` iframe injected on click). **Final s
 
 | # | Title | YouTube ID | Meta |
 |---|-------|------------|------|
-| 1 | In the darkest times — on “Ships” (RU title: «В самые трудные времена \| О «Кораблях»») | `mFEPXxBuKIc` | Behind the song · 0:45 (talking-head — confirmed 2026-07-18) |
+| 1 | On “Ships” (shortened 2026-07-18 from “In the darkest times — on “Ships””; per-lang: RU «О «Кораблях»», RO „Despre „Corăbii"", UA «Про «Кораблі»») | `mFEPXxBuKIc` | Behind the song · 0:45 (talking-head — confirmed 2026-07-18) |
 | 2 | “Ships” — snippet | `57JVbhlsunk` | Teaser · 0:27 (snippet — confirmed) |
 
 The two **official-audio** videos are the audio masters (reference). As of 2026-07-18 the

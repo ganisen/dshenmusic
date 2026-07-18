@@ -33,7 +33,7 @@ _Last updated: 2026-07-18._
 - **Single cards link to band.link hubs** — Корабли → `band.link/dshenkorabli`,
   Неактриса → `band.link/dshen_neaktrisa` (were direct YouTube audio links).
 - **Video grid** (facade/lazy YouTube):
-  - v1 `mFEPXxBuKIc` — “In the darkest times — on “Ships”” · Behind the song · **0:45** (talking-head, confirmed)
+  - v1 `mFEPXxBuKIc` — “On “Ships”” · Behind the song · **0:45** (talking-head, confirmed)
   - v2 `57JVbhlsunk` — ““Ships” — snippet” · Teaser · **0:27** (snippet, confirmed)
 - **Footer social icons** are the **official Simple Icons** marks (Spotify, Apple Music,
   YouTube, Deezer=current 2023 heart, Instagram) — monochrome via `fill="currentColor"`,
@@ -88,6 +88,25 @@ Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + loca
 
 ## Decisions log
 
+- **2026-07-18 (owner review polish)** — Round of owner-requested tweaks on `build/production-site`:
+  - **Hero:** dropped the duplicate wordmark logo inside the hero (the nav mark is enough);
+    hero H1 sized to stay **one line** (`clamp(2.1rem, 5vw, 4rem)`).
+  - **Album title** sized to **one line** (`clamp(2.0rem, 4.4vw, 3.8rem)`) — verified against
+    real Oswald metrics so it holds one line in all four languages down to ~600px.
+  - **Video v1 retitled** from the long "In the darkest times — on «Ships»" to a plain
+    **“On “Ships””**; per-language short forms are RU `О «Кораблях»`, RO `Despre „Corăbii"`,
+    UA `Про «Кораблі»`. Video **captions** now split **title-left / meta-right**.
+  - **Released-singles order = most-recent-first: NonActress → Ships** (was Ships → NonActress).
+  - **Footer copyright** added + formatted **`2026 © D'Shen. All rights reserved.`**
+    (translated per language: RU `Все права защищены.`, RO `Toate drepturile rezervate.`,
+    UA `Всі права захищені.`). Also **fixed a reveal bug**: the copyright never faded in
+    because, as the last element, it can't scroll high enough to hit its `top 88%` reveal
+    trigger — `main.js` now has a `bottom bottom` safety-net that reveals any element still
+    hidden once the page bottom is reached (+ a load-time check for deep-links to `#contact`).
+  - **About bio** and **live show-date** bumped a step (`1.05→1.15rem`, `11→13px`).
+  - **Live photo `DSC09505`** recropped to a **centered ~1.2× zoom** (trims the figure at the
+    left edge) — symmetric crop, vertical center unchanged; both webp variants overwritten at
+    their original dimensions, so no markup/`srcset` change. Pristine originals in git history.
 - **2026-07-18 (typography)** — Settled on a **single-font system: Oswald** everywhere
   (hero, titles, nav, UI, body). The original build ran two fonts (Caveat display + Oswald);
   the handwriting face was first swapped `Caveat → Lora` (serif), then the owner chose to
