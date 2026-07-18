@@ -24,9 +24,7 @@
   "music.album_title": "«Там і тоді»",
   "music.album_alt": "Обкладинка альбому «Там і тоді»",
   "music.album_meta": "Дебютний альбом · 8 треків · 24 липня 2026",
-  "music.presave": "Зберегти наперед",
-  "music.streaming": "Spotify · Apple Music · Yandex Music",
-  "music.singles_label": "Видані сингли",
+  "music.presave": "Зберегти наперед",  "music.singles_label": "Видані сингли",
   "music.listen": "Слухати ↗",
   "single.korabli.title": "«Кораблі»",
   "single.korabli.alt": "Обкладинка синглу «Кораблі»",
@@ -34,7 +32,7 @@
   "single.neaktrisa.title": "«НеАкторка»",
   "single.neaktrisa.alt": "Обкладинка синглу «НеАкторка»",
   "single.neaktrisa.meta": "Сингл · 10 липня 2026",
-  "video.meet.title": "У найважчі часи — про «Кораблі»",
+  "video.meet.title": "Про «Кораблі»",
   "video.meet.meta": "Розмова · 0:45",
   "video.korabli.title": "«Кораблі» — уривок",
   "video.korabli.meta": "Тизер · 0:27",
@@ -56,7 +54,7 @@
   "social.youtube": "YouTube",
   "social.deezer": "Deezer",
   "social.instagram": "Instagram",
-  "footer.copyright": "© D'Shen 2026",
+  "footer.copyright": "2026 © D'Shen. Всі права захищені.",
   "countdown.days_few": "Вихід 24 липня — за {n} дні",
   "countdown.days_many": "Вихід 24 липня — за {n} днів"
 }

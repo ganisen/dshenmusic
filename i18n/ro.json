@@ -24,9 +24,7 @@
   "music.album_title": "„Acolo și atunci”",
   "music.album_alt": "Coperta albumului „Acolo și atunci”",
   "music.album_meta": "Album de debut · 8 piese · 24 iulie 2026",
-  "music.presave": "Salvează în avans",
-  "music.streaming": "Spotify · Apple Music · Yandex Music",
-  "music.singles_label": "Single-uri lansate",
+  "music.presave": "Salvează în avans",  "music.singles_label": "Single-uri lansate",
   "music.listen": "Ascultă ↗",
   "single.korabli.title": "„Corăbii”",
   "single.korabli.alt": "Coperta single-ului „Corăbii”",
@@ -34,7 +32,7 @@
   "single.neaktrisa.title": "„NeActriță”",
   "single.neaktrisa.alt": "Coperta single-ului „NeActriță”",
   "single.neaktrisa.meta": "Single · 10 iulie 2026",
-  "video.meet.title": "În cele mai grele vremuri — despre „Corăbii”",
+  "video.meet.title": "Despre „Corăbii”",
   "video.meet.meta": "Discuție · 0:45",
   "video.korabli.title": "„Corăbii” — fragment",
   "video.korabli.meta": "Teaser · 0:27",
@@ -56,6 +54,6 @@
   "social.youtube": "YouTube",
   "social.deezer": "Deezer",
   "social.instagram": "Instagram",
-  "footer.copyright": "© D'Shen 2026",
+  "footer.copyright": "2026 © D'Shen. Toate drepturile rezervate.",
   "countdown.days_few": "Apare pe 24 iulie — peste {n} zile"
 }

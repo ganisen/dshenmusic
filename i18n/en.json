@@ -29,9 +29,7 @@
   "music.album_title": "“There and Then”",
   "music.album_alt": "“There and Then” album cover",
   "music.album_meta": "Debut album · 8 tracks · July 24, 2026",
-  "music.presave": "Presave",
-  "music.streaming": "Spotify · Apple Music · Yandex Music",
-  "music.singles_label": "Released singles",
+  "music.presave": "Presave",  "music.singles_label": "Released singles",
   "music.listen": "Listen ↗",
 
   "single.korabli.title": "“Ships”",
@@ -41,7 +39,7 @@
   "single.neaktrisa.alt": "“NonActress” single cover",
   "single.neaktrisa.meta": "Single · July 10, 2026",
 
-  "video.meet.title": "In the darkest times — on “Ships”",
+  "video.meet.title": "On “Ships”",
   "video.meet.meta": "Behind the song · 0:45",
   "video.korabli.title": "“Ships” — snippet",
   "video.korabli.meta": "Teaser · 0:27",
@@ -67,5 +65,5 @@
   "social.deezer": "Deezer",
   "social.instagram": "Instagram",
 
-  "footer.copyright": "© D'Shen 2026"
+  "footer.copyright": "2026 © D'Shen. All rights reserved."
 }

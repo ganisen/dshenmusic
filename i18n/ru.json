@@ -24,9 +24,7 @@
   "music.album_title": "«Там и тогда»",
   "music.album_alt": "Обложка альбома «Там и тогда»",
   "music.album_meta": "Дебютный альбом · 8 треков · 24 июля 2026",
-  "music.presave": "Предсохранить",
-  "music.streaming": "Spotify · Apple Music · Yandex Music",
-  "music.singles_label": "Вышедшие синглы",
+  "music.presave": "Предсохранить",  "music.singles_label": "Вышедшие синглы",
   "music.listen": "Слушать ↗",
   "single.korabli.title": "«Корабли»",
   "single.korabli.alt": "Обложка сингла «Корабли»",
@@ -34,7 +32,7 @@
   "single.neaktrisa.title": "«НеАктриса»",
   "single.neaktrisa.alt": "Обложка сингла «НеАктриса»",
   "single.neaktrisa.meta": "Сингл · 10 июля 2026",
-  "video.meet.title": "В самые трудные времена — о «Кораблях»",
+  "video.meet.title": "О «Кораблях»",
   "video.meet.meta": "Беседа · 0:45",
   "video.korabli.title": "«Корабли» — отрывок",
   "video.korabli.meta": "Тизер · 0:27",
@@ -56,7 +54,7 @@
   "social.youtube": "YouTube",
   "social.deezer": "Deezer",
   "social.instagram": "Instagram",
-  "footer.copyright": "© D'Shen 2026",
+  "footer.copyright": "2026 © D'Shen. Все права защищены.",
   "countdown.days_few": "Выйдет 24 июля — через {n} дня",
   "countdown.days_many": "Выйдет 24 июля — через {n} дней"
 }

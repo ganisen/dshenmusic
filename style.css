@@ -161,10 +161,9 @@ button{font-family:inherit;}
   display:flex;flex-direction:column;align-items:flex-start;gap:16px;
   animation:rise 1s var(--ease) .15s both;
 }
-.hero__wordmark{height:clamp(42px, 7vw, 64px);width:auto;}
 .hero__title{
   font-family:var(--font-display);font-weight:600;
-  font-size:clamp(2.7rem, 8.5vw, 5.6rem);line-height:1.02;letter-spacing:.01em;
+  font-size:clamp(2.1rem, 5vw, 4rem);line-height:1.05;letter-spacing:.01em;
   text-wrap:balance;
 }
 .hero__chip{
@@ -214,7 +213,7 @@ button{font-family:inherit;}
 .album__body{display:flex;flex-direction:column;align-items:flex-start;gap:14px;}
 .album__title{
   font-family:var(--font-display);font-weight:600;
-  font-size:clamp(2.8rem, 6vw, 4.4rem);line-height:1;
+  font-size:clamp(2.0rem, 4.4vw, 3.8rem);line-height:1.05;
 }
 .album__meta{
   font-size:13px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;
@@ -224,10 +223,6 @@ button{font-family:inherit;}
   border:1px solid var(--accent);color:var(--accent);
   font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
   padding:8px 16px;
-}
-.album__streaming{
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(242,237,230,.55);   /* .45 raised to .55 for WCAG AA (5.5:1) */
 }
 
 .singles{margin-top:clamp(40px, 8vh, 72px);}
@@ -282,13 +277,13 @@ button{font-family:inherit;}
   border-top:9px solid transparent;border-bottom:9px solid transparent;
 }
 .video__frame{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000;}
-.video__caption{display:flex;align-items:baseline;gap:12px;}
+.video__caption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px;}
 .video__title{
   font-family:var(--font-display);font-weight:400;font-size:1.6rem;line-height:1;
 }
 .video__meta{
   font-size:11px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(242,237,230,.5);
+  color:rgba(242,237,230,.5);white-space:nowrap;flex-shrink:0;
 }
 
 /* ---------- About ---------- */
@@ -306,7 +301,7 @@ button{font-family:inherit;}
   font-size:clamp(2.5rem, 5.5vw, 3.8rem);line-height:1.05;
 }
 .about__bio{
-  font-weight:300;font-size:1.05rem;line-height:1.8;letter-spacing:.015em;
+  font-weight:300;font-size:1.15rem;line-height:1.8;letter-spacing:.015em;
   color:rgba(242,237,230,.85);max-width:56ch;text-wrap:pretty;
 }
 
@@ -325,7 +320,7 @@ button{font-family:inherit;}
   font-size:clamp(1.9rem, 4.5vw, 2.6rem);line-height:1;
 }
 .live__showmeta{
-  font-size:11px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;
+  font-size:13px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;
   color:rgba(242,237,230,.55);
 }
 .live__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
