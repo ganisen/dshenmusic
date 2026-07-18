@@ -5,8 +5,8 @@
 
 /* ---------- Fonts (self-hosted, variable, all 4 languages) ---------- */
 @font-face{
-  font-family:"Caveat";
-  src:url("assets/fonts/caveat-var.woff2") format("woff2");
+  font-family:"Lora";
+  src:url("assets/fonts/lora-var.woff2") format("woff2");
   font-weight:400 700;font-style:normal;font-display:swap;
 }
 @font-face{
@@ -21,7 +21,7 @@
   --text:#f2ede6;
   --accent:#E5A455;
 
-  --font-display:"Caveat", cursive;
+  --font-display:"Lora", Georgia, serif;
   --font-ui:"Oswald", "Arial Narrow", sans-serif;
 
   --maxw:1100px;
