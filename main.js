@@ -168,19 +168,38 @@
     // No GSAP, or reduced motion → leave everything visible (content is never hidden by CSS).
     if (reduce || !window.gsap || !window.ScrollTrigger || !els.length) return;
     window.gsap.registerPlugin(window.ScrollTrigger);
-    els.forEach(function (el) {
+    function reveal(el) {
       var order = parseFloat(el.getAttribute("data-reveal-order")) || 0;
+      window.gsap.to(el, { opacity: 1, y: 0, duration: 0.8, delay: order * 0.1, ease: "power2.out" });
+    }
+    els.forEach(function (el) {
       window.gsap.set(el, { opacity: 0, y: 24 });
       window.ScrollTrigger.create({
         trigger: el,
         start: "top 88%",
         once: true,
-        onEnter: function () {
-          window.gsap.to(el, { opacity: 1, y: 0, duration: 0.8, delay: order * 0.1, ease: "power2.out" });
-        }
+        onEnter: function () { reveal(el); }
       });
     });
+    // Elements anchored to the very bottom of the page (e.g. the footer copyright) can
+    // never scroll high enough to reach "top 88%", so their own trigger never fires.
+    // Reveal anything still hidden once the page bottom comes into view.
+    function revealTail() {
+      els.forEach(function (el) {
+        if (parseFloat(window.getComputedStyle(el).opacity) === 0) reveal(el);
+      });
+    }
+    window.ScrollTrigger.create({
+      trigger: document.documentElement,
+      start: "bottom bottom",
+      once: true,
+      onEnter: revealTail
+    });
     window.ScrollTrigger.refresh();
+    // Covers landing already at the bottom (e.g. a deep-link to #contact on load).
+    requestAnimationFrame(function () {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) revealTail();
+    });
   }
 
   /* ---------------- Video facade ---------------- */
