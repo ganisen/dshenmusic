@@ -4,6 +4,9 @@
    ============================================================ */
 
 /* ---------- Fonts (self-hosted, variable, all 4 languages) ---------- */
+/* Lora kept available but currently unused — display font collapses to
+   Oswald below. To restore, set --font-display back to "Lora", Georgia, serif
+   and re-preload lora-var.woff2 in index.html. */
 @font-face{
   font-family:"Lora";
   src:url("assets/fonts/lora-var.woff2") format("woff2");
@@ -21,7 +24,7 @@
   --text:#f2ede6;
   --accent:#E5A455;
 
-  --font-display:"Lora", Georgia, serif;
+  --font-display:"Oswald", "Arial Narrow", sans-serif;   /* Oswald-only build */
   --font-ui:"Oswald", "Arial Narrow", sans-serif;
 
   --maxw:1100px;
