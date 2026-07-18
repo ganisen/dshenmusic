@@ -161,18 +161,19 @@ they map 1:1 to `PHOTOS.md`.
 
 ## i18n copy status
 
-| Key set          | EN  | RU | RO | UA |
-|------------------|-----|----|----|----|
-| Nav + UI chrome  | ☑   | ☐  | ☐  | ☐  |
-| Hero             | ☑   | ☐  | ☐  | ☐  |
-| Music section    | ☑   | ☐  | ☐  | ☐  |
-| About bio        | ☑\* | ☐  | ☐  | ☐  |
-| Live             | ☑   | ☐  | ☐  | ☐  |
-| Contact/footer   | ☑   | ☐  | ☐  | ☐  |
+All four languages are now drafted in `i18n/` (`en.json` · `ru.json` · `ro.json` ·
+`ua.json`) — every section. EN is final/live; RU/RO/UA are first drafts pending sign-off:
 
-☑ = EN copy drafted in the design handoff (extract into `i18n/en.json` at build).
-☑\* = About bio is a draft pending artist confirmation. RU/RO/UA still to produce
-(RU owner · UA artist · RO local friends — see reviewer rules above).
+| Lang | State | 2nd-pass confidence | Gate before publish |
+|------|-------|---------------------|---------------------|
+| EN   | ✅ final, live on site | — | About bio still needs artist OK |
+| RU   | 📝 draft, in JSON | ~80% | strong; owner (native) confirms wording |
+| RO   | ⚠️ draft, in JSON | ~72% | **must be native-checked — owner + artist A0** |
+| UA   | 📝 draft, in JSON | ~85% | D'Shen (native) reviews; confirm «НеАкторка» + bio |
+
+Confidence is a self-review second pass, **not** native verification. The About bio (all
+langs) and the coined single title still need artist sign-off. Full per-language review
+flags + current state: see `HANDOFF.md`.
 
 **Translation review — who signs off on each language:**
 

@@ -96,12 +96,13 @@ unreviewed. Details in CONTENT.md → "i18n copy status".
 ## Current phase
 
 Phase 1 (now → July 24): launch-ready single page with presave CTA as the hero action.
-**Design is finalized** in Claude Design → `design_handoff_dshen_site/` (README = full
-per-section spec, `screenshots/`, and a reference-only prototype HTML). Next is the
-production build: recreate that design as real `index.html` / `style.css` / `main.js`
-using our stack (semantic HTML, GSAP ScrollTrigger reveals, the 4-language i18n). The
-resolved visual decisions are folded into DESIGN.md; finalized copy into CONTENT.md.
-**Start the build from `BUILD.md`** — the authoritative brief (resolved gotchas, `srcset`
-map, interactions, i18n plan, build order, a11y/perf checklist).
+**The production build is DONE** — `index.html` / `style.css` / `main.js` recreate the
+finalized design, and all four languages live in `i18n/` (**EN final**; **RU/RO/UA are
+first drafts**). It sits on branch `build/production-site` (preview:
+build-production-site.dshenmusic.pages.dev) and is **not yet merged to `main`** — awaiting
+owner review plus the translation sign-offs (RO native speakers, D'Shen for UA + the bio).
+→ **Read `HANDOFF.md`** for the authoritative current state, decisions log, and next steps.
+(`BUILD.md` is the historical brief for the original build — now complete. Design source
+of truth stays `design_handoff_dshen_site/` + `DESIGN.md`; copy in `CONTENT.md`.)
 Phase 2 (after release): swap presave CTA → streaming links; add video loop hero
 if/when a proper loop is produced; possibly expand Live section.

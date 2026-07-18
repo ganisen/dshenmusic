@@ -1,8 +1,13 @@
 # BUILD.md — production build handoff (dshenmusic.com)
 
-**For the next session.** The design is finalized; this is the authoritative brief for
-building the production site. Nothing here needs re-deriving — read the referenced docs and
-build.
+> **✅ STATUS 2026-07-18: this build is COMPLETE.** The production site exists on branch
+> `build/production-site`. This file is kept as the **historical build brief** (how the
+> site was built). For the **current state, decisions log, and next steps, read
+> [`HANDOFF.md`](HANDOFF.md).** Do not rebuild from this doc.
+
+**Original brief (historical).** The design is finalized; this was the authoritative brief
+for building the production site. Nothing here needed re-deriving — read the referenced docs
+and build.
 
 **Read order:** this file → `design_handoff_dshen_site/README.md` (exact per-section spec:
 px, gradients, copy) → `DESIGN.md` (intent + tokens) → `CONTENT.md` (copy, links, assets).

@@ -4,6 +4,9 @@ Official website of **D'Shen** — https://dshenmusic.com
 
 Static single-page site. Vanilla HTML/CSS/JS + GSAP. No build step.
 
+**Status:** built & multilingual (EN live; RU/RO/UA first drafts) on branch
+`build/production-site`; not yet merged to `main`. Current state + next steps → `HANDOFF.md`.
+
 ## Deploy
 
 Push to `main` → Cloudflare Pages auto-deploys to production (~1 min).
@@ -18,8 +21,10 @@ main.js         — i18n switcher, GSAP animations, embeds
 i18n/           — en.json / ru.json / ro.json / ua.json (all display copy)
 assets/         — images (optimized); assets/src/ for originals
 CLAUDE.md       — project context & rules for AI agents (read first)
+HANDOFF.md      — current state + next steps (read after CLAUDE.md)
 DESIGN.md       — visual direction
 CONTENT.md      — canonical copy, links, asset inventory
+BUILD.md        — historical build brief (build is complete)
 ```
 
 ## Working on it
