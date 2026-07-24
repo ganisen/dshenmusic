@@ -16,11 +16,12 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
 
 ## Album — «Там и тогда»
 
-- Release date: **July 24, 2026** — already delivered to stores
-- Presave (Spotify / Apple Music / Yandex Music): **https://band.link/dshen_tam_i_togda**
-- Until July 24: presave is THE primary CTA sitewide.
-  From July 24: swap CTA to streaming links (band.link may still serve as the hub —
-  owner to confirm post-release).
+- Release date: **July 24, 2026** — **RELEASED**. Live on Spotify / Apple Music / YouTube Music / Deezer / Yandex.
+- Listen hub (auto-converted from the presave smart link): **https://band.link/dshen_tam_i_togda**
+- **Post-release CTA (live 2026-07-24):** hero button = the journey CTA **“Embark” / «Погрузиться» /
+  „Cufundă-te" / «Зануритися»** (owner-chosen "about the journey" framing) → the band.link hub. Album-card
+  button + singles = plain "Listen". Countdown chips auto-show **“Out now”**. (Owner confirmed 2026-07-24
+  that band.link now serves streaming, so the same URL is reused.)
 
 ### Tracklist (Russian originals below are canonical; per **owner decision 2026-07-18** the site now shows titles TRANSLATED per language — drafts live in `i18n/`)
 
@@ -77,11 +78,13 @@ album block + the two released singles.
 - Apple Music: https://music.apple.com/us/artist/dshen/6778941448
 - YouTube: https://www.youtube.com/channel/UCpyidY4sL6-NJ1Xt1ezpG2A (@dshenmusic)
 - Deezer: https://www.deezer.com/en/artist/396177361
+- Yandex Music: https://music.yandex.com/artist/26134715  (RU footer icon only — added 2026-07-24, issue #4)
 - Instagram: https://www.instagram.com/rogozinskaya.darina/
 - Contact email: **contact@dshenmusic.com** (Porkbun forwarding — live; show on site)
-- Footer social icon row = these 5 (Spotify · Apple Music · YouTube · Deezer · Instagram),
-  44px circles. **Yandex Music has no footer icon.** (The old "Spotify · Apple Music · Yandex
-  Music" text line under the presave button was removed 2026-07-18 — presave hub covers it.)
+- Footer social icon row = Spotify · Apple Music · YouTube · Deezer · Instagram (44px circles),
+  **plus a Yandex Music icon shown only on the RU version** (added 2026-07-24, issue #4 — official 2023
+  sunburst mark, monochrome via `currentColor`; gated by `data-lang-only="ru"`, toggled in `applyDict()`).
+  (The old "Spotify · Apple Music · Yandex Music" text line under the CTA was removed 2026-07-18.)
 - Footer copyright (`footer.copyright`, all langs): **`2026 © D'Shen. All rights reserved.`**
   — year-first, `©` glyph, then the localized "all rights reserved" (RU `Все права защищены.`,
   RO `Toate drepturile rezervate.`, UA `Всі права захищені.`). Format set 2026-07-18.
