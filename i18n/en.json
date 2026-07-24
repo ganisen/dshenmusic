@@ -1,6 +1,6 @@
 {
   "meta.title": "D'Shen — “There and Then”",
-  "meta.description": "Official site of D'Shen — singer and theatre actress from Chișinău. Debut album “There and Then” out July 24, 2026. Presave now.",
+  "meta.description": "Official site of D'Shen — singer and theatre actress from Chișinău. Debut album “There and Then” is out now — listen everywhere.",
 
   "a11y.skip": "Skip to content",
   "a11y.open_menu": "Open menu",
@@ -20,7 +20,8 @@
   "hero.logo_alt": "D'Shen",
   "hero.photo_alt": "D'Shen at the microphone, backlit by warm stage light",
   "hero.title": "Debut album “There and Then”",
-  "hero.cta": "Presave the album",
+  "hero.cta": "Embark",
+  "hero.cta_aria": "Listen to the album",
 
   "countdown.out_now": "Out now",
   "countdown.days_one": "Out July 24 — in {n} day",
@@ -29,7 +30,7 @@
   "music.album_title": "“There and Then”",
   "music.album_alt": "“There and Then” album cover",
   "music.album_meta": "Debut album · 8 tracks · July 24, 2026",
-  "music.presave": "Presave",  "music.singles_label": "Released singles",
+  "music.presave": "Listen",  "music.singles_label": "Released singles",
   "music.listen": "Listen ↗",
 
   "single.korabli.title": "“Ships”",
@@ -63,6 +64,7 @@
   "social.apple": "Apple Music",
   "social.youtube": "YouTube",
   "social.deezer": "Deezer",
+  "social.yandex": "Yandex Music",
   "social.instagram": "Instagram",
 
   "footer.copyright": "2026 © D'Shen. All rights reserved."

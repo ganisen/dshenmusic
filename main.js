@@ -101,6 +101,10 @@
       if (val != null) el.textContent = val;
     });
     document.querySelectorAll("[data-i18n-attr]").forEach(applyAttrs);
+    // Show elements gated to specific language(s) — e.g. the RU-only Yandex Music link.
+    document.querySelectorAll("[data-lang-only]").forEach(function (el) {
+      el.hidden = el.getAttribute("data-lang-only").split(/[,\s]+/).indexOf(I18N.lang) < 0;
+    });
     if (I18N.dict["meta.title"]) document.title = I18N.dict["meta.title"];
     var md = document.querySelector('meta[name="description"]');
     if (md && I18N.dict["meta.description"]) md.setAttribute("content", I18N.dict["meta.description"]);

@@ -4,7 +4,7 @@
 authoritative snapshot of where things stand, what was decided, and what's left. Read
 `CLAUDE.md` first for the non-negotiable rules; this file is the live status.
 
-_Last updated: 2026-07-18._
+_Last updated: 2026-07-24 (album release day)._
 
 ---
 
@@ -18,8 +18,9 @@ _Last updated: 2026-07-18._
   **https://build-production-site.dshenmusic.pages.dev**
 - **NOT merged to `main`.** `main` is production and auto-deploys. Merge only after owner
   review + the translation sign-offs below.
-- Album **«Там и тогда» / “There and Then”** releases **2026-07-24**. Presave is the hero
-  CTA sitewide until then: `https://band.link/dshen_tam_i_togda`.
+- Album **«Там и тогда» / “There and Then”** **released 2026-07-24** — site flipped to post-release:
+  hero CTA is now the journey CTA **“Embark” / «Погрузиться»** → the same `band.link/dshen_tam_i_togda`
+  hub (now streaming), and the chips read **“Out now”**. See the 2026-07-24 decisions-log entry.
 
 ## What's done ✅
 
@@ -87,6 +88,24 @@ Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + loca
   `<html lang>` / plural rules).
 
 ## Decisions log
+
+- **2026-07-24 (album release day)** — Album **«Там и тогда» is OUT**; site flipped presave → release:
+  - **Hero CTA** is now a "journey" CTA (owner steer: "more about the journey — типа погрузиться / embark"):
+    **“Embark” / «Погрузиться» / „Cufundă-te" / «Зануритися»** → the same `band.link/dshen_tam_i_togda`
+    hub (owner confirmed it now serves streaming). Added `hero.cta_aria` ("Listen to the album") so the
+    one-word button has a clear accessible name. Album-card button `music.presave` → **“Listen”** (key name
+    kept — value repurposed). Countdown chips already auto-flip to **“Out now”** on/after release; static
+    HTML fallbacks updated too. All `meta`/OG/Twitter copy → "out now".
+  - **Shipped ALL 4 languages to production** — owner **explicitly overrode** the "never ship RO unreviewed"
+    gate on release day. **RU/RO/UA are still unreviewed drafts.** RO CTA **„Cufundă-te"** is an A0 draft —
+    still needs a native pass, as does the rest of `ro.json` and the bio.
+  - **Issue #5 (link-share preview):** OG/Twitter *title* → album hook ("New album “There and Then” — out
+    now"), removing the duplicate "D'Shen" (was site_name + title) and the trailing period. OG *image* kept
+    as the logo (owner choice).
+  - **Issue #3:** removed "російською" ("writes songs *in Russian*") from the UA bio.
+  - **Issue #4:** RU-only **Yandex Music** footer icon → `music.yandex.com/artist/26134715` (official 2023
+    sunburst mark, monochrome via `currentColor`). New generic mechanism: `[data-lang-only="ru"]` elements
+    are toggled in `applyDict()` and hidden by default via `.social[hidden]{display:none}`.
 
 - **2026-07-18 (owner review polish)** — Round of owner-requested tweaks on `build/production-site`:
   - **Hero:** dropped the duplicate wordmark logo inside the hero (the nav mark is enough);
