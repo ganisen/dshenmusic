@@ -107,21 +107,30 @@ NOT directly to these YouTube URLs:
 
 ## About — bio
 
-Section heading: **Songs as small plays**.
+Section heading: **A song is a small play** (singular — artist's call, 2026-07-25: the
+plural "Songs as small plays" reads as being *about the songs*, the singular is about a
+state of mind).
 
-EN bio — **draft from the design (artist to confirm before publish):**
+EN bio — **revised 2026-07-25 from D'Shen's UA edits; EN/RU/RO rendering still hers to confirm:**
 
-> Darina came to music the way an actress comes to a role — completely. Born in Odesa and
-> trained for the theater, now singing from Chișinău, she writes songs in Russian that
-> unfold like small plays: a scene, a confession, a curtain. D'Shen is her stage — a place
-> where the romance tradition and Silver Age poetry meet a modern, intimate voice. Her
-> debut album «Там и тогда» collects eight of these scenes — about memory, cities, ships
-> and dreams — sung with the sincerity of someone who has stood in front of an audience
-> and decided to tell the truth.
+> Darina came to music the way an actress comes to a role — holding nothing back. Born in
+> Odesa and trained for the theater, now singing from Chișinău, she writes songs in Russian,
+> each one unfolding like a small play: a scene, a confession, a curtain. D'Shen is her
+> stage — a place where the romance tradition and Silver Age poetry meet a modern, intimate
+> voice. Her debut album “There and Then” gathers eight small lives, played out on stage…
+> memory, cities, ships and dreams — the singing and the soul of a woman who dared to speak
+> the truth on stage.
 
 ~100 words. Uses **Darina** (public alias), not the legal name. Fact base: born Odesa,
 based Chișinău, trained theatre actress. RU/RO/UA produced from this per the i18n reviewer
 rules below.
+
+The closing sentence is **the artist's own wording**, authored in UA — the other three
+languages are translations *of her line*, not of the earlier English draft. Her UA original:
+
+> Її дебютний альбом «Там і тоді» збирає вісім маленьких життів, відтворених на сцені…
+> пам'ять, міста, кораблі та мрії — це спів та душа тієї, хто на сцені зважилася говорити
+> правду.
 
 ## Live
 
@@ -175,10 +184,10 @@ All four languages are now drafted in `i18n/` (`en.json` · `ru.json` · `ro.jso
 
 | Lang | State | 2nd-pass confidence | Gate before publish |
 |------|-------|---------------------|---------------------|
-| EN   | ✅ final, live on site | — | About bio still needs artist OK |
-| RU   | 📝 draft, in JSON | ~80% | strong; owner (native) confirms wording |
-| RO   | ⚠️ draft, in JSON | ~72% | **must be native-checked — owner + artist A0** |
-| UA   | 📝 draft, in JSON | ~85% | D'Shen (native) reviews; confirm «НеАкторка» + bio |
+| EN   | ✅ final, live on site | — | About block re-rendered 2026-07-25 from D'Shen's UA edits — artist OK still open |
+| RU   | 📝 draft, in JSON | ~80% | strong; owner (native) confirms wording (esp. new `пение и душа`) |
+| RO   | ⚠️ draft, in JSON | ~72% | **must be native-checked — owner + artist A0**; new About wording is A0 draft too |
+| UA   | 📝 draft; About block signed off 2026-07-25 | ~85% | D'Shen (native) reviews the rest; confirm «НеАкторка» |
 
 Confidence is a self-review second pass, **not** native verification. The About bio (all
 langs) and the coined single title still need artist sign-off. Full per-language review

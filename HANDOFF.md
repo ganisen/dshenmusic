@@ -53,8 +53,8 @@ Nothing here is native-verified — these are people-gates, per `CONTENT.md`:
 | Owner | Needs to |
 |-------|----------|
 | **Native Romanian speaker(s)** | Review **all of `ro.json`** — hard gate. Owner + artist are A0; the whole file is placeholder-quality until checked. Watch the coined `„NeActriță"` and the title renderings (`„Acolo și atunci"`, `„Corăbii"`). |
-| **D'Shen (native UA)** | Sign off `ua.json`: confirm the coined `«НеАкторка»`, `label.about` (“Про мене” vs “Про D'Shen”), `label.live` (“Наживо” vs “Виступи”), and the bio wording. |
-| **Artist** | Confirm the **About bio** (all languages) — still a draft per CONTENT.md. |
+| **D'Shen (native UA)** | Sign off `ua.json`: confirm the coined `«НеАкторка»`, `label.about` (“Про мене” vs “Про D'Shen”), `label.live` (“Наживо” vs “Виступи”). **About block reviewed 2026-07-25** — her edits applied (singular `about.title`, rewritten closing sentence, `цілком` → `без залишку`); the rest of the file still needs her pass. |
+| **Artist** | Confirm the **About bio**. Her UA edits (2026-07-25) are now the source: singular heading, `без залишку` opening, her closing sentence. **EN / RU / RO were re-rendered from her UA line** and need her nod on the rendering (EN heading “A song is a small play”; RU `пение и душа`; RO is A0 anyway). |
 | **Owner** | Minor: RU streaming line `«Яндекс Музыка»` vs Latin “Yandex Music”. |
 
 Reviewer confidence (second-pass, NOT native): **RU ~80% · UA ~85% · RO ~72%**.
