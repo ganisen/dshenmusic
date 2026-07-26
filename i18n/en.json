@@ -1,6 +1,6 @@
 {
   "meta.title": "D'Shen — “There and Then”",
-  "meta.description": "Official site of D'Shen — singer and theatre actress from Chișinău. Debut album “There and Then” is out now — listen everywhere.",
+  "meta.description": "Official site of D'Shen — singer and theatre actress from Chișinău. Debut album “There and Then” is out now on Spotify, Apple Music and more.",
 
   "a11y.skip": "Skip to content",
   "a11y.open_menu": "Open menu",
@@ -30,7 +30,8 @@
   "music.album_title": "“There and Then”",
   "music.album_alt": "“There and Then” album cover",
   "music.album_meta": "Debut album · 8 tracks · July 24, 2026",
-  "music.presave": "Listen",  "music.singles_label": "Released singles",
+  "music.presave": "Listen",
+  "music.singles_label": "Released singles",
   "music.listen": "Listen ↗",
 
   "single.korabli.title": "“Ships”",
@@ -46,9 +47,9 @@
   "video.korabli.meta": "Teaser · 0:27",
   "video.play": "Play: {title}",
 
-  "about.title": "Songs as small plays",
+  "about.title": "A song is a small play",
   "about.portrait_alt": "D'Shen in profile, hands clasped at her chest, eyes closed in warm light",
-  "about.bio": "Darina came to music the way an actress comes to a role — completely. Born in Odesa and trained for the theater, now singing from Chișinău, she writes songs in Russian that unfold like small plays: a scene, a confession, a curtain. D'Shen is her stage — a place where the romance tradition and Silver Age poetry meet a modern, intimate voice. Her debut album “There and Then” collects eight of these scenes — about memory, cities, ships and dreams — sung with the sincerity of someone who has stood in front of an audience and decided to tell the truth.",
+  "about.bio": "Darina came to music the way an actress comes to a role — holding nothing back. Born in Odesa and trained for the theatre, now singing from Chișinău, she writes songs in Russian, each one unfolding like a small play: a scene, a confession, a curtain. D'Shen is her stage, the place where the Russian romance and Silver Age poetry meet a modern, intimate voice. Her debut album “There and Then” gathers eight small lives, played out on stage… memory, cities, ships and dreams — the singing and the soul of a woman who, on stage, dared to speak the truth.",
 
   "live.follow_before": "Follow",
   "live.follow_handle": "@rogozinskaya.darina",
@@ -57,7 +58,7 @@
   "live.unplugged_meta": "11 July 2026 · Chișinău",
   "live.photo_full_alt": "The full band under a tree strung with fairy lights, crowd silhouettes in the foreground",
   "live.photo_left_alt": "The audience at dusk on a rooftop terrace, phones raised",
-  "live.photo_right_alt": "Women dancing with raised arms among cocktail tables",
+  "live.photo_right_alt": "Women dancing with raised arms behind a cocktail table with a red rose",
 
   "contact.email": "contact@dshenmusic.com",
   "social.spotify": "Spotify",

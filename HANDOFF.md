@@ -52,12 +52,14 @@ Nothing here is native-verified — these are people-gates, per `CONTENT.md`:
 
 | Owner | Needs to |
 |-------|----------|
-| **Native Romanian speaker(s)** | Review **all of `ro.json`** — hard gate. Owner + artist are A0; the whole file is placeholder-quality until checked. Watch the coined `„NeActriță"` and the title renderings (`„Acolo și atunci"`, `„Corăbii"`). |
-| **D'Shen (native UA)** | Sign off `ua.json`: confirm the coined `«НеАкторка»`, `label.about` (“Про мене” vs “Про D'Shen”), `label.live` (“Наживо” vs “Виступи”), and the bio wording. |
-| **Artist** | Confirm the **About bio** (all languages) — still a draft per CONTENT.md. |
-| **Owner** | Minor: RU streaming line `«Яндекс Музыка»` vs Latin “Yandex Music”. |
+| **Native Romanian speaker(s)** | Review **all of `ro.json`** — hard gate. Owner + artist are A0; the whole file is placeholder-quality until checked. Watch the coined `„NeActriță"` and the title renderings (`„Acolo și atunci"`, `„Corăbii"`). **Top 4 questions from the 2026-07-25 pass:** (1) does `„Cufundă-te"` work alone on a button, or does *a se cufunda* need a complement? (2) is `„formată pentru teatru"` natural, or does RO want `„cu studii de teatru"`? (3) the album says `„8 piese"` (tracks) and the About heading says `„o mică piesă de teatru"` (a play) — does the second *piesă* trip you up? (4) anything that reads Bucharest-standard in a way that would feel off to a Chișinău audience? |
+| **D'Shen (native UA)** | Sign off `ua.json`: confirm the coined `«НеАкторка»`, `label.about` (“Про мене” vs “Про D'Shen”), `label.live` (“Наживо” vs “Виступи”). **About block reviewed 2026-07-25** — her edits applied (singular `about.title`, rewritten closing sentence, `цілком` → `без залишку`); the rest of the file still needs her pass. **New from the 2026-07-25 AI-voice pass — her ear decides:** `«Вже вийшов»` → `«Уже вийшов»` (euphony rule says «уже», but some speakers read it as Russian-adjacent — and this is the hero release chip, the most visible string changed); and `«вихована для театру»` → `«з театральною освітою»` — the calque is real, but **she read that block on 07-25 and left the phrase standing**, so she may have meant it. Warmer non-calque alternative if she wants the poetry back: `«вихована театром»`. **And one tiebreak for her:** `«зустрічаються із сучасним»` — is `«із»` or `«з»` right before `«сучасним»`? Two reviewers disagreed; her original was kept pending her ear. |
+| **Artist** | Confirm the **About bio**. Her UA edits (2026-07-25) are now the source: singular heading, `без залишку` opening, her closing sentence. **EN / RU / RO were re-rendered from her UA line** and need her nod on the rendering (EN heading “A song is a small play”; RU `пение и душа`; RO is A0 anyway). Also from the 07-25 pass: EN now says **“the Russian romance”** for `романс` — correct English for the genre, but it makes an explicit lineage claim on the EN page, so confirm she's happy in it. |
+| **Owner** | Minor: RU streaming line `«Яндекс Музыка»` vs Latin “Yandex Music” (for the record: Cyrillic is the correct post-2023 brand form; the only argument for Latin is icon-row consistency). **Bigger, from the 07-25 pass: `hero.cta`.** “Embark” / «Погрузиться» / „Cufundă-te" / «Зануритися» is textbook LLM-default CTA vocabulary and the only button that doesn't say what it does. Left untouched because it's your 07-24 decision — reopen or confirm. Alternatives proposed per language in the decisions log. |
 
-Reviewer confidence (second-pass, NOT native): **RU ~80% · UA ~85% · RO ~72%**.
+Reviewer confidence (second-pass, NOT native): **RU ~85% · UA ~88% · RO ~75%** — nudged up by the
+2026-07-25 AI-voice pass, which removed the translationese but does **not** substitute for a native
+read. RO's hard gate is unchanged.
 
 ## How to work with it
 
@@ -88,6 +90,60 @@ Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + loca
   `<html lang>` / plural rules).
 
 ## Decisions log
+
+- **2026-07-25 (AI-voice pass)** — Audited all four locale files against a freshly-researched
+  rubric of 2026-era LLM writing tells (lexical, syntactic, rhetorical, per-language calque and
+  typography markers; sources indexed in the commit discussion). **28 strings changed across
+  EN/RU/RO/UA + 3 `index.html` meta tags.** The bios were never the problem — every one carries
+  11–21 concrete particulars per 100 words, far above the "abstraction density" threshold that
+  actually flags generated prose. What the pass found was **translationese**: English sentence
+  architecture surviving into the other three languages. Highlights:
+  - **RU** «актриса *приходит* в роль» → «*входит* в роль» (a dead calque of "comes to a role");
+    «с театральным образованием» → «по образованию театральная актриса»; «слушайте везде» →
+    «Слушайте на всех площадках».
+  - **UA** «співає *з* Кишинева» → «співає *в* Кишиневі»; «вихована для театру» →
+    «з театральною освітою»; «Вже вийшов» → «Уже вийшов» and «із сучасним» → «з сучасним»
+    (милозвучність); «Вихід … за {n}» → «Вийде … через {n}».
+  - **RO** removed the gerunziu tail „fiecare desfășurându-se ca…", the empty copula
+    „acesta este", and fixed the bare-adjective a11y labels „Principală"/„Mobilă".
+  - **EN** „the romance tradition" → **"the Russian romance"** (the genre «романс» has a name in
+    English; the old phrasing pointed readers at medieval romance), and og/twitter
+    "New album" → "Debut album".
+  - **`live.photo_right_alt` was factually wrong in all four languages** — checked against
+    `DSC09505` and `PHOTOS.md`: it is **one** cocktail table with a red rose, not "cocktail
+    tables". Corrected in EN/RU/RO/UA.
+  - **`hero.cta` deliberately NOT changed.** “Embark” sits verbatim on the rubric's list of
+    default LLM CTA verbs (Discover/Explore/Unlock/Embark/…), and it is the one button that
+    doesn't say what it does — its own `aria-label` has to explain it. But it is an owner
+    decision from 2026-07-24 across four languages, so it is **flagged, not touched**. See the
+    open-questions table above.
+  - **D'Shen's own Ukrainian wording was treated as locked** and verified byte-identical after
+    the pass: `about.title`, «— без залишку», «кожна з яких розгортається», and her whole closing
+    sentence. Where the rubric flagged something inside her text (the `…`, the repeated «на сцені»,
+    the aphoristic close) it was recorded as an observation and left alone — the repetition is
+    hers and deliberate, not a translation artifact.
+
+  **Adversarial re-audit of the pass itself (same day).** The edits were then re-checked against
+  the rubric by a reviewer that had not made them. Hard locks all passed; **five edits were
+  reverted as scope creep** — style passes making content decisions they hadn't earned:
+  - RU `video.meet.meta` «Беседа» (a change to «История песни» was an unverified reframing of what
+    the video *is* — nobody watched it) and RU `music.singles_label` «Вышедшие синглы» (tightening
+    for its own sake; EN/RO/UA all keep "released").
+  - RO `„jucate pe scenă"` — a change to `„puse în scenă"` was **a real meaning error**: *a pune în
+    scenă* is to stage/direct a production, but the source (RU «сыгранных» / UA «відтворених» /
+    EN "played out") means *performed*. An A0 editor nearly had her directing her own songs.
+  - UA **«із сучасним» restored**. The change to «з» was made on euphony grounds, but «із» is the
+    prescribed form before с/ш/щ/ч/ц, and the same pass wrote «із червоною трояндою» before ч —
+    the rule was applied inconsistently. Reverted to the version D'Shen saw on 07-25. **Ask her.**
+  - Two genuine gaps it found were fixed instead: EN `meta.description` named only Spotify + Apple
+    while its own `og:description` said "and more" (now consistent), and UA `meta.description` kept
+    the same "listen everywhere" calque EN and RU had both just dropped (now «на всіх платформах»).
+  - Not changed, and deliberately so: **EN `a11y.nav_primary` stays the bare "Primary"** — RU/RO/UA
+    needed the noun added because a dangling adjective isn't a label in those languages, but in
+    English W3C guidance is the opposite (don't repeat the landmark role in its `aria-label`).
+  - Independent concrete-noun recount of the bios: **EN 14 · RU 14 · RO 14 · UA 13 per 100 words**
+    against a fail threshold of 3. The bios never read as generated; the problem was translationese
+    in the surrounding strings, and that is what got fixed.
 
 - **2026-07-24 (album release day)** — Album **«Там и тогда» is OUT**; site flipped presave → release:
   - **Hero CTA** is now a "journey" CTA (owner steer: "more about the journey — типа погрузиться / embark"):
