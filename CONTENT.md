@@ -91,8 +91,9 @@ album block + the two released singles.
 
 ## Video section
 
-Facade/lazy embeds only (`youtube-nocookie` iframe injected on click). **Final selection —
-2 videos in the grid:**
+Facade/lazy embeds only (`youtube-nocookie` iframe injected on click). **2 videos in the
+`#video` grid** — the grid is for the songs. Concert footage lives in `#live` instead
+(the UNPLUGGED aftermovie, see Live below), so a count of 2 here is correct, not stale.
 
 | # | Title | YouTube ID | Meta |
 |---|-------|------------|------|
@@ -136,10 +137,24 @@ languages are translations *of her line*, not of the earlier English draft. Her 
 
 - No announced upcoming dates → a single line (no "no shows" heading):
   `FOLLOW @rogozinskaya.darina FOR ANNOUNCEMENTS` (handle in accent → Instagram).
-- Past moment: `UNPLUGGED — the debut` · `11 July 2026 · Chișinău` (acoustic set) +
-  a photo grid: full-width 16:8 `DSC09446` on top, two 3:4 halves below (`DSC09476`,
-  `DSC09505`). A credibility moment, not a listing. Full catalog:
-  `assets/unplugged-2026-07-11/PHOTOS.md`.
+- Past moment, `live.unplugged_title` / `live.unplugged_meta` (owner wording 2026-08-10):
+  **`UNPLUGGED – Aftermovie`** — **en dash, not em** — with `11 July 2026 · Chișinău`
+  **right-aligned on the same row** (`justify-content:space-between`), so the two read as
+  two cells rather than one run-on line. Per language: RU `UNPLUGGED – Афтермуви`,
+  RO `UNPLUGGED – Aftermovie`, UA `UNPLUGGED – Афтермуві`.
+- Then the **aftermovie**, a **hairline divider**, then the photo grid: full-width 16:8
+  `DSC09446` on top, two 3:4 halves below (`DSC09476`, `DSC09505`). A credibility moment,
+  not a listing. Full catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
+- **Aftermovie** (added 2026-08-10), directly under the show heading, above the photos:
+  YouTube `fjEmQEnzrl4` — https://www.youtube.com/watch?v=fjEmQEnzrl4
+  ("D'Shen – Unplugged | 2026 Aftermovie"). Same facade pattern as the `#video` cards,
+  thumbnail `assets/video/fjEmQEnzrl4.webp` (owner-supplied frame with the UNPLUGGED
+  wordmark already on it — not the YouTube auto-thumbnail).
+  **No caption under the player** — the word "Aftermovie" moved up into the heading, and a
+  `.live__divider` hairline separates the film from the photo gallery instead. There is
+  therefore **no `live.aftermovie` key**; don't reintroduce one.
+  The play button's `aria-label` and the injected iframe's `title` both resolve from
+  `live.unplugged_title`, so the film needs no localized strings of its own.
 
 ## Assets — originals in `assets/src/` (gitignored), web versions committed
 
@@ -154,6 +169,7 @@ tracked (~5 MB total, largest 344 KB), generated with ImageMagick at quality 80.
 | Single «Корабли» | `korabli/` (1:1 + 9:16) | `korabli/korabli-1x1-{400,800,1200}.webp`, `korabli-9x16-{800,1080}.webp` |
 | Single «Неактриса» | `neaktrisa/` (1:1 + 9:16) | `neaktrisa/neaktrisa-1x1-{400,800,1200}.webp`, `neaktrisa-9x16-{800,1080}.webp` |
 | UNPLUGGED photos (15) | `unplugged-2026-07-11/DSC*.jpg` | `unplugged-2026-07-11/DSC<n>-{800,1600}.webp` (all 15) + `-2400.webp` for the 3 hero picks (DSC09567 / 09398 / 09446); plus `PHOTOS.md` |
+| Video thumbnails | owner-supplied frames (Downloads / editing exports, not in `assets/src/`) | `video/<youtube-id>.webp` at 1280×720 — `mFEPXxBuKIc` (34 KB), `57JVbhlsunk` (42 KB), `fjEmQEnzrl4` (65 KB, q70 — busier frame, q80 came out 84 KB). Self-hosted on purpose: nothing is ever fetched from `img.youtube.com` at runtime |
 | Logo / wordmark | `dshen-logo/` (`.ai`, `.eps`, full-res `.png`, black+white) | `logo/dshen-logo-{black,white}-{800,1600}.png` |
 | Fonts | src masters `fonts/oswald/` (live) + `fonts/lora/` (dormant) + `fonts/caveat/` (retired); `fonts/ambition-ink/` artwork-only | `fonts/oswald-var.woff2` (the single live font) + dormant `fonts/lora-var.woff2` + `OFL-*.txt` — subset variable woff2, all 4 langs ✓ |
 
@@ -179,25 +195,36 @@ they map 1:1 to `PHOTOS.md`.
 
 ## i18n copy status
 
-All four languages are now drafted in `i18n/` (`en.json` · `ru.json` · `ro.json` ·
-`ua.json`) — every section. EN is final/live; RU/RO/UA are first drafts pending sign-off:
+All four languages are live in `i18n/` (`en.json` · `ru.json` · `ro.json` · `ua.json`) —
+every section, all shipped. **Review is continuous, against the live site — it is not a
+publish gate** (owner decision 2026-07-24, reaffirmed 2026-08-10). New copy is written to
+the best standard available and ships in all four languages at once; what's unverified is
+logged here so a reviewer has a worklist.
 
-| Lang | State | 2nd-pass confidence | Gate before publish |
-|------|-------|---------------------|---------------------|
-| EN   | ✅ final, live on site | — | About block re-rendered 2026-07-25 from D'Shen's UA edits — artist OK still open |
-| RU   | 📝 draft, in JSON | ~80% | strong; owner (native) confirms wording (esp. new `пение и душа`) |
-| RO   | ⚠️ draft, in JSON | ~72% | **must be native-checked — owner + artist A0**; new About wording is A0 draft too |
-| UA   | 📝 draft; About block signed off 2026-07-25 | ~85% | D'Shen (native) reviews the rest; confirm «НеАкторка» |
+| Lang | State | 2nd-pass confidence | Outstanding review debt |
+|------|-------|---------------------|-------------------------|
+| EN   | ✅ live | — | About block re-rendered 2026-07-25 from D'Shen's UA edits — artist OK still open |
+| RU   | ✅ live | ~85% | owner (native) confirms wording — `пение и душа` |
+| RO   | ✅ live, weakest | ~75% | owner + artist are A0 → needs a local Romanian read; see the question list below |
+| UA   | ✅ live; About block signed off 2026-07-25 | ~88% | D'Shen (native) reviews the rest; confirm «НеАкторка» |
 
-Confidence is a self-review second pass, **not** native verification. The About bio (all
-langs) and the coined single title still need artist sign-off. Full per-language review
-flags + current state: see `HANDOFF.md`.
+Confidence is a self-review second pass, **not** native verification. Full per-language
+flags and the decisions log: see `HANDOFF.md`.
 
-**Translation review — who signs off on each language:**
+**Who reviews each language:**
 
 - **RU** — owner (native) and D'Shen both fluent. Safe.
 - **EN** — owner is C2. Safe to draft + self-review.
 - **UA** — D'Shen is a **native Ukrainian speaker** → she reviews UA.
-- **RO** — ⚠️ the gap. Owner and D'Shen are both **A0** in Romanian. RO copy MUST be
-  checked by local Romanian-speaking friends before publish. **Never ship RO
-  unreviewed** — machine/draft RO is a placeholder only.
+- **RO** — the weak spot: owner and D'Shen are both **A0**. RO ships anyway; local
+  Romanian-speaking friends review it in place. Never drop an RO key to avoid the
+  problem — a missing key silently falls back to English mid-page, which is worse than
+  imperfect Romanian.
+
+**Open RO questions for whoever reads it** (from the 2026-07-25 pass):
+1. Does `„Cufundă-te"` work alone on a button, or does *a se cufunda* need a complement?
+2. Is `„formată pentru teatru"` natural, or does RO want `„cu studii de teatru"`?
+3. The album says `„8 piese"` (tracks) and the About heading `„o mică piesă de teatru"`
+   (a play) — does the second *piesă* trip you up?
+4. Anything reading Bucharest-standard in a way that would feel off in Chișinău?
+5. The coined `„NeActriță"` and the title renderings `„Acolo și atunci"` / `„Corăbii"`.

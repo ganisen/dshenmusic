@@ -313,16 +313,18 @@ button{font-family:inherit;}
 }
 .live__handle:hover{color:var(--text);}
 .live__showhead{
-  display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px;
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:8px 24px;flex-wrap:wrap;margin-bottom:18px;
 }
 .live__showtitle{
   font-family:var(--font-display);font-weight:400;
   font-size:clamp(1.9rem, 4.5vw, 2.6rem);line-height:1;
 }
 .live__showmeta{
-  font-size:13px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;
-  color:rgba(242,237,230,.55);
+  font-size:clamp(14px, 1.5vw, 17px);font-weight:400;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(242,237,230,.55);
 }
+.live__divider{height:1px;background:var(--hairline);margin:28px 0;}
 .live__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .live__img{width:100%;object-fit:cover;}
 .live__img--full{grid-column:1 / -1;aspect-ratio:16/8;}

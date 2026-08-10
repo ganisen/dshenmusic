@@ -214,7 +214,10 @@
         if (!id) return;
         var v = btn.closest(".video");
         var titleEl = v && v.querySelector(".video__title");
-        var title = titleEl ? titleEl.textContent.trim() : "Video";
+        /* Cards without a .video__title (e.g. the Live aftermovie) carry a localized
+           data-video-title instead, so the iframe title is never bare. */
+        var title = titleEl ? titleEl.textContent.trim()
+                            : (btn.getAttribute("data-video-title") || "Video");
         var iframe = document.createElement("iframe");
         iframe.className = "video__frame";
         iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";

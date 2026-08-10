@@ -4,20 +4,19 @@
 authoritative snapshot of where things stand, what was decided, and what's left. Read
 `CLAUDE.md` first for the non-negotiable rules; this file is the live status.
 
-_Last updated: 2026-07-24 (album release day)._
+_Last updated: 2026-08-10 (UNPLUGGED aftermovie added to Live)._
 
 ---
 
 ## TL;DR
 
-- The **production single-page site is built** — `index.html` / `style.css` / `main.js`,
-  recreating the finalized design. `BUILD.md` (the original build brief) is **done**.
-- **All four languages are drafted** in `i18n/`: **EN is final/live**; **RU / RO / UA are
-  first drafts** pending sign-off.
-- Everything lives on branch **`build/production-site`**, pushed. Cloudflare preview:
-  **https://build-production-site.dshenmusic.pages.dev**
-- **NOT merged to `main`.** `main` is production and auto-deploys. Merge only after owner
-  review + the translation sign-offs below.
+- The **production single-page site is live** at dshenmusic.com — `index.html` /
+  `style.css` / `main.js`. `BUILD.md` (the original build brief) is **done**.
+- **All four languages are live** in `i18n/`. EN is final; RU/UA/RO carry review debts
+  (below) that are worked off **against the live site** — they don't hold up a deploy.
+- **`main` is production and auto-deploys within ~1 min of a push.** `build/production-site`
+  is fully merged and can be deleted. Do feature work on a branch → Cloudflare builds a
+  preview at `<branch-name>.dshenmusic.pages.dev` → merge when the owner approves.
 - Album **«Там и тогда» / “There and Then”** **released 2026-07-24** — site flipped to post-release:
   hero CTA is now the journey CTA **“Embark” / «Погрузиться»** → the same `band.link/dshen_tam_i_togda`
   hub (now streaming), and the chips read **“Out now”**. See the 2026-07-24 decisions-log entry.
@@ -33,9 +32,14 @@ _Last updated: 2026-07-24 (album release day)._
   `NonActress` / `«НеАктриса»` / `„NeActriță"` / `«НеАкторка»`.
 - **Single cards link to band.link hubs** — Корабли → `band.link/dshenkorabli`,
   Неактриса → `band.link/dshen_neaktrisa` (were direct YouTube audio links).
-- **Video grid** (facade/lazy YouTube):
+- **Video grid** (facade/lazy YouTube) — the songs only:
   - v1 `mFEPXxBuKIc` — “On “Ships”” · Behind the song · **0:45** (talking-head, confirmed)
   - v2 `57JVbhlsunk` — ““Ships” — snippet” · Teaser · **0:27** (snippet, confirmed)
+- **Live section** — follow line + the UNPLUGGED block: heading `UNPLUGGED – Aftermovie`
+  (**en dash**) with the date/city right-aligned on the same row, then the **aftermovie**
+  (`fjEmQEnzrl4`, added 2026-08-10, same facade pattern, no caption), a hairline
+  `.live__divider`, then the 3-photo grid. Concert footage goes here, not in the video
+  grid — don't "fix" the grid's count of 2.
 - **Footer social icons** are the **official Simple Icons** marks (Spotify, Apple Music,
   YouTube, Deezer=current 2023 heart, Instagram) — monochrome via `fill="currentColor"`,
   brand-audited as correct + current; nominative footer/profile-link use is compliant.
@@ -46,20 +50,25 @@ _Last updated: 2026-07-24 (album release day)._
   two-font Caveat + Oswald system). Lora is kept dormant for a one-line switch-back; see the
   decisions log below and `DESIGN.md → Typography`.
 
-## What's left ⛔ (before this can go to production)
+## Open review debts (the site is already live — these are worked off in place)
 
-Nothing here is native-verified — these are people-gates, per `CONTENT.md`:
+**Not gates.** Everything below ships and is reviewed against the live site; that is the
+standing decision (2026-07-24, reaffirmed 2026-08-10). Nothing here blocks a deploy.
 
 | Owner | Needs to |
 |-------|----------|
-| **Native Romanian speaker(s)** | Review **all of `ro.json`** — hard gate. Owner + artist are A0; the whole file is placeholder-quality until checked. Watch the coined `„NeActriță"` and the title renderings (`„Acolo și atunci"`, `„Corăbii"`). **Top 4 questions from the 2026-07-25 pass:** (1) does `„Cufundă-te"` work alone on a button, or does *a se cufunda* need a complement? (2) is `„formată pentru teatru"` natural, or does RO want `„cu studii de teatru"`? (3) the album says `„8 piese"` (tracks) and the About heading says `„o mică piesă de teatru"` (a play) — does the second *piesă* trip you up? (4) anything that reads Bucharest-standard in a way that would feel off to a Chișinău audience? |
+| **Native Romanian speaker(s)** | Review **all of `ro.json`** — highest-value debt, since owner + artist are A0 and nobody on the team can spot an error. Watch the coined `„NeActriță"` and the title renderings (`„Acolo și atunci"`, `„Corăbii"`). **Top 4 questions from the 2026-07-25 pass:** (1) does `„Cufundă-te"` work alone on a button, or does *a se cufunda* need a complement? (2) is `„formată pentru teatru"` natural, or does RO want `„cu studii de teatru"`? (3) the album says `„8 piese"` (tracks) and the About heading says `„o mică piesă de teatru"` (a play) — does the second *piesă* trip you up? (4) anything that reads Bucharest-standard in a way that would feel off to a Chișinău audience? |
 | **D'Shen (native UA)** | Sign off `ua.json`: confirm the coined `«НеАкторка»`, `label.about` (“Про мене” vs “Про D'Shen”), `label.live` (“Наживо” vs “Виступи”). **About block reviewed 2026-07-25** — her edits applied (singular `about.title`, rewritten closing sentence, `цілком` → `без залишку`); the rest of the file still needs her pass. **New from the 2026-07-25 AI-voice pass — her ear decides:** `«Вже вийшов»` → `«Уже вийшов»` (euphony rule says «уже», but some speakers read it as Russian-adjacent — and this is the hero release chip, the most visible string changed); and `«вихована для театру»` → `«з театральною освітою»` — the calque is real, but **she read that block on 07-25 and left the phrase standing**, so she may have meant it. Warmer non-calque alternative if she wants the poetry back: `«вихована театром»`. **And one tiebreak for her:** `«зустрічаються із сучасним»` — is `«із»` or `«з»` right before `«сучасним»`? Two reviewers disagreed; her original was kept pending her ear. |
 | **Artist** | Confirm the **About bio**. Her UA edits (2026-07-25) are now the source: singular heading, `без залишку` opening, her closing sentence. **EN / RU / RO were re-rendered from her UA line** and need her nod on the rendering (EN heading “A song is a small play”; RU `пение и душа`; RO is A0 anyway). Also from the 07-25 pass: EN now says **“the Russian romance”** for `романс` — correct English for the genre, but it makes an explicit lineage claim on the EN page, so confirm she's happy in it. |
-| **Owner** | Minor: RU streaming line `«Яндекс Музыка»` vs Latin “Yandex Music” (for the record: Cyrillic is the correct post-2023 brand form; the only argument for Latin is icon-row consistency). **Bigger, from the 07-25 pass: `hero.cta`.** “Embark” / «Погрузиться» / „Cufundă-te" / «Зануритися» is textbook LLM-default CTA vocabulary and the only button that doesn't say what it does. Left untouched because it's your 07-24 decision — reopen or confirm. Alternatives proposed per language in the decisions log. |
+| **Owner** | Minor: RU streaming line `«Яндекс Музыка»` vs Latin “Yandex Music” (for the record: Cyrillic is the correct post-2023 brand form; the only argument for Latin is icon-row consistency). The aftermovie transliterations in `live.unplugged_title` were confirmed 2026-08-10 — settled. |
+
+`hero.cta` is **settled** — “Embark” / «Погрузиться» / „Cufundă-te" / «Зануритися» was
+flagged on 07-25 as LLM-default CTA vocabulary; owner confirmed on 2026-08-10 that it is
+an intentional choice. Don't reopen it.
 
 Reviewer confidence (second-pass, NOT native): **RU ~85% · UA ~88% · RO ~75%** — nudged up by the
 2026-07-25 AI-voice pass, which removed the translationese but does **not** substitute for a native
-read. RO's hard gate is unchanged.
+read. RO remains the weakest file; it ships regardless.
 
 ## How to work with it
 
@@ -69,11 +78,12 @@ python3 -m http.server 8000    # then open http://localhost:8000  (Ctrl-C to sto
 ```
 Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + localStorage.
 
-**Preview (shared):** push the branch → Cloudflare rebuilds
-`build-production-site.dshenmusic.pages.dev` (~1 min).
+**Preview (shared):** push any non-`main` branch → Cloudflare builds
+`<branch-name>.dshenmusic.pages.dev` (~1 min), slashes becoming dashes.
 
-**Ship to production:** merge `build/production-site` → `main` (opens auto-deploy to
-`dshenmusic.com`). Do this **only** after owner approval + RO/UA/bio sign-offs.
+**Ship to production:** merge the branch → `main`, which auto-deploys to `dshenmusic.com`
+within ~1 min. Gate this on **owner approval only** — translation review is continuous and
+never blocks a deploy.
 
 ## i18n cheat-sheet (for editing copy)
 
@@ -90,6 +100,45 @@ Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + loca
   `<html lang>` / plural rules).
 
 ## Decisions log
+
+- **2026-08-10 (UNPLUGGED aftermovie)** — Added the concert film `fjEmQEnzrl4`
+  ("D'Shen – Unplugged | 2026 Aftermovie") to the site.
+  - **Placed in `#live`, not the `#video` grid.** Three homes were considered: a third
+    card in the video grid (which would auto-flow 3-across with no CSS change), a featured
+    full-width card above the grid, or inside the UNPLUGGED block. Live won because the
+    film is *of* the 11 July show whose photos already sit there — film and photos of the
+    same night belong together, and `#video` stays about the songs. This is also where the
+    old Phase 2 note ("possibly expand the Live section") pointed.
+  - **Owner revision, same day.** First pass captioned the player `AFTERMOVIE` under a
+    `UNPLUGGED — the debut` heading. Owner reworked it: the heading became
+    **`UNPLUGGED – Aftermovie`** (**en dash**, and "Aftermovie" replaces "the debut"), the
+    date/city moved to the **right of the same row** at a larger size
+    (`justify-content:space-between`, `clamp(14px, 1.5vw, 17px)`) so the row reads as two
+    cells, the caption under the player was **deleted**, and a **hairline divider**
+    (`.live__divider`, `var(--hairline)`) now separates film from photos. The
+    `live.aftermovie` key was removed from all four locales — the word lives in the
+    heading now. At narrow widths the head wraps the date onto its own line; verified no
+    overflow at 500px.
+  - **Thumbnail is an owner-supplied frame**, not the YouTube auto-thumbnail: a 3840×2160
+    export with the wordmark already on it → `assets/video/fjEmQEnzrl4.webp` 1280×720.
+    Encoded at **q70 (65 KB)**; q80 came out 84 KB, twice its neighbours, because the frame
+    is a dark scene full of fairy-light highlights. q70 showed no banding in the darks.
+  - **`main.js` iframe-title fallback widened.** `initVideos()` derived the iframe `title`
+    from `.video__title`, which this card deliberately doesn't have — the frame would have
+    been titled "Video". The button now carries a localized `data-video-title` (resolved
+    from the existing `live.unplugged_title` via `data-i18n-attr`, which does a generic
+    `setAttribute` so any attribute name works), and the fallback reads that. Verified:
+    RU load → frame title `UNPLUGGED — дебют`, focus moves to the iframe.
+  - **Net zero new i18n keys.** `live.unplugged_title` was reworded in all four locales
+    (RU «UNPLUGGED – Афтермуви», UA «UNPLUGGED – Афтермуві» — owner confirmed the
+    transliterations read fine); the `aria-label` and iframe title both resolve from it.
+  - **RO shipped with everything else.** Owner reaffirmed the 07-24 override and asked for
+    the gate language to be removed from the docs — RO ships every release and is reviewed
+    in place. `CLAUDE.md`, `CONTENT.md` and this file were rewritten accordingly; the RO
+    question list survives as a worklist in `CONTENT.md`.
+  - **`hero.cta` confirmed as intentional** and de-flagged. Not an AI tell — owner's call.
+  - Fixed a real miss from the 07-25 pass: `live.photo_right_alt` was corrected in all four
+    JSONs but the inline HTML default still described cocktail tables that aren't in frame.
 
 - **2026-07-25 (AI-voice pass)** — Audited all four locale files against a freshly-researched
   rubric of 2026-era LLM writing tells (lexical, syntactic, rhetorical, per-language calque and
@@ -201,9 +250,11 @@ Click EN/RU/RO/UA in the header to switch. Language persists via `?lang=` + loca
 
 ## Next steps (suggested order)
 
-1. Get **`ro.json` reviewed by a native Romanian speaker**; apply fixes.
+1. Get **`ro.json` reviewed by a native Romanian speaker**; apply fixes to the live site.
+   The question list is in `CONTENT.md` → "Open RO questions for whoever reads it".
 2. **D'Shen** reviews `ua.json` + confirms the bio (all langs).
-3. Owner reviews the preview in all four languages; resolve the minor open calls.
-4. **Merge `build/production-site` → `main`** (or open a PR) → production deploy.
-5. **Phase 2 (post-release, after 2026-07-24):** swap presave CTA → streaming links;
-   add a video-loop hero if a proper loop is produced; possibly expand the Live section.
+3. Owner: the Yandex Music wording (RU «Яндекс Музыка» vs Latin) — the last minor call.
+4. **Phase 2, ongoing:** keep expanding Live as material arrives (the aftermovie landed
+   2026-08-10); add a video-loop hero if a proper loop is produced.
+5. Housekeeping: `build/production-site` is fully merged into `main` — safe to delete
+   locally and on the remote.
