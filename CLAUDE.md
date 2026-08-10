@@ -70,9 +70,12 @@ name "D'Shen" is still never transliterated. Note: cover artwork keeps the Russi
 baked in — that's the artwork, expected.
 
 Translation review: RU/EN safe (owner native RU / C2 EN), UA reviewed by D'Shen
-(native Ukrainian). **RO is the gap** — owner and artist are both A0, so RO copy must
-be checked by local Romanian-speaking friends before publish; never ship RO
-unreviewed. Details in CONTENT.md → "i18n copy status".
+(native Ukrainian). **RO is the weak spot** — owner and artist are both A0. RO still
+**ships with every release** (owner decision 2026-07-24, reaffirmed 2026-08-10): native
+review by local Romanian-speaking friends is a continuous pass against the live site,
+not a publish gate. Write RO to the best standard you can, ship it, and log open
+wording questions in CONTENT.md → "i18n copy status" so a reviewer has a list to work
+from. Never silently drop an RO string — a missing key falls back to English mid-page.
 
 ## Working rules
 
@@ -95,14 +98,14 @@ unreviewed. Details in CONTENT.md → "i18n copy status".
 
 ## Current phase
 
-Phase 1 (now → July 24): launch-ready single page with presave CTA as the hero action.
-**The production build is DONE** — `index.html` / `style.css` / `main.js` recreate the
-finalized design, and all four languages live in `i18n/` (**EN final**; **RU/RO/UA are
-first drafts**). It sits on branch `build/production-site` (preview:
-build-production-site.dshenmusic.pages.dev) and is **not yet merged to `main`** — awaiting
-owner review plus the translation sign-offs (RO native speakers, D'Shen for UA + the bio).
+Phase 1 is **shipped**. The album released 2026-07-24 and the site is live on `main` in
+all four languages — hero and album CTAs point at the band.link hub, the release chips
+auto-flip to "Out now". `build/production-site` is fully merged and can be deleted.
 → **Read `HANDOFF.md`** for the authoritative current state, decisions log, and next steps.
 (`BUILD.md` is the historical brief for the original build — now complete. Design source
 of truth stays `design_handoff_dshen_site/` + `DESIGN.md`; copy in `CONTENT.md`.)
-Phase 2 (after release): swap presave CTA → streaming links; add video loop hero
-if/when a proper loop is produced; possibly expand Live section.
+
+Phase 2 (now): expand the Live section as material arrives — the UNPLUGGED aftermovie
+landed 2026-08-10; add a video-loop hero if/when a proper loop is produced. Open review
+debts (RO wording, D'Shen on the rest of `ua.json`) are tracked in `HANDOFF.md` and are
+worked off against the live site, not held in front of it.
