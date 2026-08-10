@@ -137,23 +137,24 @@ languages are translations *of her line*, not of the earlier English draft. Her 
 
 - No announced upcoming dates → a single line (no "no shows" heading):
   `FOLLOW @rogozinskaya.darina FOR ANNOUNCEMENTS` (handle in accent → Instagram).
-- Past moment: `UNPLUGGED — the debut` · `11 July 2026 · Chișinău` (acoustic set) +
-  the **aftermovie**, then a photo grid: full-width 16:8 `DSC09446` on top, two 3:4
-  halves below (`DSC09476`, `DSC09505`). A credibility moment, not a listing. Full
-  catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
+- Past moment, `live.unplugged_title` / `live.unplugged_meta` (owner wording 2026-08-10):
+  **`UNPLUGGED – Aftermovie`** — **en dash, not em** — with `11 July 2026 · Chișinău`
+  **right-aligned on the same row** (`justify-content:space-between`), so the two read as
+  two cells rather than one run-on line. Per language: RU `UNPLUGGED – Афтермуви`,
+  RO `UNPLUGGED – Aftermovie`, UA `UNPLUGGED – Афтермуві`.
+- Then the **aftermovie**, a **hairline divider**, then the photo grid: full-width 16:8
+  `DSC09446` on top, two 3:4 halves below (`DSC09476`, `DSC09505`). A credibility moment,
+  not a listing. Full catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
 - **Aftermovie** (added 2026-08-10), directly under the show heading, above the photos:
   YouTube `fjEmQEnzrl4` — https://www.youtube.com/watch?v=fjEmQEnzrl4
   ("D'Shen – Unplugged | 2026 Aftermovie"). Same facade pattern as the `#video` cards,
   thumbnail `assets/video/fjEmQEnzrl4.webp` (owner-supplied frame with the UNPLUGGED
   wordmark already on it — not the YouTube auto-thumbnail).
-  Caption is meta only, no title and no runtime — the show heading directly above already
-  carries the name and date, so the single key `live.aftermovie` reads:
-  EN/RO `Aftermovie` · RU `Афтермуви` · UA `Афтермуві` (rendered uppercase).
-  ⚠️ **Owner call outstanding (RU native):** «Афтермуви» / «Афтермуві» are the loanwords
-  the RU/UA event scene uses but their spelling is unsettled. Drop-in alternatives if he
-  prefers native phrasing: RU «Фильм с концерта» / UA «Фільм про концерт».
-  The play button's `aria-label` and the injected iframe's `title` both resolve from the
-  existing `live.unplugged_title`, so no extra localized strings were needed.
+  **No caption under the player** — the word "Aftermovie" moved up into the heading, and a
+  `.live__divider` hairline separates the film from the photo gallery instead. There is
+  therefore **no `live.aftermovie` key**; don't reintroduce one.
+  The play button's `aria-label` and the injected iframe's `title` both resolve from
+  `live.unplugged_title`, so the film needs no localized strings of its own.
 
 ## Assets — originals in `assets/src/` (gitignored), web versions committed
 
@@ -203,9 +204,9 @@ logged here so a reviewer has a worklist.
 | Lang | State | 2nd-pass confidence | Outstanding review debt |
 |------|-------|---------------------|-------------------------|
 | EN   | ✅ live | — | About block re-rendered 2026-07-25 from D'Shen's UA edits — artist OK still open |
-| RU   | ✅ live | ~85% | owner (native) confirms wording — `пение и душа`, and `live.aftermovie` «Афтермуви» |
+| RU   | ✅ live | ~85% | owner (native) confirms wording — `пение и душа` |
 | RO   | ✅ live, weakest | ~75% | owner + artist are A0 → needs a local Romanian read; see the question list below |
-| UA   | ✅ live; About block signed off 2026-07-25 | ~88% | D'Shen (native) reviews the rest; confirm «НеАкторка» and `live.aftermovie` «Афтермуві» |
+| UA   | ✅ live; About block signed off 2026-07-25 | ~88% | D'Shen (native) reviews the rest; confirm «НеАкторка» |
 
 Confidence is a self-review second pass, **not** native verification. Full per-language
 flags and the decisions log: see `HANDOFF.md`.
