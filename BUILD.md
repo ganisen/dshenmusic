@@ -96,7 +96,7 @@ That README has the exact pixels/gradients/copy. Quick map (top → bottom):
 6. **Live `#live`** — `FOLLOW @rogozinskaya.darina FOR ANNOUNCEMENTS` + UNPLUGGED photo grid
    (`DSC09446` top, `DSC09476` + `DSC09505` below).
 7. **Contact/footer `#contact`** — email (Caveat mailto) + 5 social icons (Spotify/Apple/
-   YouTube/Deezer/Instagram; **no Yandex icon** — SVG paths are inline in the prototype's
+   YouTube/Deezer/Instagram — SVG paths are inline in the prototype's
    `socials` array) + `© D'Shen 2026`.
 
 ## Tokens & type (canonical: DESIGN.md → Color / Typography)
@@ -128,7 +128,7 @@ That README has the exact pixels/gradients/copy. Quick map (top → bottom):
   `ru.json`/`ro.json`/`ua.json` later — **until they exist, fall back to `en`** so the site
   works. Default EN. Persist choice in a JS var + URL hash/param (NOT localStorage-dependent
   for core function). Set `document.documentElement.lang` on switch. Wire the header switcher.
-- **Song/album titles stay Russian in every locale** («Там и тогда», «Корабли», «Неактриса»).
+- **Song/album titles are translated per locale** (superseded 2026-07-18; see HANDOFF.md).
 - Priority order EN / RU / RO / UA.
 
 ## Accessibility + perf checklist (before merge)

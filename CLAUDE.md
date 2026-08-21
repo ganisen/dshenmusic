@@ -95,6 +95,13 @@ from. Never silently drop an RO string — a missing key falls back to English m
 8. Do not add analytics, cookie banners, or third-party scripts beyond GSAP and
    YouTube embeds without asking. (Cloudflare Web Analytics may be added later —
    it's cookieless — but ask first.)
+9. **Safety rule (2026-08-22, owner request — non-negotiable):** the public site carries
+   **no reference to Russia, to the songs being in Russian, or to Russian platforms**
+   (Yandex Music, VK, Zvuk). The four UI languages, RU included, stay. Never re-add such
+   a link, icon, or copy line — not from CONTENT.md, not from the design mock, not from
+   a distributor feed. See the 2026-08-22 entry in HANDOFF.md.
+10. Internal docs are kept off the public site by `_redirects` (Pages serves the repo root
+   as-is). **Add a rule to `_redirects` for every new internal `.md` file.**
 
 ## Current phase
 

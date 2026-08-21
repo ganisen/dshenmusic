@@ -41,7 +41,7 @@
   "video.play": "Redă: {title}",
   "about.title": "Un cântec ca o mică piesă de teatru",
   "about.portrait_alt": "D'Shen din profil, cu mâinile împreunate la piept și ochii închiși, în lumină caldă",
-  "about.bio": "Darina a intrat în muzică așa cum o actriță intră într-un rol — fără rezerve. Născută la Odesa și formată pentru teatru, cântă acum la Chișinău și scrie cântece în limba rusă. Fiecare e o mică piesă de teatru: o scenă, o mărturisire, o cortină. D'Shen este scena ei — un loc în care tradiția romanței și poezia Epocii de Argint se întâlnesc cu o voce modernă și intimă. Albumul ei de debut „Acolo și atunci” adună opt vieți mici, jucate pe scenă… amintirea, orașele, corăbiile și visele — cântecul și sufletul celei care, pe scenă, a îndrăznit să spună adevărul.",
+  "about.bio": "Darina a intrat în muzică așa cum o actriță intră într-un rol — fără rezerve. Născută la Odesa și formată pentru teatru, cântă acum la Chișinău și scrie cântece. Fiecare e o mică piesă de teatru: o scenă, o mărturisire, o cortină. D'Shen este scena ei — un loc în care tradiția romanței și poezia Epocii de Argint se întâlnesc cu o voce modernă și intimă. Albumul ei de debut „Acolo și atunci” adună opt vieți mici, jucate pe scenă… amintirea, orașele, corăbiile și visele — cântecul și sufletul celei care, pe scenă, a îndrăznit să spună adevărul.",
   "live.follow_before": "Urmărește",
   "live.follow_handle": "@rogozinskaya.darina",
   "live.follow_after": "pentru anunțuri",
@@ -55,7 +55,6 @@
   "social.apple": "Apple Music",
   "social.youtube": "YouTube",
   "social.deezer": "Deezer",
-  "social.yandex": "Yandex Music",
   "social.instagram": "Instagram",
   "footer.copyright": "2026 © D'Shen. Toate drepturile rezervate.",
   "countdown.days_few": "Apare pe 24 iulie — peste {n} zile"

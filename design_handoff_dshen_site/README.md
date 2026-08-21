@@ -1,7 +1,7 @@
 # Handoff: D'Shen — dshenmusic.com single-page artist site
 
 ## Overview
-Official single-page website for **D'Shen** — female singer-songwriter from Chișinău performing in Russian. Theatrical, cinematic, sincere. Primary goal: drive presaves of the debut album **«Там и тогда»** (out July 24, 2026), then videos, about, live, contact.
+Official single-page website for **D'Shen** — female singer-songwriter from Chișinău. Theatrical, cinematic, sincere. Primary goal: drive presaves of the debut album **«Там и тогда»** (out July 24, 2026), then videos, about, live, contact.
 
 ## About the Design Files
 `DShen Website.dc.html` in this bundle is a **design reference created in HTML** — a prototype showing intended look and behavior, **not production code to copy directly**. The target repo (dshenmusic.com) is a static vanilla HTML/CSS/JS site with GSAP and no build step — recreate this design there using its established patterns (semantic HTML, a real stylesheet, GSAP ScrollTrigger for reveals, the existing i18n setup). `mobile-preview.html` is just a 390px iframe wrapper for review — ignore it.
@@ -56,7 +56,7 @@ Official single-page website for **D'Shen** — female singer-songwriter from Ch
 - Section label row: `MUSIC` + hairline.
 - Two-column grid `repeat(auto-fit, minmax(280px, 1fr))`, gap `clamp(28px,5vw,64px)`, vertically centered; stacks on mobile:
   - Left: album cover `assets/tam_i_togda/tam-i-togda-1x1-1200.webp`, square, shadow.
-  - Right (column, gap 14px): H2 `«Там и тогда»`; meta `DEBUT ALBUM · 8 TRACKS · JULY 24, 2026`; countdown chip (1px accent border, accent text, 8px 16px); `PRESAVE` button (same style, 14px 30px); muted line `SPOTIFY · APPLE MUSIC · YANDEX MUSIC` (12px, ls .14em, .45 opacity).
+  - Right (column, gap 14px): H2 `«Там и тогда»`; meta `DEBUT ALBUM · 8 TRACKS · JULY 24, 2026`; countdown chip (1px accent border, accent text, 8px 16px); `PRESAVE` button (same style, 14px 30px); muted line `SPOTIFY · APPLE MUSIC · YOUTUBE MUSIC` (12px, ls .14em, .45 opacity) — removed from the built site 2026-07-18.
 - **No track list** (explicitly cut).
 - Released singles: label `RELEASED SINGLES` (12px, ls .3em, .55), then grid `minmax(230px, 1fr)`, gap 20px. Card = cover image (square, shadow) + Caveat 1.9rem title + meta `SINGLE · {DATE} · LISTEN ↗` (accent on "Listen"). Whole card is a link, hover lifts 3px:
   - «Корабли» — June 26, 2026 → https://www.youtube.com/watch?v=b4fyT2Es-sM — `assets/korabli/korabli-1x1-800.webp`
@@ -86,7 +86,7 @@ Official single-page website for **D'Shen** — female singer-songwriter from Ch
   - YouTube: https://www.youtube.com/channel/UCpyidY4sL6-NJ1Xt1ezpG2A
   - Deezer: https://www.deezer.com/en/artist/396177361
   - Instagram: https://www.instagram.com/rogozinskaya.darina/
-  - Icon SVG paths are inline in the design file (search `socials` array). Yandex Music icon is **not** in the footer; use official brand SVGs where available.
+  - Icon SVG paths are inline in the design file (search `socials` array). Use official brand SVGs where available. Russian platforms are not listed — see the 2026-08-22 safety scrub in HANDOFF.md.
 - Copyright: `© D'SHEN 2026`, 11px, ls .2em, .4 opacity, above a `.09` hairline.
 
 ## Interactions & Behavior
@@ -109,7 +109,7 @@ All in the repo already (`assets/`): fonts (caveat-var.woff2, oswald-var.woff2 �
 **Note:** during prototyping, `srcset` was dropped in favor of single fixed files due to a preview-environment quirk. In production, DO use responsive `srcset` with the provided 800/1600/2400 sizes.
 
 ## i18n
-Mock is EN-only. All copy must route through the site's 4-language i18n (EN/RU/RO/UA). Album/track titles stay in Russian in every locale.
+Mock is EN-only. All copy must route through the site's 4-language i18n (EN/RU/RO/UA). Titles are translated per locale (owner decision 2026-07-18).
 
 ## Files
 - `DShen Website.dc.html` — the full design (markup with inline styles + logic at the bottom of the file)

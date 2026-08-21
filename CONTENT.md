@@ -16,7 +16,7 @@ All display text ultimately lives in `i18n/*.json`; this file is where it's deci
 
 ## Album — «Там и тогда»
 
-- Release date: **July 24, 2026** — **RELEASED**. Live on Spotify / Apple Music / YouTube Music / Deezer / Yandex.
+- Release date: **July 24, 2026** — **RELEASED**. Live on Spotify / Apple Music / YouTube Music / Deezer.
 - Listen hub (auto-converted from the presave smart link): **https://band.link/dshen_tam_i_togda**
 - **Post-release CTA (live 2026-07-24):** hero button = the journey CTA **“Embark” / «Погрузиться» /
   „Cufundă-te" / «Зануритися»** (owner-chosen "about the journey" framing) → the band.link hub. Album-card
@@ -70,7 +70,7 @@ album block + the two released singles.
   - **Site "Listen ↗" card → band.link hub: https://band.link/dshen_neaktrisa** (as of 2026-07-18)
   - Official audio (distributed via TuneCore): https://www.youtube.com/watch?v=X57QnzJtcUk
   - Release metadata: ISRC `QT6662667261` · UPC `859741394974` · Label D'Shen ·
-    Language Russian · Genre Rock / Alternative.
+    Genre Rock / Alternative.
 
 ## Official links
 
@@ -78,13 +78,12 @@ album block + the two released singles.
 - Apple Music: https://music.apple.com/us/artist/dshen/6778941448
 - YouTube: https://www.youtube.com/channel/UCpyidY4sL6-NJ1Xt1ezpG2A (@dshenmusic)
 - Deezer: https://www.deezer.com/en/artist/396177361
-- Yandex Music: https://music.yandex.com/artist/26134715  (RU footer icon only — added 2026-07-24, issue #4)
 - Instagram: https://www.instagram.com/rogozinskaya.darina/
 - Contact email: **contact@dshenmusic.com** (Porkbun forwarding — live; show on site)
-- Footer social icon row = Spotify · Apple Music · YouTube · Deezer · Instagram (44px circles),
-  **plus a Yandex Music icon shown only on the RU version** (added 2026-07-24, issue #4 — official 2023
-  sunburst mark, monochrome via `currentColor`; gated by `data-lang-only="ru"`, toggled in `applyDict()`).
-  (The old "Spotify · Apple Music · Yandex Music" text line under the CTA was removed 2026-07-18.)
+- Footer social icon row = Spotify · Apple Music · YouTube · Deezer · Instagram (44px circles).
+  **Do not add Russian platforms** (Yandex Music, VK Music, Zvuk) — see the 2026-08-22 safety
+  scrub in HANDOFF.md. The `data-lang-only` gating hook stays in `applyDict()` but is unused.
+  (The old "Spotify · Apple Music · …" text line under the CTA was removed 2026-07-18.)
 - Footer copyright (`footer.copyright`, all langs): **`2026 © D'Shen. All rights reserved.`**
   — year-first, `©` glyph, then the localized "all rights reserved" (RU `Все права защищены.`,
   RO `Toate drepturile rezervate.`, UA `Всі права захищені.`). Format set 2026-07-18.
@@ -112,11 +111,12 @@ Section heading: **A song is a small play** (singular — artist's call, 2026-07
 plural "Songs as small plays" reads as being *about the songs*, the singular is about a
 state of mind).
 
-EN bio — **revised 2026-07-25 from D'Shen's UA edits; EN/RU/RO rendering still hers to confirm:**
+EN bio — **revised 2026-07-25 from D'Shen's UA edits; EN/RU/RO rendering still hers to confirm.
+Language-of-the-lyrics wording removed 2026-08-22 (safety scrub — see HANDOFF.md):**
 
 > Darina came to music the way an actress comes to a role — holding nothing back. Born in
-> Odesa and trained for the theater, now singing from Chișinău, she writes songs in Russian,
-> each one unfolding like a small play: a scene, a confession, a curtain. D'Shen is her
+> Odesa and trained for the theater, now singing from Chișinău, she writes songs that each
+> unfold like a small play: a scene, a confession, a curtain. D'Shen is her
 > stage — a place where the romance tradition and Silver Age poetry meet a modern, intimate
 > voice. Her debut album “There and Then” gathers eight small lives, played out on stage…
 > memory, cities, ships and dreams — the singing and the soul of a woman who dared to speak

@@ -347,7 +347,7 @@ button{font-family:inherit;}
   transition:border-color .25s ease, color .25s ease, transform .25s ease;
 }
 .social:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px);}
-.social[hidden]{display:none;}   /* language-gated icons (e.g. RU-only Yandex Music) */
+.social[hidden]{display:none;}   /* language-gated icons (data-lang-only) */
 .copyright{
   margin-top:clamp(40px, 7vh, 60px);padding-top:22px;
   border-top:1px solid var(--hairline-faint);

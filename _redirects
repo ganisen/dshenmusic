@@ -1,0 +1,12 @@
+# Cloudflare Pages serves the repo root as-is (no build step), so the internal
+# project docs and the design handoff would otherwise be publicly fetchable at
+# dshenmusic.com/<file>. These rules keep them off the public site.
+# Add a rule here for every new internal .md file.
+/CLAUDE.md    / 302
+/CONTENT.md   / 302
+/DESIGN.md    / 302
+/BUILD.md     / 302
+/HANDOFF.md   / 302
+/README.md    / 302
+/assets/unplugged-2026-07-11/PHOTOS.md / 302
+/design_handoff_dshen_site/* / 302

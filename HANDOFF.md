@@ -4,7 +4,7 @@
 authoritative snapshot of where things stand, what was decided, and what's left. Read
 `CLAUDE.md` first for the non-negotiable rules; this file is the live status.
 
-_Last updated: 2026-08-10 (UNPLUGGED aftermovie added to Live)._
+_Last updated: 2026-08-22 (safety scrub — Russia/Yandex references removed; internal docs de-indexed)._
 
 ---
 
@@ -20,6 +20,9 @@ _Last updated: 2026-08-10 (UNPLUGGED aftermovie added to Live)._
 - Album **«Там и тогда» / “There and Then”** **released 2026-07-24** — site flipped to post-release:
   hero CTA is now the journey CTA **“Embark” / «Погрузиться»** → the same `band.link/dshen_tam_i_togda`
   hub (now streaming), and the chips read **“Out now”**. See the 2026-07-24 decisions-log entry.
+- **Safety scrub 2026-08-22:** every reference to Russia / the Russian language / Yandex is gone
+  from the shipped site, and the internal `.md` docs are no longer publicly fetchable. **Do not
+  re-add any of it.** See the 2026-08-22 decisions-log entry.
 
 ## What's done ✅
 
@@ -59,8 +62,8 @@ standing decision (2026-07-24, reaffirmed 2026-08-10). Nothing here blocks a dep
 |-------|----------|
 | **Native Romanian speaker(s)** | Review **all of `ro.json`** — highest-value debt, since owner + artist are A0 and nobody on the team can spot an error. Watch the coined `„NeActriță"` and the title renderings (`„Acolo și atunci"`, `„Corăbii"`). **Top 4 questions from the 2026-07-25 pass:** (1) does `„Cufundă-te"` work alone on a button, or does *a se cufunda* need a complement? (2) is `„formată pentru teatru"` natural, or does RO want `„cu studii de teatru"`? (3) the album says `„8 piese"` (tracks) and the About heading says `„o mică piesă de teatru"` (a play) — does the second *piesă* trip you up? (4) anything that reads Bucharest-standard in a way that would feel off to a Chișinău audience? |
 | **D'Shen (native UA)** | Sign off `ua.json`: confirm the coined `«НеАкторка»`, `label.about` (“Про мене” vs “Про D'Shen”), `label.live` (“Наживо” vs “Виступи”). **About block reviewed 2026-07-25** — her edits applied (singular `about.title`, rewritten closing sentence, `цілком` → `без залишку`); the rest of the file still needs her pass. **New from the 2026-07-25 AI-voice pass — her ear decides:** `«Вже вийшов»` → `«Уже вийшов»` (euphony rule says «уже», but some speakers read it as Russian-adjacent — and this is the hero release chip, the most visible string changed); and `«вихована для театру»` → `«з театральною освітою»` — the calque is real, but **she read that block on 07-25 and left the phrase standing**, so she may have meant it. Warmer non-calque alternative if she wants the poetry back: `«вихована театром»`. **And one tiebreak for her:** `«зустрічаються із сучасним»` — is `«із»` or `«з»` right before `«сучасним»`? Two reviewers disagreed; her original was kept pending her ear. |
-| **Artist** | Confirm the **About bio**. Her UA edits (2026-07-25) are now the source: singular heading, `без залишку` opening, her closing sentence. **EN / RU / RO were re-rendered from her UA line** and need her nod on the rendering (EN heading “A song is a small play”; RU `пение и душа`; RO is A0 anyway). Also from the 07-25 pass: EN now says **“the Russian romance”** for `романс` — correct English for the genre, but it makes an explicit lineage claim on the EN page, so confirm she's happy in it. |
-| **Owner** | Minor: RU streaming line `«Яндекс Музыка»` vs Latin “Yandex Music” (for the record: Cyrillic is the correct post-2023 brand form; the only argument for Latin is icon-row consistency). The aftermovie transliterations in `live.unplugged_title` were confirmed 2026-08-10 — settled. |
+| **Artist** | Confirm the **About bio**. Her UA edits (2026-07-25) are now the source: singular heading, `без залишку` opening, her closing sentence. **EN / RU / RO were re-rendered from her UA line** and need her nod on the rendering (EN heading “A song is a small play”; RU `пение и душа`; RO is A0 anyway). (The 07-25 EN phrasing “the Russian romance” was reverted to **“the romance tradition”** by the 2026-08-22 safety scrub — that question is closed.) |
+| **Owner** | The aftermovie transliterations in `live.unplugged_title` were confirmed 2026-08-10 — settled. (The old Yandex-wording question died with the 2026-08-22 safety scrub.) |
 
 `hero.cta` is **settled** — “Embark” / «Погрузиться» / „Cufundă-te" / «Зануритися» was
 flagged on 07-25 as LLM-default CTA vocabulary; owner confirmed on 2026-08-10 that it is
@@ -156,8 +159,8 @@ never blocks a deploy.
   - **RO** removed the gerunziu tail „fiecare desfășurându-se ca…", the empty copula
     „acesta este", and fixed the bare-adjective a11y labels „Principală"/„Mobilă".
   - **EN** „the romance tradition" → **"the Russian romance"** (the genre «романс» has a name in
-    English; the old phrasing pointed readers at medieval romance), and og/twitter
-    "New album" → "Debut album".
+    English; the old phrasing pointed readers at medieval romance) — **reverted 2026-08-22**,
+    see the safety scrub — and og/twitter "New album" → "Debut album".
   - **`live.photo_right_alt` was factually wrong in all four languages** — checked against
     `DSC09505` and `PHOTOS.md`: it is **one** cocktail table with a red rose, not "cocktail
     tables". Corrected in EN/RU/RO/UA.
@@ -208,8 +211,8 @@ never blocks a deploy.
     now"), removing the duplicate "D'Shen" (was site_name + title) and the trailing period. OG *image* kept
     as the logo (owner choice).
   - **Issue #3:** removed "російською" ("writes songs *in Russian*") from the UA bio.
-  - **Issue #4:** RU-only **Yandex Music** footer icon → `music.yandex.com/artist/26134715` (official 2023
-    sunburst mark, monochrome via `currentColor`). New generic mechanism: `[data-lang-only="ru"]` elements
+  - **Issue #4:** added an RU-only extra footer icon (**removed again by the 2026-08-22 safety scrub**).
+    It introduced the generic mechanism that survives it: `[data-lang-only="ru"]` elements
     are toggled in `applyDict()` and hidden by default via `.social[hidden]{display:none}`.
 
 - **2026-07-18 (owner review polish)** — Round of owner-requested tweaks on `build/production-site`:
@@ -239,6 +242,27 @@ never blocks a deploy.
   so a serif display font is a one-line restore (`--font-display:"Lora", Georgia, serif`).
   `<head>` now preloads Oswald (previously the display font was the only preload). Details in
   `DESIGN.md → Typography`.
+- **2026-08-22** — **Safety scrub (owner request).** D'Shen travels to Odesa 2026-08-23; on the
+  assumption she may be screened, every reference tying the project to Russia, the Russian
+  language, or Russian platforms was removed from the shipped site:
+  - **Yandex Music footer icon deleted** (`index.html` anchor + SVG, and the `social.yandex`
+    key in all four dictionaries). The `data-lang-only` gating hook stays in `applyDict()`
+    but no element uses it now.
+  - **Bio**: "she writes songs in Russian" removed in EN / RU / RO and from the static
+    `index.html` fallback (UA already lacked it). EN "the Russian romance" reverted to
+    "the romance tradition". Everything else in the bio is unchanged.
+  - **`_redirects` added.** Pages serves the repo root as-is, so `dshenmusic.com/CONTENT.md`
+    (which names the legal identity), `HANDOFF.md`, `BUILD.md`, `CLAUDE.md`, `DESIGN.md`,
+    `README.md`, `PHOTOS.md` and the whole `design_handoff_dshen_site/` were **publicly
+    fetchable and returning 200**. They now 302 to `/`. Add a rule for every new doc.
+  - Internal docs (`CONTENT.md`, `DESIGN.md`, this file) had their Yandex link and
+    language-of-the-lyrics lines scrubbed too, so nobody re-adds them from the notes.
+  - **The four site languages stay as they are** — RU remains a UI language (owner's call).
+  - **Not fixable from this repo, owner must handle:** the `band.link/dshen_*` hubs are
+    generated from the distributor's feed and may still list Yandex Music / VK Music —
+    check and hide those rows in the band.link dashboard. Same for the distributor's own
+    artist pages. "Silver Age poetry" was **kept** in the bio (a poetry era, not a state
+    reference) — say the word if that should go too.
 - **2026-07-18** — Song/album titles are **translated per language** (was: keep Russian
   everywhere). Native quote glyphs per language. The "non-actress" title is stylized
   **camelCase in all langs**. `«Часы»` → “The Clock” (clock sense). Single stays “NonActress”.
@@ -253,7 +277,6 @@ never blocks a deploy.
 1. Get **`ro.json` reviewed by a native Romanian speaker**; apply fixes to the live site.
    The question list is in `CONTENT.md` → "Open RO questions for whoever reads it".
 2. **D'Shen** reviews `ua.json` + confirms the bio (all langs).
-3. Owner: the Yandex Music wording (RU «Яндекс Музыка» vs Latin) — the last minor call.
 4. **Phase 2, ongoing:** keep expanding Live as material arrives (the aftermovie landed
    2026-08-10); add a video-loop hero if a proper loop is produced.
 5. Housekeeping: `build/production-site` is fully merged into `main` — safe to delete

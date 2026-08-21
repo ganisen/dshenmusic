@@ -33,7 +33,7 @@ Cinematic · intimate · theatrical · warm-dark · sincere.
 NOT: corporate, neon/cyber, template-y, aggressive, cluttered.
 
 Context that should inform feel (not be literally illustrated): Darina is a trained
-theater actress and singer; the project has roots in stage performance, Russian
+theater actress and singer; the project has roots in stage performance,
 romance tradition and Silver Age poetry culture. The site can feel like velvet
 curtains and stage light — through color and type, not through literal theater clipart.
 
@@ -177,7 +177,7 @@ Principle: **the site breathes; it does not perform tricks.**
 ## Claude Design prompt (paste when generating concepts there)
 
 "Design a single-page website for D'Shen, a female singer-songwriter from Chișinău
-performing in Russian — theatrical, cinematic, sincere. Dark warm palette (near-black
+— theatrical, cinematic, sincere. Dark warm palette (near-black
 background, warm off-white text, one accent color from album art), a single tall condensed
 grotesque (Oswald) used throughout — hero, all titles, nav, labels, dates and body — for a
 cohesive gig-poster feel, with Cyrillic support. Portrait-photography-forward like adele.com

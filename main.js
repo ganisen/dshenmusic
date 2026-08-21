@@ -101,7 +101,7 @@
       if (val != null) el.textContent = val;
     });
     document.querySelectorAll("[data-i18n-attr]").forEach(applyAttrs);
-    // Show elements gated to specific language(s) — e.g. the RU-only Yandex Music link.
+    // Show elements gated to specific language(s) via data-lang-only="ru ua".
     document.querySelectorAll("[data-lang-only]").forEach(function (el) {
       el.hidden = el.getAttribute("data-lang-only").split(/[,\s]+/).indexOf(I18N.lang) < 0;
     });
