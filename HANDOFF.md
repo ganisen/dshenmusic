@@ -4,7 +4,7 @@
 authoritative snapshot of where things stand, what was decided, and what's left. Read
 `CLAUDE.md` first for the non-negotiable rules; this file is the live status.
 
-_Last updated: 2026-08-22 (safety scrub — Russia/Yandex references removed; internal docs de-indexed)._
+_Last updated: 2026-09-01 (Yandex Music footer icon restored, RU locale only)._
 
 ---
 
@@ -23,9 +23,10 @@ _Last updated: 2026-08-22 (safety scrub — Russia/Yandex references removed; in
 - **Next show: 04 Sep 2026, Cult Space · ARTCOR, Chișinău** — live in `#live` with a ticket
   link, and it **self-removes on 05 Sep** via `data-until` (see the 2026-09-01 log entry). The
   JSON-LD event block in `<head>` is not self-removing — delete it by hand.
-- **Safety scrub 2026-08-22:** every reference to Russia / the Russian language / Yandex is gone
-  from the shipped site, and the internal `.md` docs are no longer publicly fetchable. **Do not
-  re-add any of it.** See the 2026-08-22 decisions-log entry.
+- **Safety scrub 2026-08-22:** every reference to Russia / the Russian language is gone from the
+  shipped site, and the internal `.md` docs are no longer publicly fetchable. **Do not re-add
+  any of it.** See the 2026-08-22 decisions-log entry. **Partially reversed 2026-09-01:** the
+  Yandex Music footer icon is back, RU-locale only (`data-lang-only="ru"`) — see that entry.
 
 ## What's done ✅
 
@@ -106,6 +107,19 @@ never blocks a deploy.
   `<html lang>` / plural rules).
 
 ## Decisions log
+
+- **2026-09-01 (Yandex Music icon restored — RU only)** — Owner request: the Yandex Music
+  footer icon removed by the 2026-08-22 safety scrub is back, in the same form it had before
+  — the `index.html` anchor to `music.yandex.com/artist/26134715` with `data-lang-only="ru"`
+  and `hidden`, plus the `social.yandex` key in all four dictionaries (RU shows the Cyrillic
+  brand form «Яндекс Музыка»; the other three keys exist only so a locale switch never leaves
+  a stale label on the hidden node). `applyDict()` unhides it on RU and re-hides it on
+  EN / RO / UA, so **only the RU version of the site links to Yandex.**
+  - **What did NOT come back:** the "she writes songs in Russian" bio line (EN / RU / RO and
+    the static `index.html` fallback), the EN "the Russian romance" phrasing, and VK / Zvuk.
+    The rest of the 2026-08-22 scrub — including `_redirects` — stands.
+  - CLAUDE.md rule 9 was amended to record the carve-out; without that a later session would
+    read the old "never re-add" line and delete the icon again.
 
 - **2026-09-01 (UNPLUGGED photo collage)** — The past-show photos are now **three vertical
   tiles on one row** forming one wide rectangle (`DSC09485` · `DSC09476` · `DSC09505`),
@@ -254,7 +268,8 @@ never blocks a deploy.
     now"), removing the duplicate "D'Shen" (was site_name + title) and the trailing period. OG *image* kept
     as the logo (owner choice).
   - **Issue #3:** removed "російською" ("writes songs *in Russian*") from the UA bio.
-  - **Issue #4:** added an RU-only extra footer icon (**removed again by the 2026-08-22 safety scrub**).
+  - **Issue #4:** added an RU-only extra footer icon (removed by the 2026-08-22 safety scrub,
+    **restored 2026-09-01**).
     It introduced the generic mechanism that survives it: `[data-lang-only="ru"]` elements
     are toggled in `applyDict()` and hidden by default via `.social[hidden]{display:none}`.
 
@@ -290,7 +305,7 @@ never blocks a deploy.
   language, or Russian platforms was removed from the shipped site:
   - **Yandex Music footer icon deleted** (`index.html` anchor + SVG, and the `social.yandex`
     key in all four dictionaries). The `data-lang-only` gating hook stays in `applyDict()`
-    but no element uses it now.
+    but no element uses it now. **(Reversed 2026-09-01 — the icon is back, RU only.)**
   - **Bio**: "she writes songs in Russian" removed in EN / RU / RO and from the static
     `index.html` fallback (UA already lacked it). EN "the Russian romance" reverted to
     "the romance tradition". Everything else in the bio is unchanged.

@@ -80,9 +80,12 @@ album block + the two released singles.
 - Deezer: https://www.deezer.com/en/artist/396177361
 - Instagram: https://www.instagram.com/rogozinskaya.darina/
 - Contact email: **contact@dshenmusic.com** (Porkbun forwarding — live; show on site)
-- Footer social icon row = Spotify · Apple Music · YouTube · Deezer · Instagram (44px circles).
-  **Do not add Russian platforms** (Yandex Music, VK Music, Zvuk) — see the 2026-08-22 safety
-  scrub in HANDOFF.md. The `data-lang-only` gating hook stays in `applyDict()` but is unused.
+- Yandex Music: https://music.yandex.com/artist/26134715  (RU footer icon only — removed by the
+  2026-08-22 safety scrub, restored 2026-09-01 by owner request, still RU-gated)
+- Footer social icon row = Spotify · Apple Music · YouTube · Deezer · **Yandex Music (RU only)** ·
+  Instagram (44px circles). The Yandex anchor carries `data-lang-only="ru"` and is `hidden` until
+  `applyDict()` unhides it on the RU locale. **Do not add VK Music or Zvuk** — see the 2026-08-22
+  safety scrub in HANDOFF.md.
   (The old "Spotify · Apple Music · …" text line under the CTA was removed 2026-07-18.)
 - Footer copyright (`footer.copyright`, all langs): **`2026 © D'Shen. All rights reserved.`**
   — year-first, `©` glyph, then the localized "all rights reserved" (RU `Все права защищены.`,
