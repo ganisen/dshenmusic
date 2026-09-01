@@ -116,6 +116,14 @@ never blocks a deploy.
     moment passes, so the show stops advertising itself on 05 September without a deploy. It runs
     before the GSAP reveals bind, so nothing animates a dead node. Reuse the attribute for the
     next show; only the ticket URL, the i18n strings and the `data-until` value change.
+  - **The promo Short is embedded in the card** (added the same day, owner request):
+    `NkWRhwBRFlg`, 9:16, left of the date badge on desktop and spanning the date + body rows
+    on mobile. Two small generalizations of the video facade made it fit: a
+    `.video__facade--vert` / `.video__frame--vert` 9:16 modifier, and `initVideos()` now copies
+    the facade's non-`video__facade` classes onto the injected iframe, so a player lands in the
+    exact grid slot its facade occupied instead of blowing the card open. Thumbnail is the
+    **owner's branded frame**, not YouTube's auto-pick. The source `.mp4` stays off the repo —
+    videos are never self-hosted.
   - **A `MusicEvent` JSON-LD block** sits in `<head>` (start/door time, venue address, offer from
     400 MDL) — standard for artist sites and what Google needs for an event rich result. It is
     **not** date-gated: delete it together with the `.live__next` block when the show is old, or

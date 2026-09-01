@@ -142,8 +142,17 @@ languages are translations *of her line*, not of the earlier English draft. Her 
   https://iticket.md/en/event/dshen-unplugged-cult-space (locale paths: `/ru/`, `/ro/`;
   UA uses `/en/` — iticket has no Ukrainian). Full event data: Fri 4 Sep 2026, 19:30,
   doors 18:30, Cult Space · ARTCOR, str. 31 August 1989 137, Chișinău, 400–600 lei.
+  - **Teaser (added 2026-09-01), inside the card**, left of the date badge on desktop and
+    spanning the date + body rows on mobile: the vertical promo Short
+    https://www.youtube.com/shorts/NkWRhwBRFlg (`NkWRhwBRFlg`), same facade pattern as every
+    other video on the site but 9:16 (`.video__facade--vert`). Thumbnail
+    `assets/video/NkWRhwBRFlg.webp` — the **owner-supplied branded frame** (D'Shen wordmark +
+    CULT SPACE logo), 540×960, not YouTube's auto-pick. Player title from `live.teaser_title`.
+    The owner also has the source `cult-space-v2-2.mp4`; it is **not** committed — videos are
+    never self-hosted, the YouTube embed is the only copy the site touches.
   - Keys: `live.next_label` · `live.next_month` · `live.next_title` · `live.next_venue` ·
-    `live.next_time` · `live.tickets` · `live.tickets_aria` · `live.tickets_url`.
+    `live.next_time` · `live.teaser_title` · `live.tickets` · `live.tickets_aria` ·
+    `live.tickets_url`.
     The day number `04` is in the HTML, not the dictionary — digits don't translate.
   - The block carries `data-until="2026-09-05T00:00:00"`; `main.js` removes it once that
     passes, so the site never shows a finished date. The matching `MusicEvent` JSON-LD in

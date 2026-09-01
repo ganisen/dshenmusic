@@ -277,6 +277,10 @@ button{font-family:inherit;}
   border-top:9px solid transparent;border-bottom:9px solid transparent;
 }
 .video__frame{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000;}
+/* Vertical (YouTube Short) variant — used by the upcoming-show teaser. */
+.video__facade--vert,.video__frame--vert{aspect-ratio:9/16;}
+.video__facade--vert .video__play::before{width:44px;height:44px;}
+.video__facade--vert .video__tri{border-left-width:11px;border-top-width:7px;border-bottom-width:7px;}
 .video__caption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 12px;}
 .video__title{
   font-family:var(--font-display);font-weight:400;font-size:1.6rem;line-height:1;
@@ -320,9 +324,13 @@ button{font-family:inherit;}
   color:var(--accent);margin-bottom:16px;
 }
 .live__nextcard{
-  display:grid;grid-template-columns:auto 1fr;gap:14px 22px;align-items:center;
+  /* Mobile: teaser poster spans the date + body rows on the left, button below. */
+  display:grid;grid-template-columns:auto auto 1fr;gap:14px 18px;align-items:center;
   border:1px solid var(--hairline);padding:clamp(18px, 3.5vw, 26px);
 }
+.live__nextvideo{grid-row:1 / 3;width:clamp(108px, 30vw, 132px);align-self:stretch;}
+.live__date{grid-column:2 / -1;justify-self:start;}
+.live__nextbody{grid-column:2 / -1;}
 .live__date{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-width:72px;padding:10px 12px;border:1px solid var(--accent);color:var(--accent);
@@ -346,7 +354,11 @@ button{font-family:inherit;}
 }
 .live__tickets{grid-column:1 / -1;justify-self:start;}
 @media (min-width:760px){
-  .live__nextcard{grid-template-columns:auto 1fr auto;}
+  /* Desktop: one row — teaser · date · title/meta · button. */
+  .live__nextcard{grid-template-columns:auto auto 1fr auto;gap:24px;}
+  .live__nextvideo{grid-row:auto;width:124px;align-self:center;}
+  .live__date{grid-column:auto;}
+  .live__nextbody{grid-column:auto;}
   .live__tickets{grid-column:auto;justify-self:end;margin-top:0;}
 }
 .live__showhead{

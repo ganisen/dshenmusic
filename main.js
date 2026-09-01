@@ -229,7 +229,14 @@
         var title = titleEl ? titleEl.textContent.trim()
                             : (btn.getAttribute("data-video-title") || "Video");
         var iframe = document.createElement("iframe");
-        iframe.className = "video__frame";
+        // A vertical facade (a Short) hands its 9:16 aspect to the player it becomes.
+        iframe.className = btn.classList.contains("video__facade--vert")
+          ? "video__frame video__frame--vert" : "video__frame";
+        // Any non-facade class on the button is layout (e.g. .live__nextvideo sizes the
+        // teaser inside the show card) — the player takes the facade's place, so it needs it.
+        btn.classList.forEach(function (c) {
+          if (c.indexOf("video__facade") !== 0) iframe.classList.add(c);
+        });
         iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
         iframe.title = title;
         iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture; fullscreen");
