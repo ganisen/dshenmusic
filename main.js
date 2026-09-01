@@ -95,6 +95,16 @@
     document.querySelectorAll("[data-countdown]").forEach(function (el) { el.textContent = text; });
   }
 
+  // Date-gated blocks: [data-until="YYYY-MM-DDTHH:MM:SS"] (local time) drops out of the
+  // DOM once that moment has passed, so a finished show never advertises itself. Removing
+  // rather than hiding keeps GSAP reveals and the i18n pass off a dead node.
+  function pruneExpired() {
+    document.querySelectorAll("[data-until]").forEach(function (el) {
+      var t = new Date(el.getAttribute("data-until")).getTime();
+      if (!isNaN(t) && Date.now() >= t) el.remove();
+    });
+  }
+
   function applyDict() {
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var val = I18N.dict[el.getAttribute("data-i18n")];
@@ -284,6 +294,7 @@
   /* ---------------- Boot ---------------- */
   // Core interactivity runs the moment this script executes — it must not wait on the
   // GSAP CDN (main.js is intentionally ordered before the GSAP tags in the HTML).
+  pruneExpired();    // drop any show whose date has passed, before reveals bind
   renderCountdown(); // show a live countdown immediately, before JSON resolves
   initMenu();
   initVideos();

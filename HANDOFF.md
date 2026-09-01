@@ -20,6 +20,9 @@ _Last updated: 2026-08-22 (safety scrub — Russia/Yandex references removed; in
 - Album **«Там и тогда» / “There and Then”** **released 2026-07-24** — site flipped to post-release:
   hero CTA is now the journey CTA **“Embark” / «Погрузиться»** → the same `band.link/dshen_tam_i_togda`
   hub (now streaming), and the chips read **“Out now”**. See the 2026-07-24 decisions-log entry.
+- **Next show: 04 Sep 2026, Cult Space · ARTCOR, Chișinău** — live in `#live` with a ticket
+  link, and it **self-removes on 05 Sep** via `data-until` (see the 2026-09-01 log entry). The
+  JSON-LD event block in `<head>` is not self-removing — delete it by hand.
 - **Safety scrub 2026-08-22:** every reference to Russia / the Russian language / Yandex is gone
   from the shipped site, and the internal `.md` docs are no longer publicly fetchable. **Do not
   re-add any of it.** See the 2026-08-22 decisions-log entry.
@@ -103,6 +106,22 @@ never blocks a deploy.
   `<html lang>` / plural rules).
 
 ## Decisions log
+
+- **2026-09-01 (upcoming-show card)** — Added the **04 September 2026 UNPLUGGED show at
+  Cult Space · ARTCOR, Chișinău** to `#live`, above the follow line and the aftermovie block:
+  date badge, title, venue, doors/start, and a `Tickets` button to
+  `iticket.md/…/dshen-unplugged-cult-space` (per-locale path — `/en/` for EN and UA, `/ru/`, `/ro/`).
+  - **The card is date-gated, not hand-maintained.** `main.js` gained `pruneExpired()`: any element
+    carrying `data-until="YYYY-MM-DDTHH:MM:SS"` (local time) is **removed from the DOM** once that
+    moment passes, so the show stops advertising itself on 05 September without a deploy. It runs
+    before the GSAP reveals bind, so nothing animates a dead node. Reuse the attribute for the
+    next show; only the ticket URL, the i18n strings and the `data-until` value change.
+  - **A `MusicEvent` JSON-LD block** sits in `<head>` (start/door time, venue address, offer from
+    400 MDL) — standard for artist sites and what Google needs for an event rich result. It is
+    **not** date-gated: delete it together with the `.live__next` block when the show is old, or
+    replace both for the next date.
+  - Ordering: upcoming show first, then the Instagram follow line, then the past-show block.
+    An actionable date outranks an announcement channel.
 
 - **2026-08-10 (UNPLUGGED aftermovie)** — Added the concert film `fjEmQEnzrl4`
   ("D'Shen – Unplugged | 2026 Aftermovie") to the site.
@@ -278,6 +297,8 @@ never blocks a deploy.
    The question list is in `CONTENT.md` → "Open RO questions for whoever reads it".
 2. **D'Shen** reviews `ua.json` + confirms the bio (all langs).
 4. **Phase 2, ongoing:** keep expanding Live as material arrives (the aftermovie landed
-   2026-08-10); add a video-loop hero if a proper loop is produced.
+   2026-08-10, the 04 Sep show card 2026-09-01); add a video-loop hero if a proper loop is
+   produced. After 04 Sep: drop the stale `MusicEvent` JSON-LD, and add the show's photos/film
+   to the past-show block if any are shot.
 5. Housekeeping: `build/production-site` is fully merged into `main` — safe to delete
    locally and on the remote.

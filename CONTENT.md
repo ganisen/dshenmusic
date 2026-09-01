@@ -135,8 +135,22 @@ languages are translations *of her line*, not of the earlier English draft. Her 
 
 ## Live
 
-- No announced upcoming dates → a single line (no "no shows" heading):
-  `FOLLOW @rogozinskaya.darina FOR ANNOUNCEMENTS` (handle in accent → Instagram).
+- **Upcoming show (added 2026-09-01), first in the section — above the follow line.**
+  `.live__next`: an accent `NEXT SHOW` label, then a bordered card holding an accent date
+  badge (`04` / `SEP`), the title `D'Shen — UNPLUGGED`, the meta line
+  `Cult Space · ARTCOR, Chișinău · 19:30 · doors 18:30`, and a `TICKETS` button →
+  https://iticket.md/en/event/dshen-unplugged-cult-space (locale paths: `/ru/`, `/ro/`;
+  UA uses `/en/` — iticket has no Ukrainian). Full event data: Fri 4 Sep 2026, 19:30,
+  doors 18:30, Cult Space · ARTCOR, str. 31 August 1989 137, Chișinău, 400–600 lei.
+  - Keys: `live.next_label` · `live.next_month` · `live.next_title` · `live.next_venue` ·
+    `live.next_time` · `live.tickets` · `live.tickets_aria` · `live.tickets_url`.
+    The day number `04` is in the HTML, not the dictionary — digits don't translate.
+  - The block carries `data-until="2026-09-05T00:00:00"`; `main.js` removes it once that
+    passes, so the site never shows a finished date. The matching `MusicEvent` JSON-LD in
+    `<head>` is **not** auto-removed — delete or replace it by hand.
+  - When there is no announced date the section falls back to its old single line
+    (no "no shows" heading): `FOLLOW @rogozinskaya.darina FOR ANNOUNCEMENTS`
+    (handle in accent → Instagram), which now sits **under** the upcoming-show card.
 - Past moment, `live.unplugged_title` / `live.unplugged_meta` (owner wording 2026-08-10):
   **`UNPLUGGED – Aftermovie`** — **en dash, not em** — with `11 July 2026 · Chișinău`
   **right-aligned on the same row** (`justify-content:space-between`), so the two read as
@@ -228,3 +242,11 @@ flags and the decisions log: see `HANDOFF.md`.
    (a play) — does the second *piesă* trip you up?
 4. Anything reading Bucharest-standard in a way that would feel off in Chișinău?
 5. The coined `„NeActriță"` and the title renderings `„Acolo și atunci"` / `„Corăbii"`.
+
+**Open RO questions from the 2026-09-01 show-card pass:**
+6. `„Următorul concert"` as the section label over an upcoming date — natural, or does a
+   Chișinău poster say `„Următorul spectacol"` / `„Urmează"`?
+7. Doors wording: `„19:30 · accesul de la 18:30"` — is *accesul de la* how a venue writes it,
+   or should it be `„ușile se deschid la 18:30"`?
+8. Month abbreviation on the date badge: `sep` (we ship lowercase, CSS uppercases it) —
+   correct for RO, or `sept`?
