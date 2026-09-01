@@ -136,23 +136,28 @@ languages are translations *of her line*, not of the earlier English draft. Her 
 ## Live
 
 - **Upcoming show (added 2026-09-01), first in the section — above the follow line.**
-  `.live__next`: an accent `NEXT SHOW` label, then a bordered card holding an accent date
-  badge (`04` / `SEP`), the title `D'Shen — UNPLUGGED`, the meta line
-  `Cult Space · ARTCOR, Chișinău · 19:30 · doors 18:30`, and a `TICKETS` button →
+  `.live__next`: an accent `NEXT SHOW` label, then a bordered **poster card** — one narrow
+  column the border hugs (`width:fit-content`), stacked in this order (owner layout call,
+  2026-09-01): accent date badge (`04` / `SEP`) → the teaser → title `D'Shen — UNPLUGGED` →
+  `Cult Space · ARTCOR` → `Chișinău` → `19:30 · doors 18:30`, each on its own line → a
+  full-column-width `TICKETS` button →
   https://iticket.md/en/event/dshen-unplugged-cult-space (locale paths: `/ru/`, `/ro/`;
   UA uses `/en/` — iticket has no Ukrainian). Full event data: Fri 4 Sep 2026, 19:30,
   doors 18:30, Cult Space · ARTCOR, str. 31 August 1989 137, Chișinău, 400–600 lei.
-  - **Teaser (added 2026-09-01), inside the card**, left of the date badge on desktop and
-    spanning the date + body rows on mobile: the vertical promo Short
+  - **Teaser (added 2026-09-01), inside the card**, directly under the date badge: the
+    vertical promo Short
     https://www.youtube.com/shorts/NkWRhwBRFlg (`NkWRhwBRFlg`), same facade pattern as every
-    other video on the site but 9:16 (`.video__facade--vert`). Thumbnail
+    other video on the site but 9:16 (`.video__facade--vert`), sized
+    `clamp(200px, 62vw, 264px)` wide — the poster's centrepiece, not a thumbnail. Image
     `assets/video/NkWRhwBRFlg.webp` — the **owner-supplied branded frame** (D'Shen wordmark +
     CULT SPACE logo), 540×960, not YouTube's auto-pick. Player title from `live.teaser_title`.
     The owner also has the source `cult-space-v2-2.mp4`; it is **not** committed — videos are
     never self-hosted, the YouTube embed is the only copy the site touches.
   - Keys: `live.next_label` · `live.next_month` · `live.next_title` · `live.next_venue` ·
-    `live.next_time` · `live.teaser_title` · `live.tickets` · `live.tickets_aria` ·
-    `live.tickets_url`.
+    `live.next_city` · `live.next_time` · `live.teaser_title` · `live.tickets` ·
+    `live.tickets_aria` · `live.tickets_url`. Venue and city are **separate keys** — the
+    poster puts them on separate lines, and only the city is translated (`Кишинёв` / `Кишинів`);
+    `Cult Space · ARTCOR` is a proper noun and stays as-is in all four.
     The day number `04` is in the HTML, not the dictionary — digits don't translate.
   - The block carries `data-until="2026-09-05T00:00:00"`; `main.js` removes it once that
     passes, so the site never shows a finished date. The matching `MusicEvent` JSON-LD in
