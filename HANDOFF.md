@@ -107,6 +107,19 @@ never blocks a deploy.
 
 ## Decisions log
 
+- **2026-09-01 (UNPLUGGED photo collage)** — The past-show photos are now **three vertical
+  tiles on one row** forming one wide rectangle (`DSC09485` · `DSC09476` · `DSC09505`),
+  replacing the old full-width-plus-two-halves grid. All three are native 2:3, so desktop
+  crops nothing; below 760px the row runs full-bleed (negative `margin-inline` of `--pad-x`)
+  at 4:5, because three tiles inside the padding are only ~99px wide on a phone. The
+  landscape `DSC09446` left the grid — it cannot be cropped to a portrait tile without
+  slicing the band; it is still the catalog's wide establishing pick.
+  - **Regression fixed in the same commit:** the earlier show-card CSS rework had deleted
+    `.live__showhead` / `.live__showtitle` / `.live__showmeta` / `.live__divider` /
+    `.live__grid` / `.live__img`, which left the aftermovie heading and photos unstyled
+    (images at full width, no divider). Restored. `live.photo_full_alt` is now
+    `live.photo_band_alt` in all four locales, describing the new first tile.
+
 - **2026-09-01 (upcoming-show card)** — Added the **04 September 2026 UNPLUGGED show at
   Cult Space · ARTCOR, Chișinău** to `#live`, above the follow line and the aftermovie block:
   date badge, title, venue, doors/start, and a `Tickets` button to

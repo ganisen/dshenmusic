@@ -351,6 +351,30 @@ button{font-family:inherit;}
 .live__nextmeta > span{display:block;}
 .live__tickets{align-self:stretch;text-align:center;margin-top:0;}
 
+/* Past show: heading row, hairline, photo collage */
+.live__showhead{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:8px 24px;flex-wrap:wrap;margin-bottom:18px;
+}
+.live__showtitle{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(1.9rem, 4.5vw, 2.6rem);line-height:1;
+}
+.live__showmeta{
+  font-size:clamp(14px, 1.5vw, 17px);font-weight:400;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(242,237,230,.55);
+}
+.live__divider{height:1px;background:var(--hairline);margin:28px 0;}
+/* Collage: three vertical tiles on one row, cropped to a single wide rectangle. */
+.live__grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:clamp(8px, 1.2vw, 14px);}
+.live__img{width:100%;aspect-ratio:3/4;object-fit:cover;}
+@media (max-width:759px){
+  /* Three tiles on a phone are small — let the collage run edge to edge to win back
+     the section padding, and crop tighter so faces stay readable. */
+  .live__grid{margin-inline:calc(var(--pad-x) * -1);gap:6px;}
+  .live__img{aspect-ratio:4/5;}
+}
+
 @media (min-width:760px){
   /* Desktop: one full-width row — date · teaser · (details over button). */
   .live__nextlabel{text-align:left;}
@@ -366,6 +390,8 @@ button{font-family:inherit;}
     grid-column:3;grid-row:2;align-self:start;justify-self:start;
     margin-top:22px;text-align:center;
   }
+  /* Room for the full 2:3 frames — no crop needed above 760px. */
+  .live__img{aspect-ratio:2/3;}
 }
 
 /* ---------- Contact / footer ---------- */

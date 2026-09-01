@@ -176,9 +176,15 @@ languages are translations *of her line*, not of the earlier English draft. Her 
   **right-aligned on the same row** (`justify-content:space-between`), so the two read as
   two cells rather than one run-on line. Per language: RU `UNPLUGGED – Афтермуви`,
   RO `UNPLUGGED – Aftermovie`, UA `UNPLUGGED – Афтермуві`.
-- Then the **aftermovie**, a **hairline divider**, then the photo grid: full-width 16:8
-  `DSC09446` on top, two 3:4 halves below (`DSC09476`, `DSC09505`). A credibility moment,
-  not a listing. Full catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
+- Then the **aftermovie**, a **hairline divider**, then the **photo collage** (reworked
+  2026-09-01, owner request): **three vertical tiles on one row forming a single wide
+  rectangle** — `DSC09485` (whole band under the lit tree) · `DSC09476` (audience at dusk) ·
+  `DSC09505` (women dancing). All three are native 2:3 portraits, so desktop shows them
+  **uncropped** (`aspect-ratio:2/3`); under 760px the row goes **full-bleed** past the
+  section padding and crops to 4:5 so the tiles stay readable on a phone. The old landscape
+  `DSC09446` was dropped from the grid — a 3:2 wide band shot cannot become a portrait tile
+  without slicing the band. A credibility moment, not a listing.
+  Full catalog: `assets/unplugged-2026-07-11/PHOTOS.md`.
 - **Aftermovie** (added 2026-08-10), directly under the show heading, above the photos:
   YouTube `fjEmQEnzrl4` — https://www.youtube.com/watch?v=fjEmQEnzrl4
   ("D'Shen – Unplugged | 2026 Aftermovie"). Same facade pattern as the `#video` cards,
