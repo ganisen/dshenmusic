@@ -136,11 +136,17 @@ languages are translations *of her line*, not of the earlier English draft. Her 
 ## Live
 
 - **Upcoming show (added 2026-09-01), first in the section — above the follow line.**
-  `.live__next`: an accent `NEXT SHOW` label, then a bordered **poster card** — one narrow
-  column the border hugs (`width:fit-content`), stacked in this order (owner layout call,
-  2026-09-01): accent date badge (`04` / `SEP`) → the teaser → title `D'Shen — UNPLUGGED` →
-  `Cult Space · ARTCOR` → `Chișinău` → `19:30 · doors 18:30`, each on its own line → a
-  full-column-width `TICKETS` button →
+  `.live__next`: an accent `NEXT SHOW` label, then a bordered card. **Two layouts, owner
+  layout call 2026-09-01:**
+  - **Mobile (<760px): a centred poster.** One narrow column the border hugs
+    (`width:fit-content`, `margin-inline:auto`), with the label and the date badge centred
+    over it: date badge (`04` / `SEP`) → teaser → title `D'Shen — UNPLUGGED` →
+    `Cult Space · ARTCOR` → `Chișinău` → `19:30 · doors 18:30`, each on its own line →
+    a full-column-width `TICKETS` button.
+  - **Desktop (≥760px): one row across the full container width** — date badge · teaser ·
+    then a third column holding the details with the button under them. Same DOM, a grid
+    swap; the meta lines stay one-per-line in both.
+  Tickets →
   https://iticket.md/en/event/dshen-unplugged-cult-space (locale paths: `/ru/`, `/ro/`;
   UA uses `/en/` — iticket has no Ukrainian). Full event data: Fri 4 Sep 2026, 19:30,
   doors 18:30, Cult Space · ARTCOR, str. 31 August 1989 137, Chișinău, 400–600 lei.

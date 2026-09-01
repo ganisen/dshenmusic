@@ -321,18 +321,19 @@ button{font-family:inherit;}
 .live__next{margin-bottom:clamp(36px, 6vh, 52px);}
 .live__nextlabel{
   font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:16px;
+  color:var(--accent);margin-bottom:16px;text-align:center;
 }
 .live__nextcard{
-  /* Poster stack: date · teaser · details · button, in one narrow column that the
-     border hugs (fit-content), so the card reads as a bill rather than a wide bar. */
+  /* Mobile: poster stack — date · teaser · details · button — in one centred column
+     that the border hugs (fit-content). Desktop turns it into a single full-width row. */
   display:flex;flex-direction:column;align-items:flex-start;gap:16px;
-  width:fit-content;max-width:100%;
+  width:fit-content;max-width:100%;margin-inline:auto;
   border:1px solid var(--hairline);padding:clamp(18px, 3.5vw, 26px);
 }
 .live__nextvideo{width:clamp(200px, 62vw, 264px);}
 .live__date{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
+  align-self:center;
   min-width:72px;padding:10px 12px;border:1px solid var(--accent);color:var(--accent);
 }
 .live__dateday{font-family:var(--font-display);font-weight:600;font-size:2rem;line-height:1;}
@@ -349,6 +350,23 @@ button{font-family:inherit;}
 }
 .live__nextmeta > span{display:block;}
 .live__tickets{align-self:stretch;text-align:center;margin-top:0;}
+
+@media (min-width:760px){
+  /* Desktop: one full-width row — date · teaser · (details over button). */
+  .live__nextlabel{text-align:left;}
+  .live__nextcard{
+    display:grid;grid-template-columns:auto auto 1fr;
+    column-gap:clamp(24px, 3vw, 44px);row-gap:0;align-items:center;
+    width:auto;margin-inline:0;
+  }
+  .live__date{grid-column:1;grid-row:1 / 3;}
+  .live__nextvideo{grid-column:2;grid-row:1 / 3;width:clamp(216px, 22vw, 280px);}
+  .live__nextbody{grid-column:3;grid-row:1;align-self:end;}
+  .live__tickets{
+    grid-column:3;grid-row:2;align-self:start;justify-self:start;
+    margin-top:22px;text-align:center;
+  }
+}
 
 /* ---------- Contact / footer ---------- */
 .contact__email{

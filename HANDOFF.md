@@ -117,10 +117,11 @@ never blocks a deploy.
     before the GSAP reveals bind, so nothing animates a dead node. Reuse the attribute for the
     next show; only the ticket URL, the i18n strings and the `data-until` value change.
   - **The promo Short is embedded in the card** (added the same day, owner request):
-    `NkWRhwBRFlg`, 9:16, directly under the date badge. **The card is a vertical poster at
-    every width** (owner layout call the same day): date → teaser → title → venue → city →
-    time → full-width button, in one narrow column that the border hugs, so the clip carries
-    the block instead of sitting beside it. Two small generalizations of the video facade made it fit: a
+    `NkWRhwBRFlg`, 9:16, sized ~216–280px wide so the clip carries the block. **The card has
+    two layouts** (owner layout call the same day): on mobile a centred poster column — date
+    badge centred on top, then teaser, details one line each, full-width button; on desktop
+    (≥760px) a single row across the container — date · teaser · details-over-button. Same
+    DOM either way, only the grid changes. Two small generalizations of the video facade made it fit: a
     `.video__facade--vert` / `.video__frame--vert` 9:16 modifier, and `initVideos()` now copies
     the facade's non-`video__facade` classes onto the injected iframe, so a player lands in the
     exact grid slot its facade occupied instead of blowing the card open. Thumbnail is the
